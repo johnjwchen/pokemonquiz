@@ -29,7 +29,7 @@
                         <constraint firstAttribute="width" constant="60" id="dVh-db-J39"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcs-lC-JOc">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcs-lC-JOc">
                     <rect key="frame" x="105" y="16" width="270" height="42"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="8Ng-F6-ZxU"/>
@@ -38,7 +38,7 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGd-nH-6kP">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGd-nH-6kP">
                     <rect key="frame" x="105" y="57" width="270" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="P8q-En-pHr"/>
@@ -48,7 +48,6 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.14993786810000001" green="0.53676956890000005" blue="0.90214306119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="Qcs-lC-JOc" firstAttribute="leading" secondItem="VUj-w9-Nvk" secondAttribute="trailing" constant="25" id="5Gr-Jl-Sun"/>

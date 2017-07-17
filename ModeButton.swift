@@ -21,7 +21,7 @@ import UIKit
             return imageView.image
         }
         set {
-            imageView.image = image
+            imageView.image = newValue
         }
     }
     
@@ -30,7 +30,7 @@ import UIKit
             return titleLabel.text
         }
         set {
-            titleLabel.text = title
+            titleLabel.text = newValue
         }
     }
     
@@ -39,10 +39,9 @@ import UIKit
             return detailLabel.text
         }
         set {
-            detailLabel.text = detail
+            detailLabel.text = newValue
         }
     }
-    
    
    
     override init(frame: CGRect) {
@@ -62,6 +61,9 @@ import UIKit
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        self.layer.cornerRadius = 10
+        self.layer.masksToBounds = true
     }
     
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
