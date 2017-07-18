@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PQViewController: UIViewController {
+class ViewController: PQViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +20,7 @@ class PQViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
+   
 
     @IBAction func modeButtonTouchUp(_ sender: ModeButton) {
         print("touch !")

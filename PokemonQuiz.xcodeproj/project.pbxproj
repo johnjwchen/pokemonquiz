@@ -16,6 +16,10 @@
 		4E5165641F1C247A0095D36F /* PokemonQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5165631F1C247A0095D36F /* PokemonQuizUITests.swift */; };
 		4E5165741F1C31070095D36F /* ModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5165731F1C31070095D36F /* ModeButton.swift */; };
 		4E5165761F1C31780095D36F /* ModeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E5165751F1C31780095D36F /* ModeButton.xib */; };
+		4EDABE661F1D365C0061AC56 /* CountingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDABE651F1D365C0061AC56 /* CountingView.xib */; };
+		4EDABE681F1D39580061AC56 /* CountingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE671F1D39580061AC56 /* CountingView.swift */; };
+		4EDABE6A1F1D413C0061AC56 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE691F1D413C0061AC56 /* QuizViewController.swift */; };
+		4EDABE6C1F1D417D0061AC56 /* PQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6B1F1D417D0061AC56 /* PQViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		4E5165651F1C247A0095D36F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E5165731F1C31070095D36F /* ModeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModeButton.swift; path = ../ModeButton.swift; sourceTree = "<group>"; };
 		4E5165751F1C31780095D36F /* ModeButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModeButton.xib; sourceTree = "<group>"; };
+		4EDABE651F1D365C0061AC56 /* CountingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountingView.xib; sourceTree = "<group>"; };
+		4EDABE671F1D39580061AC56 /* CountingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingView.swift; sourceTree = "<group>"; };
+		4EDABE691F1D413C0061AC56 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		4EDABE6B1F1D417D0061AC56 /* PQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PQViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +111,13 @@
 			children = (
 				4E5165431F1C24790095D36F /* AppDelegate.swift */,
 				4E5165451F1C24790095D36F /* ViewController.swift */,
+				4EDABE6B1F1D417D0061AC56 /* PQViewController.swift */,
 				4E5165471F1C24790095D36F /* Main.storyboard */,
+				4EDABE691F1D413C0061AC56 /* QuizViewController.swift */,
 				4E5165751F1C31780095D36F /* ModeButton.xib */,
 				4E5165731F1C31070095D36F /* ModeButton.swift */,
+				4EDABE671F1D39580061AC56 /* CountingView.swift */,
+				4EDABE651F1D365C0061AC56 /* CountingView.xib */,
 				4E51654A1F1C24790095D36F /* Assets.xcassets */,
 				4E51654C1F1C24790095D36F /* LaunchScreen.storyboard */,
 				4E51654F1F1C24790095D36F /* Info.plist */,
@@ -242,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E51654E1F1C24790095D36F /* LaunchScreen.storyboard in Resources */,
+				4EDABE661F1D365C0061AC56 /* CountingView.xib in Resources */,
 				4E51654B1F1C24790095D36F /* Assets.xcassets in Resources */,
 				4E5165491F1C24790095D36F /* Main.storyboard in Resources */,
 				4E5165761F1C31780095D36F /* ModeButton.xib in Resources */,
@@ -270,8 +283,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E5165461F1C24790095D36F /* ViewController.swift in Sources */,
+				4EDABE6C1F1D417D0061AC56 /* PQViewController.swift in Sources */,
+				4EDABE6A1F1D413C0061AC56 /* QuizViewController.swift in Sources */,
 				4E5165741F1C31070095D36F /* ModeButton.swift in Sources */,
 				4E5165441F1C24790095D36F /* AppDelegate.swift in Sources */,
+				4EDABE681F1D39580061AC56 /* CountingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
