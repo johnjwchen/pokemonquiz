@@ -20,11 +20,25 @@ class AnswerButton: UIButton {
             // todo: set the name 
         }
     }
+    private var _backgroundColor: UIColor?
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
+        _backgroundColor = self.backgroundColor
         self.layer.cornerRadius = 8
         self.layer.masksToBounds = true
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            if self.isHighlighted {
+                self.backgroundColor = UIColor.darkGray
+            }
+            else {
+                self.backgroundColor = _backgroundColor
+            }
+            
+        }
     }
 
 

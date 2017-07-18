@@ -87,7 +87,6 @@ class QuizViewController: PQViewController {
     
     @IBAction func animate(_ sender: Any) {
         let duration = 0.5
-        
         var delay = 0.0
         for i in 0..<anserButtons.count {
             let button = anserButtons[i]
