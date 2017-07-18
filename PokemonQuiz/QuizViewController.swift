@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 enum QuizMode {
     case classic
@@ -53,6 +54,8 @@ class QuizViewController: PQViewController {
     
     var quizMode: QuizMode = .classic
     
+    private var player: AVAudioPlayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundImageView.image = maskImage(name: "background", color: quizMode.color())
@@ -77,11 +80,29 @@ class QuizViewController: PQViewController {
         return result
     }
 
+    @IBAction func answerButtonClick(_ sender: Any) {
+        playSound(name: "wrongSound")
+    }
   
     @IBAction func countChange(_ sender: CountingView) {
         print(sender.count)
         if sender.count == 0 {
             self.animate(self)
+        }
+    }
+    
+    func playSound(name: String) {
+        // Fetch the Sound data set.
+        if let asset = NSDataAsset(name: name){
+            
+            do {
+                // Use NSDataAsset's data property to access the audio file stored in Sound.
+                player = try AVAudioPlayer(data:asset.data, fileTypeHint:"mp3")
+                // Play the above sound file.
+                player?.play()
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
         }
     }
     
