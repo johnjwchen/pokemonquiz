@@ -43,6 +43,13 @@ class QuizViewController: PQViewController {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var countingView: CountingView!
+    @IBOutlet weak var pokemonImageView: UIImageView!
+    @IBOutlet weak var answer1Button: AnswerButton!
+    @IBOutlet weak var answer2Button: AnswerButton!
+    @IBOutlet weak var answer3Button: AnswerButton!
+    @IBOutlet weak var answer4Button: AnswerButton!
+    
+    var anserButtons: [AnswerButton]!
     
     var quizMode: QuizMode = .classic
     
@@ -50,6 +57,8 @@ class QuizViewController: PQViewController {
         super.viewDidLoad()
         backgroundImageView.image = maskImage(name: "background", color: quizMode.color())
         countingView.backgroundColor = quizMode.color()
+        
+        anserButtons = [answer1Button, answer2Button, answer3Button, answer4Button]
         
         // Do any additional setup after loading the view.
     }
@@ -71,11 +80,39 @@ class QuizViewController: PQViewController {
   
     @IBAction func countChange(_ sender: CountingView) {
         print(sender.count)
+        if sender.count == 0 {
+            self.animate(self)
+        }
     }
     
     @IBAction func animate(_ sender: Any) {
-        countingView.startCounting()
+        let duration = 0.5
+        
+        var delay = 0.0
+        for i in 0..<anserButtons.count {
+            let button = anserButtons[i]
+            button.center.y += self.view.bounds.height/2
+            delay += 0.1
+            UIView.animate(withDuration: duration, delay: delay,
+                           options: [.curveEaseOut],
+                           animations: {
+                            button.center.y -= self.view.bounds.height/2
+            },
+                           completion: {[unowned self] finished in
+                            if i == self.anserButtons.count - 1 {
+                                self.countingView.startCounting()
+                            }
+            })
+        }
+        // animate pokemon image
+        pokemonImageView.center.x += self.view.bounds.width
+        UIView.animate(withDuration: duration, delay: delay,
+                       options: [.curveEaseOut], animations: { [unowned self] in
+                        self.pokemonImageView.center.x -= self.view.bounds.width
+            }, completion: nil)
+    
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

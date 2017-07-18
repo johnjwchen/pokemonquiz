@@ -10,6 +10,16 @@ import UIKit
 
 class AnswerButton: UIButton {
     
+    var _pokemonId: Int!
+    var pokemonId: Int? {
+        get {
+            return _pokemonId
+        }
+        set {
+            _pokemonId = newValue
+            // todo: set the name 
+        }
+    }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
