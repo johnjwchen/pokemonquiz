@@ -14,12 +14,13 @@
 		4E51654E1F1C24790095D36F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E51654C1F1C24790095D36F /* LaunchScreen.storyboard */; };
 		4E5165591F1C24790095D36F /* PokemonQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5165581F1C24790095D36F /* PokemonQuizTests.swift */; };
 		4E5165641F1C247A0095D36F /* PokemonQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5165631F1C247A0095D36F /* PokemonQuizUITests.swift */; };
-		4E5165741F1C31070095D36F /* ModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5165731F1C31070095D36F /* ModeButton.swift */; };
 		4E5165761F1C31780095D36F /* ModeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E5165751F1C31780095D36F /* ModeButton.xib */; };
 		4EDABE661F1D365C0061AC56 /* CountingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDABE651F1D365C0061AC56 /* CountingView.xib */; };
 		4EDABE681F1D39580061AC56 /* CountingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE671F1D39580061AC56 /* CountingView.swift */; };
 		4EDABE6A1F1D413C0061AC56 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE691F1D413C0061AC56 /* QuizViewController.swift */; };
 		4EDABE6C1F1D417D0061AC56 /* PQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6B1F1D417D0061AC56 /* PQViewController.swift */; };
+		4EDABE6E1F1D93C60061AC56 /* ModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6D1F1D93C60061AC56 /* ModeButton.swift */; };
+		4EDABE701F1D9ED30061AC56 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,12 +54,13 @@
 		4E51655F1F1C247A0095D36F /* PokemonQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E5165631F1C247A0095D36F /* PokemonQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonQuizUITests.swift; sourceTree = "<group>"; };
 		4E5165651F1C247A0095D36F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E5165731F1C31070095D36F /* ModeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModeButton.swift; path = ../ModeButton.swift; sourceTree = "<group>"; };
 		4E5165751F1C31780095D36F /* ModeButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModeButton.xib; sourceTree = "<group>"; };
 		4EDABE651F1D365C0061AC56 /* CountingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountingView.xib; sourceTree = "<group>"; };
 		4EDABE671F1D39580061AC56 /* CountingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingView.swift; sourceTree = "<group>"; };
 		4EDABE691F1D413C0061AC56 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		4EDABE6B1F1D417D0061AC56 /* PQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PQViewController.swift; sourceTree = "<group>"; };
+		4EDABE6D1F1D93C60061AC56 /* ModeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeButton.swift; sourceTree = "<group>"; };
+		4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +117,8 @@
 				4E5165471F1C24790095D36F /* Main.storyboard */,
 				4EDABE691F1D413C0061AC56 /* QuizViewController.swift */,
 				4E5165751F1C31780095D36F /* ModeButton.xib */,
-				4E5165731F1C31070095D36F /* ModeButton.swift */,
+				4EDABE6D1F1D93C60061AC56 /* ModeButton.swift */,
+				4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */,
 				4EDABE671F1D39580061AC56 /* CountingView.swift */,
 				4EDABE651F1D365C0061AC56 /* CountingView.xib */,
 				4E51654A1F1C24790095D36F /* Assets.xcassets */,
@@ -282,10 +285,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EDABE6E1F1D93C60061AC56 /* ModeButton.swift in Sources */,
 				4E5165461F1C24790095D36F /* ViewController.swift in Sources */,
 				4EDABE6C1F1D417D0061AC56 /* PQViewController.swift in Sources */,
 				4EDABE6A1F1D413C0061AC56 /* QuizViewController.swift in Sources */,
-				4E5165741F1C31070095D36F /* ModeButton.swift in Sources */,
+				4EDABE701F1D9ED30061AC56 /* AnswerButton.swift in Sources */,
 				4E5165441F1C24790095D36F /* AppDelegate.swift in Sources */,
 				4EDABE681F1D39580061AC56 /* CountingView.swift in Sources */,
 			);
@@ -443,7 +447,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 99V67VH5PP;
 				INFOPLIST_FILE = PokemonQuiz/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pokgear.PokemonQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -457,7 +461,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 99V67VH5PP;
 				INFOPLIST_FILE = PokemonQuiz/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pokgear.PokemonQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";

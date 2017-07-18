@@ -12,6 +12,17 @@ enum QuizMode {
     case classic
     case hard
     case advance
+    
+    func color() -> UIColor {
+        switch self {
+        case .classic:
+            return QuizModeColor.classic
+        case .hard:
+            return QuizModeColor.hard
+        case .advance:
+            return QuizModeColor.advance
+        }
+    }
 }
 
 struct QuizModeColor {
@@ -37,7 +48,9 @@ class QuizViewController: PQViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundImageView.image = maskImage(name: "background", color: QuizModeColor.classic)
+        backgroundImageView.image = maskImage(name: "background", color: quizMode.color())
+        countingView.backgroundColor = quizMode.color()
+        
         // Do any additional setup after loading the view.
     }
     
