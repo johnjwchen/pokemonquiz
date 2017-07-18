@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class CountingView: UIView {
+@IBDesignable class CountingView: UIControl {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var numberLabel: UILabel!
@@ -16,6 +16,16 @@ import UIKit
     var duration: CFTimeInterval = 15
     private var circleLayer: CAShapeLayer!
     private var timer: Timer?
+    
+    public var count: Int {
+        if let text = numberLabel.text,
+            let count = Int(text) {
+            return count
+        }
+        else {
+            return 0
+        }
+    }
     
     @IBInspectable var lineWidth: CGFloat {
         get {
@@ -33,8 +43,11 @@ import UIKit
         }
         set {
             numberLabel.textColor = newValue
+            circleLayer.strokeColor = newValue?.cgColor
         }
     }
+    
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -65,14 +78,16 @@ import UIKit
     }
     
     @objc private func updateCounter() {
-        if let text = numberLabel.text,
-           let count = Int(text), count > 0 {
+        let count = self.count
+        if count > 0 {
             numberLabel.text = String(count - 1)
         }
-        else {
+        if count <= 1 {
             timer?.invalidate()
             timer = nil
         }
+        
+        sendActions(for: .valueChanged)
     }
     
     public func startCounting() {

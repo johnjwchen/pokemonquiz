@@ -55,6 +55,11 @@ class QuizViewController: PQViewController {
         return result
     }
 
+  
+    @IBAction func countChange(_ sender: CountingView) {
+        print(sender.count)
+    }
+    
     @IBAction func animate(_ sender: Any) {
         countingView.startCounting()
     }
