@@ -67,7 +67,7 @@ import UIKit
     }
     
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-        self.contentView.backgroundColor = UIColor.black
+        self.contentView.backgroundColor = UIColor.darkGray
         return true
         
     }

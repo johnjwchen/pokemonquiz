@@ -54,7 +54,8 @@ class QuizViewController: PQViewController {
     
     var quizMode: QuizMode = .classic
     
-    private var player: AVAudioPlayer?
+    private var correctPlayer: AVAudioPlayer?
+    private var wrongPlayer: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,9 @@ class QuizViewController: PQViewController {
         countingView.backgroundColor = quizMode.color()
         
         anserButtons = [answer1Button, answer2Button, answer3Button, answer4Button]
+        
+        wrongPlayer = loadPlayer(name: "wrongSound")
+        correctPlayer = loadPlayer(name: "correctSound")
         
         // Do any additional setup after loading the view.
     }
@@ -81,7 +85,8 @@ class QuizViewController: PQViewController {
     }
 
     @IBAction func answerButtonClick(_ sender: Any) {
-        playSound(name: "wrongSound")
+        wrongPlayer?.play()
+        correctPlayer?.play()
     }
   
     @IBAction func countChange(_ sender: CountingView) {
@@ -91,19 +96,19 @@ class QuizViewController: PQViewController {
         }
     }
     
-    func playSound(name: String) {
+    func loadPlayer(name: String) -> AVAudioPlayer? {
         // Fetch the Sound data set.
         if let asset = NSDataAsset(name: name){
-            
             do {
-                // Use NSDataAsset's data property to access the audio file stored in Sound.
-                player = try AVAudioPlayer(data:asset.data, fileTypeHint:"mp3")
+                let player = try AVAudioPlayer(data:asset.data, fileTypeHint:"mp3")
                 // Play the above sound file.
-                player?.play()
+                player.volume = 0.4
+                return player
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
         }
+        return nil
     }
     
     @IBAction func animate(_ sender: Any) {

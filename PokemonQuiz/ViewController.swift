@@ -54,7 +54,16 @@ class ViewController: PQViewController {
    
 
     @IBAction func modeButtonTouchUp(_ sender: ModeButton) {
-        print("touch !")
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "QuizViewController") as! QuizViewController
+        switch sender {
+        case classicModeButton:
+            vc.quizMode = .classic
+        case hardModeButton:
+            vc.quizMode = .hard
+        default:
+            vc.quizMode = .advance
+        }
+        self.present(vc, animated: true, completion: nil)
     }
 }
 

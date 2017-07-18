@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,15 +19,16 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRw-oe-tTQ" customClass="ModeButton" customModule="PokemonQuiz" customModuleProvider="target">
-                                <rect key="frame" x="16" y="394" width="288" height="80"/>
+                                <rect key="frame" x="63" y="478" width="288" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="RrH-aI-4kl"/>
-                                    <constraint firstAttribute="width" constant="288" id="biN-iG-FHa"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="biN-iG-FHa"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="mI4-lr-buO"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="bulb"/>
@@ -38,11 +39,12 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMR-qs-v2H" customClass="ModeButton" customModule="PokemonQuiz" customModuleProvider="target">
-                                <rect key="frame" x="16" y="284" width="288" height="80"/>
+                                <rect key="frame" x="63" y="368" width="288" height="80"/>
                                 <color key="backgroundColor" red="0.99897521730000005" green="0.1750747859" blue="0.50217622520000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="1jd-kL-ats"/>
                                     <constraint firstAttribute="height" constant="80" id="8wv-NJ-mSv"/>
-                                    <constraint firstAttribute="width" constant="288" id="CuY-2k-LIC"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="CuY-2k-LIC"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="Hard"/>
@@ -53,11 +55,12 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZI-PW-fwi" customClass="ModeButton" customModule="PokemonQuiz" customModuleProvider="target">
-                                <rect key="frame" x="16" y="174" width="288" height="80"/>
+                                <rect key="frame" x="63" y="258" width="288" height="80"/>
                                 <color key="backgroundColor" red="0.14901960784313725" green="0.53725490196078429" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Sar-QU-c8G"/>
-                                    <constraint firstAttribute="width" constant="288" id="scH-71-M9t"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="scH-71-M9t"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="xj0-EH-W3C"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="basic"/>
@@ -68,13 +71,13 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Quiz Coins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l20-uO-yUn">
-                                <rect key="frame" x="16" y="123" width="97.5" height="21"/>
+                                <rect key="frame" x="20.000000000000007" y="207" width="97.666666666666686" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcN-uE-Nvg">
-                                <rect key="frame" x="260" y="12" width="44" height="44"/>
+                                <rect key="frame" x="350" y="12" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="RFV-c2-Vlh"/>
                                     <constraint firstAttribute="height" constant="44" id="bdK-KX-2kj"/>
@@ -87,7 +90,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuz-oJ-EIh">
-                                <rect key="frame" x="16" y="12" width="44" height="44"/>
+                                <rect key="frame" x="20" y="12" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="QqG-1Q-SAv"/>
                                     <constraint firstAttribute="height" constant="44" id="a40-fK-mFu"/>
@@ -140,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAy-C5-yAs">
-                                <rect key="frame" x="16" y="3" width="44" height="44"/>
+                                <rect key="frame" x="8" y="3" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="8Bs-R5-vzS"/>
                                     <constraint firstAttribute="height" constant="44" id="izJ-D0-iKF"/>
@@ -157,42 +160,42 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No0-a0-LLq" customClass="AnswerButton" customModule="PokemonQuiz" customModuleProvider="target">
-                                <rect key="frame" x="16" y="76" width="288" height="44"/>
+                                <rect key="frame" x="16" y="76" width="288" height="46"/>
                                 <color key="backgroundColor" red="0.14993786810000001" green="0.53676956890000005" blue="0.90214306119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="QaW-Qq-WmB"/>
-                                    <constraint firstAttribute="height" constant="44" id="ceE-FO-AeA"/>
+                                    <constraint firstAttribute="height" constant="46" id="ceE-FO-AeA"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="yk2-q9-nj9"/>
                                 </constraints>
                                 <state key="normal" title="50 Quiz Coins / $0.99"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K84-Ze-8IY" customClass="AnswerButton" customModule="PokemonQuiz" customModuleProvider="target">
-                                <rect key="frame" x="16" y="136" width="288" height="44"/>
+                                <rect key="frame" x="16" y="138" width="288" height="46"/>
                                 <color key="backgroundColor" red="0.14993786810000001" green="0.53676956890000005" blue="0.90214306119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="Agv-Xy-ee4"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="PD9-9L-IkX"/>
-                                    <constraint firstAttribute="height" constant="44" id="t8a-R1-eA8"/>
+                                    <constraint firstAttribute="height" constant="46" id="t8a-R1-eA8"/>
                                 </constraints>
                                 <state key="normal" title="150 Quiz Coins / $1.99"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoR-bH-szE" customClass="AnswerButton" customModule="PokemonQuiz" customModuleProvider="target">
-                                <rect key="frame" x="16" y="196" width="288" height="44"/>
+                                <rect key="frame" x="16" y="200" width="288" height="46"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="DX8-qz-6hd"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="oSi-sy-R8B"/>
-                                    <constraint firstAttribute="height" constant="44" id="zjI-bY-7YJ"/>
+                                    <constraint firstAttribute="height" constant="46" id="zjI-bY-7YJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <state key="normal" title="150 Quiz Coins / $1.99"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTM-YT-Jn4" customClass="AnswerButton" customModule="PokemonQuiz" customModuleProvider="target">
-                                <rect key="frame" x="16" y="306" width="288" height="44"/>
+                                <rect key="frame" x="16" y="312" width="288" height="46"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="3oO-Ev-Fbg"/>
-                                    <constraint firstAttribute="height" constant="44" id="c0d-Vv-8rg"/>
+                                    <constraint firstAttribute="height" constant="46" id="c0d-Vv-8rg"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="cvB-Ms-cgL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -203,7 +206,7 @@
                         <constraints>
                             <constraint firstItem="K84-Ze-8IY" firstAttribute="top" secondItem="No0-a0-LLq" secondAttribute="bottom" constant="16" id="3lD-wG-278"/>
                             <constraint firstItem="hAy-C5-yAs" firstAttribute="top" secondItem="iR8-l4-uFl" secondAttribute="bottom" constant="3" id="Afu-jU-up3"/>
-                            <constraint firstItem="hAy-C5-yAs" firstAttribute="leading" secondItem="TQv-t9-d76" secondAttribute="leadingMargin" id="B47-u8-3mY"/>
+                            <constraint firstItem="hAy-C5-yAs" firstAttribute="leading" secondItem="TQv-t9-d76" secondAttribute="leadingMargin" constant="-8" id="B47-u8-3mY"/>
                             <constraint firstItem="NTM-YT-Jn4" firstAttribute="top" secondItem="QoR-bH-szE" secondAttribute="bottom" constant="66" id="Z7Z-ap-tYx"/>
                             <constraint firstItem="8g7-fi-3Dd" firstAttribute="top" secondItem="iR8-l4-uFl" secondAttribute="bottom" constant="12" id="aeS-ie-3Qz"/>
                             <constraint firstItem="QoR-bH-szE" firstAttribute="centerX" secondItem="TQv-t9-d76" secondAttribute="centerX" id="de2-yz-k03"/>
@@ -229,39 +232,39 @@
         <!--Quiz View Controller-->
         <scene sceneID="ibr-jI-Rz8">
             <objects>
-                <viewController id="aKU-7G-VKg" customClass="QuizViewController" customModule="PokemonQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuizViewController" id="aKU-7G-VKg" customClass="QuizViewController" customModule="PokemonQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C03-rz-clz"/>
                         <viewControllerLayoutGuide type="bottom" id="2oa-sl-iZO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JCe-yi-yUP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="1" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="KcR-RG-RlX">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="154.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="229.33333333333334"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokemon" translatesAutoresizingMaskIntoConstraints="NO" id="Fht-8t-84d">
-                                <rect key="frame" x="70" y="143" width="180" height="180"/>
+                                <rect key="frame" x="117" y="211.66666666666669" width="180" height="180.00000000000006"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="VfJ-mr-Ax6"/>
                                     <constraint firstAttribute="width" constant="180" id="fml-Qe-wa6"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xOE-EE-RtY">
-                                <rect key="frame" x="16" y="26.5" width="288" height="72"/>
+                                <rect key="frame" x="20" y="56.333333333333343" width="374" height="72"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTD-zL-Ypz">
-                                        <rect key="frame" x="0.0" y="0.0" width="96" height="72"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="124.66666666666666" height="72"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9z6-su-Vof">
-                                                <rect key="frame" x="41.5" y="23.5" width="14.5" height="26.5"/>
+                                                <rect key="frame" x="55.333333333333329" y="23.666666666666664" width="14.333333333333343" height="26.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8d-WJ-fno">
-                                                <rect key="frame" x="39.5" y="53.5" width="18.5" height="17"/>
+                                                <rect key="frame" x="53" y="53.333333333333336" width="18.666666666666671" height="17.000000000000007"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -275,7 +278,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="SBr-Cg-0Lh" customClass="CountingView" customModule="PokemonQuiz" customModuleProvider="target">
-                                        <rect key="frame" x="96" y="0.0" width="96" height="72"/>
+                                        <rect key="frame" x="124.66666666666667" y="0.0" width="124.66666666666664" height="72"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
@@ -287,16 +290,16 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trD-i6-hza">
-                                        <rect key="frame" x="192" y="0.0" width="96" height="72"/>
+                                        <rect key="frame" x="249.33333333333329" y="0.0" width="124.66666666666671" height="72"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeG-HR-eIo">
-                                                <rect key="frame" x="41.5" y="23" width="14.5" height="26.5"/>
+                                                <rect key="frame" x="55.333333333333371" y="22.999999999999993" width="14.333333333333314" height="26.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfP-4z-pMb">
-                                                <rect key="frame" x="28" y="53.5" width="40" height="17"/>
+                                                <rect key="frame" x="42.666666666666686" y="53.333333333333336" width="40" height="17.000000000000007"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -323,7 +326,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMP-Tr-zgG">
-                                <rect key="frame" x="282" y="12" width="22" height="22"/>
+                                <rect key="frame" x="372" y="12" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="1ge-c7-Hea"/>
                                     <constraint firstAttribute="width" constant="22" id="C6d-4m-9gA"/>
@@ -331,7 +334,7 @@
                                 <state key="normal" title="Button" image="volume-on"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cXD-UY-tSa">
-                                <rect key="frame" x="16" y="331" width="288" height="193"/>
+                                <rect key="frame" x="63" y="471.66666666666674" width="288" height="220.33333333333326"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGO-kt-dut" customClass="AnswerButton" customModule="PokemonQuiz" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="40"/>
@@ -343,7 +346,7 @@
                                         <state key="normal" title="Button1"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnY-H2-Afu" customClass="AnswerButton" customModule="PokemonQuiz" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="51" width="288" height="40"/>
+                                        <rect key="frame" x="0.0" y="59.999999999999943" width="288" height="40"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="YI4-Ad-jiV"/>
@@ -355,7 +358,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnf-RH-H4o" customClass="AnswerButton" customModule="PokemonQuiz" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="102" width="288" height="40"/>
+                                        <rect key="frame" x="0.0" y="120.33333333333331" width="288" height="40"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="KZI-tm-M6G"/>
@@ -364,7 +367,7 @@
                                         <state key="normal" title="Button1"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="url-wx-lNF" customClass="AnswerButton" customModule="PokemonQuiz" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="153" width="288" height="40"/>
+                                        <rect key="frame" x="0.0" y="180.33333333333331" width="288" height="40"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ve2-bI-QlJ"/>
@@ -414,6 +417,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gov-t0-KKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="841.40625" y="34.5703125"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="u9c-0o-uIa">
+            <objects>
+                <viewController id="LUZ-XP-XkG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k1i-tb-ycL"/>
+                        <viewControllerLayoutGuide type="bottom" id="s0S-n7-Tzh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nG3-s9-AxX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLO-bD-9A7">
+                                <rect key="frame" x="8" y="12" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="2Se-oa-CR5"/>
+                                    <constraint firstAttribute="height" constant="44" id="Uh0-OJ-Njt"/>
+                                </constraints>
+                                <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="backButtonClick:" destination="EbT-0B-Cgw" eventType="touchUpInside" id="F10-hR-anc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pk-xM-MoF">
+                                <rect key="frame" x="145.66666666666669" y="18.999999999999996" width="123.00000000000006" height="28.666666666666661"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQq-UH-NBV">
+                                <rect key="frame" x="178" y="104" width="59" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBw-Sg-NeS">
+                                <rect key="frame" x="183.33333333333334" y="144" width="47.333333333333314" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KnX-vh-HgN">
+                                <rect key="frame" x="199" y="282" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.019607843137254902" green="0.62352941176470589" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="pokgear"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.14993786810000001" green="0.53676956890000005" blue="0.90214306119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TQq-UH-NBV" firstAttribute="top" secondItem="7Pk-xM-MoF" secondAttribute="bottom" constant="56" id="0h4-tb-ghV"/>
+                            <constraint firstItem="GLO-bD-9A7" firstAttribute="leading" secondItem="nG3-s9-AxX" secondAttribute="leadingMargin" constant="-12" id="4Vx-NP-YCp"/>
+                            <constraint firstItem="KBw-Sg-NeS" firstAttribute="top" secondItem="TQq-UH-NBV" secondAttribute="bottom" constant="4" id="5nM-Yl-Lar"/>
+                            <constraint firstItem="GLO-bD-9A7" firstAttribute="top" secondItem="k1i-tb-ycL" secondAttribute="bottom" constant="12" id="Hrz-ib-VxG"/>
+                            <constraint firstItem="7Pk-xM-MoF" firstAttribute="centerX" secondItem="nG3-s9-AxX" secondAttribute="centerX" id="S2E-50-QAv"/>
+                            <constraint firstItem="7Pk-xM-MoF" firstAttribute="top" secondItem="k1i-tb-ycL" secondAttribute="bottom" constant="19" id="TgJ-P5-7Pw"/>
+                            <constraint firstItem="TQq-UH-NBV" firstAttribute="centerX" secondItem="nG3-s9-AxX" secondAttribute="centerX" id="eXg-IW-jtb"/>
+                            <constraint firstItem="KBw-Sg-NeS" firstAttribute="centerX" secondItem="nG3-s9-AxX" secondAttribute="centerX" id="hDR-is-eSt"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2eh-r2-O7U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1634.7826086956522" y="-7.3369565217391308"/>
         </scene>
     </scenes>
     <resources>
