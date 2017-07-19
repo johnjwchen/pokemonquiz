@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnswerButton: UIButton {
+@IBDesignable class AnswerButton: RoundCornerButton {
     
     var _pokemonId: Int!
     var pokemonId: Int? {
@@ -20,13 +20,21 @@ class AnswerButton: UIButton {
             // todo: set the name 
         }
     }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        _backgroundColor = self.backgroundColor
+    }
+    
     private var _backgroundColor: UIColor?
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        _backgroundColor = self.backgroundColor
-        self.layer.cornerRadius = 8
-        self.layer.masksToBounds = true
+        commonInit()
     }
     
     override var isHighlighted: Bool {
