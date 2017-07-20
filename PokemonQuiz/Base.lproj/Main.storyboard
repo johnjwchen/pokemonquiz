@@ -346,12 +346,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMP-Tr-zgG" customClass="VolumeButton" customModule="PokemonQuiz" customModuleProvider="target">
-                                <rect key="frame" x="282" y="12" width="22" height="22"/>
+                                <rect key="frame" x="270" y="0.0" width="44" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="1ge-c7-Hea"/>
-                                    <constraint firstAttribute="width" constant="22" id="C6d-4m-9gA"/>
+                                    <constraint firstAttribute="height" constant="44" id="1ge-c7-Hea"/>
+                                    <constraint firstAttribute="width" constant="44" id="C6d-4m-9gA"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="volume-on"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isOn" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="volumeValueChanged:" destination="aKU-7G-VKg" eventType="touchUpInside" id="oOa-rk-Dpb"/>
                                 </connections>
@@ -416,8 +418,8 @@
                             <constraint firstItem="KcR-RG-RlX" firstAttribute="top" secondItem="C03-rz-clz" secondAttribute="bottom" id="ea1-6M-r3a"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cXD-UY-tSa" secondAttribute="bottom" constant="8" id="fCV-sV-YJJ"/>
                             <constraint firstItem="xOE-EE-RtY" firstAttribute="centerY" secondItem="KcR-RG-RlX" secondAttribute="centerY" multiplier="0.8" id="gGW-hf-tH7"/>
-                            <constraint firstItem="pMP-Tr-zgG" firstAttribute="top" secondItem="C03-rz-clz" secondAttribute="bottom" constant="12" id="j7V-1v-M1A"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pMP-Tr-zgG" secondAttribute="trailing" id="jOi-x9-6HD"/>
+                            <constraint firstItem="pMP-Tr-zgG" firstAttribute="top" secondItem="C03-rz-clz" secondAttribute="bottom" id="j7V-1v-M1A"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pMP-Tr-zgG" secondAttribute="trailing" constant="-10" id="jOi-x9-6HD"/>
                             <constraint firstItem="KcR-RG-RlX" firstAttribute="leading" secondItem="JCe-yi-yUP" secondAttribute="leading" id="mU4-XT-rY3"/>
                             <constraint firstItem="Fht-8t-84d" firstAttribute="centerX" secondItem="JCe-yi-yUP" secondAttribute="centerX" id="mbb-FP-xQ1"/>
                             <constraint firstAttribute="trailing" secondItem="KcR-RG-RlX" secondAttribute="trailing" id="nWN-WF-Kyk"/>
@@ -440,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gov-t0-KKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="841.40625" y="34.5703125"/>
+            <point key="canvasLocation" x="840" y="33.75"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="u9c-0o-uIa">
@@ -709,7 +711,6 @@
         <image name="shoping-cart" width="30" height="30"/>
         <image name="thumb-up" width="44" height="44"/>
         <image name="twitter" width="44" height="44"/>
-        <image name="volume-on" width="22" height="22"/>
         <image name="worldRank" width="44" height="44"/>
     </resources>
 </document>

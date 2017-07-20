@@ -9,6 +9,7 @@
 import UIKit
 
 @IBDesignable class VolumeButton: UIButton {
+    static let SoundOff = "SoundOff"
     static let onImage = UIImage(named: "volume-on")
     static let offImage = UIImage(named: "volume-off")
     @IBInspectable var isOn: Bool {
@@ -24,15 +25,17 @@ import UIKit
         }
     }
     
-
-    
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override func awakeFromNib() {
+        isOn = !UserDefaults.standard.bool(forKey: VolumeButton.SoundOff)
     }
-    */
+    
+    override func touchesEnded(_ touches: Set<UITouch>,
+                               with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        self.isOn = !self.isOn
+        UserDefaults.standard.set(!isOn, forKey: VolumeButton.SoundOff)
+        UserDefaults.standard.synchronize()
+    }
+
 
 }

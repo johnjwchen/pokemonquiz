@@ -41,7 +41,6 @@ struct QuizModeColor {
 
 
 class QuizViewController: PQViewController {
-
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var countingView: CountingView!
     @IBOutlet weak var pokemonImageView: UIImageView!
@@ -69,6 +68,7 @@ class QuizViewController: PQViewController {
         
         wrongPlayer = loadPlayer(name: "wrongSound")
         correctPlayer = loadPlayer(name: "correctSound")
+        
         
         // Do any additional setup after loading the view.
     }
