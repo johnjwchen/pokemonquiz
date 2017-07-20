@@ -49,6 +49,7 @@ class QuizViewController: PQViewController {
     @IBOutlet weak var answer3Button: AnswerButton!
     @IBOutlet weak var answer4Button: AnswerButton!
     @IBOutlet weak var volumeButton: VolumeButton!
+    @IBOutlet weak var winPointsLabel: UILabel!
     
     var anserButtons: [AnswerButton]!
     
@@ -69,7 +70,7 @@ class QuizViewController: PQViewController {
         wrongPlayer = loadPlayer(name: "wrongSound")
         correctPlayer = loadPlayer(name: "correctSound")
         
-        
+        self.winPointsLabel.isHidden = true
         // Do any additional setup after loading the view.
     }
     
@@ -110,6 +111,7 @@ class QuizViewController: PQViewController {
 
     @IBAction func answerButtonClick(_ sender: Any) {
         playSound(correct: true)
+        animateWinPoints()
     }
     
   
@@ -144,7 +146,7 @@ class QuizViewController: PQViewController {
         return nil
     }
     
-    @IBAction func animate(_ sender: Any) {
+    func animatePokemonAndAnswers() {
         let duration = 0.5
         var delay = 0.0
         for i in 0..<anserButtons.count {
@@ -153,7 +155,7 @@ class QuizViewController: PQViewController {
             delay += 0.1
             UIView.animate(withDuration: duration, delay: delay,
                            options: [.curveEaseOut],
-                           animations: {
+                           animations: {[unowned self] in
                             button.center.y -= self.view.bounds.height/2
             },
                            completion: {[unowned self] finished in
@@ -168,6 +170,23 @@ class QuizViewController: PQViewController {
                        options: [.curveEaseOut], animations: { [unowned self] in
                         self.pokemonImageView.center.x -= self.view.bounds.width
             }, completion: nil)
+    }
     
+    func animateWinPoints() {
+        let duration = 0.62
+        let y = self.winPointsLabel.center.y
+        self.winPointsLabel.isHidden = false
+        UIView.animate(withDuration: duration, delay: 0,
+                       options: [.curveEaseOut],
+                       animations: { [unowned self] in
+            self.winPointsLabel.center.y -= 142
+        }) {[unowned self] _ in
+            self.winPointsLabel.isHidden = true
+            self.winPointsLabel.center.y = y
+        }
+    }
+    
+    @IBAction func animate(_ sender: Any) {
+        animateWinPoints()
     }
 }
