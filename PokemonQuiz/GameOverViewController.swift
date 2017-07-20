@@ -87,7 +87,7 @@ class GameOverViewController: PQViewController {
         let label = winQuizCoinLabel!
         label.text = "+ \(value) Quiz Coins"
         label.isHidden = false
-        UIView.animate(withDuration: 1.2, delay: 0,
+        UIView.animate(withDuration: 1.6, delay: 0,
                        options: [.curveEaseOut], animations: {
             label.center.y -= 120
         }, completion: { _ in

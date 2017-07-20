@@ -19,6 +19,7 @@
 		4E9A33A51F200CD300B90F87 /* RoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9A33A41F200CD300B90F87 /* RoundCornerButton.swift */; };
 		4E9A33A71F20183800B90F87 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9A33A61F20183800B90F87 /* GameOverViewController.swift */; };
 		4E9A33A91F20719600B90F87 /* VolumeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9A33A81F20719600B90F87 /* VolumeButton.swift */; };
+		4E9AFAB51F21408600BA0A1D /* ResponableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AFAB41F21408600BA0A1D /* ResponableButton.swift */; };
 		4EDABE661F1D365C0061AC56 /* CountingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDABE651F1D365C0061AC56 /* CountingView.xib */; };
 		4EDABE681F1D39580061AC56 /* CountingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE671F1D39580061AC56 /* CountingView.swift */; };
 		4EDABE6A1F1D413C0061AC56 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE691F1D413C0061AC56 /* QuizViewController.swift */; };
@@ -63,6 +64,7 @@
 		4E9A33A41F200CD300B90F87 /* RoundCornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCornerButton.swift; sourceTree = "<group>"; };
 		4E9A33A61F20183800B90F87 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		4E9A33A81F20719600B90F87 /* VolumeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeButton.swift; sourceTree = "<group>"; };
+		4E9AFAB41F21408600BA0A1D /* ResponableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponableButton.swift; sourceTree = "<group>"; };
 		4EDABE651F1D365C0061AC56 /* CountingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountingView.xib; sourceTree = "<group>"; };
 		4EDABE671F1D39580061AC56 /* CountingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingView.swift; sourceTree = "<group>"; };
 		4EDABE691F1D413C0061AC56 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				4EDABE6D1F1D93C60061AC56 /* ModeButton.swift */,
 				4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */,
 				4E9A33A41F200CD300B90F87 /* RoundCornerButton.swift */,
+				4E9AFAB41F21408600BA0A1D /* ResponableButton.swift */,
 				4E9A33A81F20719600B90F87 /* VolumeButton.swift */,
 				4EDABE671F1D39580061AC56 /* CountingView.swift */,
 				4EDABE651F1D365C0061AC56 /* CountingView.xib */,
@@ -301,6 +304,7 @@
 				4EDABE6E1F1D93C60061AC56 /* ModeButton.swift in Sources */,
 				4E5165461F1C24790095D36F /* ViewController.swift in Sources */,
 				4E9A33A91F20719600B90F87 /* VolumeButton.swift in Sources */,
+				4E9AFAB51F21408600BA0A1D /* ResponableButton.swift in Sources */,
 				4EDABE6C1F1D417D0061AC56 /* PQViewController.swift in Sources */,
 				4E9A33A71F20183800B90F87 /* GameOverViewController.swift in Sources */,
 				4EDABE6A1F1D413C0061AC56 /* QuizViewController.swift in Sources */,
