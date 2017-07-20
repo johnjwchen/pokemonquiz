@@ -8,7 +8,17 @@
 
 import UIKit
 
+enum AnswerButtonStatus {
+    case not
+    case wrong
+    case correct
+}
+
 @IBDesignable class AnswerButton: RoundCornerButton {
+    
+    static let notColor = UIColor(red:0.47, green:0.47, blue:0.47, alpha:1.0)
+    static let wrongColor = UIColor(red:1.00, green:0.04, blue:0.18, alpha:1.0)
+    static let correctColor = UIColor(red:0.00, green:0.65, blue:0.33, alpha:1.0)
     
     var _pokemonId: Int!
     var pokemonId: Int? {
@@ -21,34 +31,31 @@ import UIKit
         }
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
-    private func commonInit() {
-        _backgroundColor = self.backgroundColor
-    }
-    
-    private var _backgroundColor: UIColor?
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        commonInit()
-    }
-    
-    override var isHighlighted: Bool {
+    var status: AnswerButtonStatus {
         didSet {
-            if self.isHighlighted {
-                self.backgroundColor = UIColor.darkGray
+            print(status)
+            switch status {
+            case .not:
+                self.backgroundColor = AnswerButton.notColor
+            case .wrong:
+                self.backgroundColor = AnswerButton.wrongColor
+            case .correct:
+                self.backgroundColor = AnswerButton.correctColor
             }
-            else {
-                self.backgroundColor = _backgroundColor
-            }
-            
         }
     }
+    
+    override init(frame: CGRect) {
+        self.status = .not
+        super.init(frame: frame)
+    }
 
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.status = .not
+        super.init(coder: aDecoder)
+    }
+    
 
     /*
     // Only override draw() if you perform custom drawing.

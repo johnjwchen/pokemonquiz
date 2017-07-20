@@ -355,12 +355,15 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGO-kt-dut" customClass="AnswerButton" customModule="PokemonQuiz" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="40"/>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.65098039215686276" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="dS1-lt-fcp"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <state key="normal" title="Button1"/>
+                                        <connections>
+                                            <action selector="answerButtonTouchUp:" destination="aKU-7G-VKg" eventType="touchUpInside" id="L5m-kH-er0"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnY-H2-Afu" customClass="AnswerButton" customModule="PokemonQuiz" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="60" width="288" height="40"/>
@@ -372,6 +375,7 @@
                                         <state key="normal" title="Button1"/>
                                         <connections>
                                             <action selector="answerButtonClick:" destination="aKU-7G-VKg" eventType="touchUpInside" id="7xo-SJ-iEM"/>
+                                            <action selector="answerButtonTouchUp:" destination="aKU-7G-VKg" eventType="touchUpInside" id="aJG-SP-yPi"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnf-RH-H4o" customClass="AnswerButton" customModule="PokemonQuiz" customModuleProvider="target">
@@ -382,6 +386,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <state key="normal" title="Button1"/>
+                                        <connections>
+                                            <action selector="answerButtonTouchUp:" destination="aKU-7G-VKg" eventType="touchUpInside" id="HLB-Vs-pM4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="url-wx-lNF" customClass="AnswerButton" customModule="PokemonQuiz" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="180.5" width="288" height="40"/>
@@ -391,6 +398,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <state key="normal" title="Button1"/>
+                                        <connections>
+                                            <action selector="answerButtonTouchUp:" destination="aKU-7G-VKg" eventType="touchUpInside" id="SrK-X3-CwI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

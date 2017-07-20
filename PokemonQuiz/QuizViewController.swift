@@ -107,9 +107,27 @@ class QuizViewController: PQViewController {
         }
     }
     
+    @IBAction func answerButtonTouchUp(_ button: AnswerButton) {
+        // correct
+//        button.status = .correct
+//        playSound(correct: true)
+//        animateWinPoints()
+        
+        // wrong
+        playSound(correct: false)
+        button.status = .wrong
+        animateAnswer(button, completion: {[unowned self]_ in
+            self.gameOver()
+        })
+        
+    }
+    
     
 
     @IBAction func answerButtonClick(_ sender: Any) {
+        
+        // correct
+        
         playSound(correct: true)
         animateWinPoints()
     }
@@ -136,7 +154,6 @@ class QuizViewController: PQViewController {
         if let asset = NSDataAsset(name: name){
             do {
                 let player = try AVAudioPlayer(data:asset.data, fileTypeHint:"mp3")
-                // Play the above sound file.
                 player.volume = 0.4
                 return player
             } catch let error as NSError {
@@ -146,7 +163,20 @@ class QuizViewController: PQViewController {
         return nil
     }
     
-    func animatePokemonAndAnswers() {
+    // MASK animation
+    
+    private func animateAnswer(_ button: UIButton, completion: @escaping (Bool) -> Void) {
+        button.center.x -= 30
+        UIView.animate(withDuration: 0.62, delay: 0.0,
+                       usingSpringWithDamping: 0.1,
+                       initialSpringVelocity: 0.1,
+                       options: [],
+                       animations: {
+                        button.center.x += 30
+        }, completion: completion)
+    }
+    
+    private func animatePokemonAndAnswers() {
         let duration = 0.5
         var delay = 0.0
         for i in 0..<anserButtons.count {
@@ -172,8 +202,8 @@ class QuizViewController: PQViewController {
             }, completion: nil)
     }
     
-    func animateWinPoints() {
-        let duration = 0.62
+    private func animateWinPoints() {
+        let duration = 0.66
         let y = self.winPointsLabel.center.y
         self.winPointsLabel.isHidden = false
         UIView.animate(withDuration: duration, delay: 0,
