@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: PQViewController {
     let pokgearIdentifier = "849383046"
@@ -23,6 +24,17 @@ class ViewController: PQViewController {
         super.viewDidLoad()
         
         modeButtons = [classicModeButton, hardModeButton, advanceModeButton]
+        
+        // Access the shared, singleton audio session instance
+        let session = AVAudioSession.sharedInstance()
+        do {
+            // Configure the audio session for movie playback
+            try session.setCategory(AVAudioSessionCategoryAmbient)
+            try session.setActive(true)
+        } catch let error as NSError {
+            print("Failed to set the audio session category and mode: \(error.localizedDescription)")
+        }
+
     }
     
     @IBAction func pokgearButtonClick(_ sender: Any) {

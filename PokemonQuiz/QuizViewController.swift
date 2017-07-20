@@ -71,7 +71,7 @@ class QuizViewController: PQViewController {
         if let image = UIImage(named: "background") {
             backgroundImageView.image = ImageProcess.maskImage(image, color: color)
         }
-        // pokemonImageView.image = ImageProcess.maskImage(pokemonImageView.image!, color: color)
+        // pokemonImageView.image = ImageProcess.maskImage(pokemonImageView.image!, color: UIColor.darkGray)
         if quizMode == .advance {
             countingView?.removeFromSuperview()
             countingView = nil
@@ -151,6 +151,7 @@ class QuizViewController: PQViewController {
             vc.lastScore = 0
         }
         vc.scoreDescription = "Points"
+        vc.view.backgroundColor = quizMode.color()
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -159,7 +160,7 @@ class QuizViewController: PQViewController {
         if let asset = NSDataAsset(name: name){
             do {
                 let player = try AVAudioPlayer(data:asset.data, fileTypeHint:"mp3")
-                player.volume = 0.4
+                player.volume = 0.2
                 return player
             } catch let error as NSError {
                 print(error.localizedDescription)
