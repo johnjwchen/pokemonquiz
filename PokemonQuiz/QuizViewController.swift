@@ -42,7 +42,7 @@ struct QuizModeColor {
 
 class QuizViewController: PQViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
-    @IBOutlet weak var countingView: CountingView!
+    @IBOutlet weak var countingView: CountingView?
     @IBOutlet weak var pokemonImageView: UIImageView!
     @IBOutlet weak var answer1Button: AnswerButton!
     @IBOutlet weak var answer2Button: AnswerButton!
@@ -50,6 +50,10 @@ class QuizViewController: PQViewController {
     @IBOutlet weak var answer4Button: AnswerButton!
     @IBOutlet weak var volumeButton: VolumeButton!
     @IBOutlet weak var winPointsLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var hitLabel: UILabel!
+    @IBOutlet weak var hitDescriptionLabel: UILabel!
+    @IBOutlet weak var scoreDescriptionLabel: UILabel!
     
     var anserButtons: [AnswerButton]!
     
@@ -57,13 +61,25 @@ class QuizViewController: PQViewController {
     
     private var correctPlayer: AVAudioPlayer?
     private var wrongPlayer: AVAudioPlayer?
-    
     private var screenShot: UIImage?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundImageView.image = maskImage(name: "background", color: quizMode.color())
-        countingView.backgroundColor = quizMode.color()
+        let color = quizMode.color()
+        if let image = UIImage(named: "background") {
+            backgroundImageView.image = ImageProcess.maskImage(image, color: color)
+        }
+        // pokemonImageView.image = ImageProcess.maskImage(pokemonImageView.image!, color: color)
+        if quizMode == .advance {
+            countingView?.removeFromSuperview()
+            countingView = nil
+            hitDescriptionLabel.text = "Level"
+            scoreDescriptionLabel.text = "Experience"
+        }
+        
+        countingView?.backgroundColor = color
         
         anserButtons = [answer1Button, answer2Button, answer3Button, answer4Button]
         
@@ -71,21 +87,13 @@ class QuizViewController: PQViewController {
         correctPlayer = loadPlayer(name: "correctSound")
         
         self.winPointsLabel.isHidden = true
-        // Do any additional setup after loading the view.
     }
     
-    func maskImage(name:String, color:UIColor) -> UIImage {
-        let image = UIImage(named: name)
-        let rect:CGRect = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: image!.size.width, height: image!.size.height))
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, image!.scale)
-        let c:CGContext = UIGraphicsGetCurrentContext()!
-        image?.draw(in: rect)
-        c.setFillColor(color.cgColor)
-        c.setBlendMode(CGBlendMode.sourceAtop)
-        c.fill(rect)
-        let result:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return result
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        animatePokemonAndAnswers()
     }
     
     
@@ -122,16 +130,6 @@ class QuizViewController: PQViewController {
         
     }
     
-    
-
-    @IBAction func answerButtonClick(_ sender: Any) {
-        
-        // correct
-        
-        playSound(correct: true)
-        animateWinPoints()
-    }
-    
   
     @IBAction func countChange(_ sender: CountingView) {
         if screenShot == nil {
@@ -146,7 +144,12 @@ class QuizViewController: PQViewController {
     private func gameOver() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
         vc.screenShot = screenShot
-        vc.lastScore = 100
+        if let str = scoreLabel.text, let score = Int(str) {
+            vc.lastScore = score
+        }
+        else {
+            vc.lastScore = 0
+        }
         vc.scoreDescription = "Points"
         self.present(vc, animated: true, completion: nil)
     }
@@ -192,7 +195,7 @@ class QuizViewController: PQViewController {
             },
                            completion: {[unowned self] finished in
                             if i == self.anserButtons.count - 1 {
-                                self.countingView.startCounting()
+                                self.countingView?.startCounting()
                             }
             })
         }

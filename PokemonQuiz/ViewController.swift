@@ -30,11 +30,12 @@ class ViewController: PQViewController {
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let height = self.view.bounds.height
         for button in modeButtons {
             button.center.y += height
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.6, animations: {
                 button.center.y -= height
             }, completion: {[unowned self]_ in
                 if button === self.advanceModeButton {
@@ -42,7 +43,6 @@ class ViewController: PQViewController {
                 }
             })
         }
-        super.viewDidAppear(animated)
     }
 
 
