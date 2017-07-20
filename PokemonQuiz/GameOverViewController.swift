@@ -14,6 +14,9 @@ class GameOverViewController: PQViewController {
     let myAppId = "1233818739"
     
     var screenShot: UIImage?
+    var lastScore: Int!
+    var scoreDescription: String!
+    var timer: Timer!
     
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -22,6 +25,7 @@ class GameOverViewController: PQViewController {
     @IBOutlet weak var facebookButton: RoundCornerButton!
     @IBOutlet weak var twitterButton: RoundCornerButton!
 
+    @IBOutlet weak var winQuizCoinLabel: UILabel!
     
     @IBOutlet weak var classicScoreLabel: UILabel!
     @IBOutlet weak var hardScoreLabel: UILabel!
@@ -31,12 +35,68 @@ class GameOverViewController: PQViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the 
+        numberLabel.text = "0"
+        descriptionLabel.text = scoreDescription
+        winQuizCoinLabel.isHidden = true
         
-        // 
-        rateButton.isHidden = true
+        // hide others
+        for v in view.subviews {
+            if v !== numberLabel && v !== descriptionLabel &&
+                v !== winQuizCoinLabel{
+                v.alpha = 0
+            }
+        }
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if lastScore > 0 {
+            timer = Timer.scheduledTimer(timeInterval: 1.0/Double(lastScore), target: self,   selector: (#selector(updateScore)), userInfo: nil, repeats: true)
+        }
+        else {
+            animateOthers()
+        }
+    }
+    
+    @objc func updateScore() {
+        let value = Int(numberLabel.text!)!
+        if value == lastScore {
+            timer.invalidate()
+            animateOthers()
+            self.winQuizCoin(5)
+        }
+        else {
+           numberLabel.text = String(value + 1)
+        }
+    }
+    
+    private func animateOthers() {
+        UIView.animate(withDuration: 0.8, animations:{[unowned self] in
+            for v in self.view.subviews {
+                if v !== self.numberLabel && v !== self.descriptionLabel
+                    && v !== self.winQuizCoinLabel {
+                    v.alpha = 1
+                }
+            }
+        })
+    }
+    
+    private func winQuizCoin(_ value: Int) {
+        let label = winQuizCoinLabel!
+        label.text = "+ \(value) Quiz Coins"
+        label.isHidden = false
+        UIView.animate(withDuration: 1.2, delay: 0,
+                       options: [.curveEaseOut], animations: {
+            label.center.y -= 120
+        }, completion: { _ in
+            label.isHidden = true
+        })
+    }
+    
+    
+    // MASK - social
    
     @IBAction func messageTouchUp(_ sender: Any) {
         if MFMessageComposeViewController.canSendText() {
@@ -52,8 +112,6 @@ class GameOverViewController: PQViewController {
             print("User hasn't setup Messages.app")
         }
     }
-    
-    
     
     @IBAction func facebookTouchUp(_ sender: Any) {
         post(forServiceType: SLServiceTypeFacebook)
@@ -94,9 +152,6 @@ class GameOverViewController: PQViewController {
 extension GameOverViewController: MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController,
                                       didFinishWith result: MessageComposeResult) {
-        // Check the result or perform other tasks.
-        
-        // Dismiss the message compose view controller.
         controller.dismiss(animated: true, completion: nil)
     }
 }

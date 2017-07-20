@@ -262,7 +262,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="1" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="KcR-RG-RlX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="198.5"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokemon" translatesAutoresizingMaskIntoConstraints="NO" id="Fht-8t-84d">
                                 <rect key="frame" x="97.5" y="183.5" width="180" height="180"/>
@@ -272,7 +272,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xOE-EE-RtY">
-                                <rect key="frame" x="16" y="43" width="343" height="72"/>
+                                <rect key="frame" x="16" y="42.5" width="343" height="72"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTD-zL-Ypz">
                                         <rect key="frame" x="0.0" y="0.0" width="114.5" height="72"/>
@@ -660,6 +660,12 @@
                                     <action selector="rateTouchUp:" destination="LUZ-XP-XkG" eventType="touchUpInside" id="KT4-Hw-zZX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 5 Quiz Coins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQ8-da-veJ">
+                                <rect key="frame" x="107" y="177" width="160.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14993786810000001" green="0.53676956890000005" blue="0.90214306119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -676,6 +682,7 @@
                             <constraint firstItem="GLO-bD-9A7" firstAttribute="top" secondItem="k1i-tb-ycL" secondAttribute="bottom" constant="12" id="Hrz-ib-VxG"/>
                             <constraint firstItem="0fi-HD-erl" firstAttribute="centerY" secondItem="LQo-vm-UNk" secondAttribute="centerY" id="J6i-jl-I8q"/>
                             <constraint firstItem="0fi-HD-erl" firstAttribute="centerX" secondItem="nG3-s9-AxX" secondAttribute="centerX" id="KLQ-jb-mcJ"/>
+                            <constraint firstItem="RQ8-da-veJ" firstAttribute="centerX" secondItem="nG3-s9-AxX" secondAttribute="centerX" id="Kcf-xm-5WO"/>
                             <constraint firstItem="qw8-SD-ab0" firstAttribute="leading" secondItem="iyk-fA-gew" secondAttribute="leading" id="Njr-wi-EK6"/>
                             <constraint firstItem="zbA-tf-d5Y" firstAttribute="leading" secondItem="qw8-SD-ab0" secondAttribute="leading" id="OFF-ou-qEe"/>
                             <constraint firstItem="KnX-vh-HgN" firstAttribute="centerY" secondItem="0fi-HD-erl" secondAttribute="centerY" id="OXT-fE-m7g"/>
@@ -695,6 +702,7 @@
                             <constraint firstItem="KBw-Sg-NeS" firstAttribute="centerX" secondItem="nG3-s9-AxX" secondAttribute="centerX" id="hDR-is-eSt"/>
                             <constraint firstItem="qw8-SD-ab0" firstAttribute="top" secondItem="iyk-fA-gew" secondAttribute="bottom" constant="10" id="k27-4v-zgN"/>
                             <constraint firstItem="csq-lp-qeX" firstAttribute="centerY" secondItem="zbA-tf-d5Y" secondAttribute="centerY" id="osi-Ki-mhN"/>
+                            <constraint firstItem="RQ8-da-veJ" firstAttribute="top" secondItem="KBw-Sg-NeS" secondAttribute="bottom" constant="20" id="rok-qu-fK8"/>
                             <constraint firstItem="Nxp-a8-PPm" firstAttribute="centerY" secondItem="qw8-SD-ab0" secondAttribute="centerY" id="sMV-gl-AuY"/>
                             <constraint firstItem="iyk-fA-gew" firstAttribute="top" secondItem="8Tw-mH-dDS" secondAttribute="bottom" constant="25" id="x8C-8b-qD2"/>
                             <constraint firstItem="Nxp-a8-PPm" firstAttribute="trailing" secondItem="g0H-V5-Pgh" secondAttribute="trailing" id="xrh-h0-rgV"/>
@@ -713,6 +721,7 @@
                         <outlet property="numberLabel" destination="TQq-UH-NBV" id="eli-Du-NZQ"/>
                         <outlet property="rateButton" destination="gGv-ph-yLv" id="sg5-vL-yFK"/>
                         <outlet property="twitterButton" destination="KnX-vh-HgN" id="2Jh-bv-mbP"/>
+                        <outlet property="winQuizCoinLabel" destination="RQ8-da-veJ" id="kBL-AX-9Bh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eh-r2-O7U" userLabel="First Responder" sceneMemberID="firstResponder"/>

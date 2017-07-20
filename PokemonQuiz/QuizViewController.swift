@@ -146,6 +146,8 @@ class QuizViewController: PQViewController {
     private func gameOver() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
         vc.screenShot = screenShot
+        vc.lastScore = 100
+        vc.scoreDescription = "Points"
         self.present(vc, animated: true, completion: nil)
     }
     
