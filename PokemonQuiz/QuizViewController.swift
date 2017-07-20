@@ -49,6 +49,7 @@ class QuizViewController: PQViewController {
     @IBOutlet weak var answer2Button: AnswerButton!
     @IBOutlet weak var answer3Button: AnswerButton!
     @IBOutlet weak var answer4Button: AnswerButton!
+    @IBOutlet weak var volumeButton: VolumeButton!
     
     var anserButtons: [AnswerButton]!
     
@@ -56,6 +57,8 @@ class QuizViewController: PQViewController {
     
     private var correctPlayer: AVAudioPlayer?
     private var wrongPlayer: AVAudioPlayer?
+    
+    private var screenShot: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,17 +86,47 @@ class QuizViewController: PQViewController {
         UIGraphicsEndImageContext()
         return result
     }
+    
+    
+    @IBAction func volumeValueChanged(_ sender: VolumeButton) {
+        if !sender.isOn {
+            wrongPlayer?.stop()
+            correctPlayer?.stop()
+        }
+    }
+    
+    private func playSound(correct: Bool) {
+        if volumeButton.isOn {
+            if correct {
+                correctPlayer?.play()
+            }
+            else {
+                wrongPlayer?.play()
+            }
+        }
+    }
+    
+    
 
     @IBAction func answerButtonClick(_ sender: Any) {
-        wrongPlayer?.play()
-        correctPlayer?.play()
+        playSound(correct: true)
     }
+    
   
     @IBAction func countChange(_ sender: CountingView) {
-        print(sender.count)
-        if sender.count == 0 {
-            self.animate(self)
+        if screenShot == nil {
+            screenShot = screenShotImage()
         }
+        if sender.count == 0 {
+            // to do
+            gameOver()
+        }
+    }
+    
+    private func gameOver() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
+        vc.screenShot = screenShot
+        self.present(vc, animated: true, completion: nil)
     }
     
     func loadPlayer(name: String) -> AVAudioPlayer? {
@@ -137,22 +170,4 @@ class QuizViewController: PQViewController {
             }, completion: nil)
     
     }
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

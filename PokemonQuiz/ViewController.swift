@@ -45,13 +45,6 @@ class ViewController: PQViewController {
         super.viewDidAppear(animated)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-   
 
     @IBAction func modeButtonTouchUp(_ sender: ModeButton) {
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "QuizViewController") as! QuizViewController

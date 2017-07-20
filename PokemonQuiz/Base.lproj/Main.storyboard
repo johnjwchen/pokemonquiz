@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LUZ-XP-XkG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -345,13 +345,16 @@
                                     <action selector="animate:" destination="aKU-7G-VKg" eventType="touchUpInside" id="Ve3-80-wcj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMP-Tr-zgG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMP-Tr-zgG" customClass="VolumeButton" customModule="PokemonQuiz" customModuleProvider="target">
                                 <rect key="frame" x="282" y="12" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="1ge-c7-Hea"/>
                                     <constraint firstAttribute="width" constant="22" id="C6d-4m-9gA"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="volume-on"/>
+                                <connections>
+                                    <action selector="volumeValueChanged:" destination="aKU-7G-VKg" eventType="touchUpInside" id="oOa-rk-Dpb"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cXD-UY-tSa">
                                 <rect key="frame" x="16" y="288" width="288" height="184"/>
@@ -432,6 +435,7 @@
                         <outlet property="backgroundImageView" destination="KcR-RG-RlX" id="QcX-XI-ZhF"/>
                         <outlet property="countingView" destination="SBr-Cg-0Lh" id="Rv2-NV-97r"/>
                         <outlet property="pokemonImageView" destination="Fht-8t-84d" id="Gjl-tA-MWN"/>
+                        <outlet property="volumeButton" destination="pMP-Tr-zgG" id="w67-g2-PUd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gov-t0-KKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -441,7 +445,7 @@
         <!--Game Over View Controller-->
         <scene sceneID="u9c-0o-uIa">
             <objects>
-                <viewController id="LUZ-XP-XkG" customClass="GameOverViewController" customModule="PokemonQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameOverViewController" id="LUZ-XP-XkG" customClass="GameOverViewController" customModule="PokemonQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k1i-tb-ycL"/>
                         <viewControllerLayoutGuide type="bottom" id="s0S-n7-Tzh"/>
@@ -458,7 +462,7 @@
                                 </constraints>
                                 <state key="normal" image="back"/>
                                 <connections>
-                                    <action selector="backButtonClick:" destination="EbT-0B-Cgw" eventType="touchUpInside" id="F10-hR-anc"/>
+                                    <action selector="backTouchUp:" destination="LUZ-XP-XkG" eventType="touchUpInside" id="0Gh-Yt-QRx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pk-xM-MoF">
@@ -501,20 +505,25 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="twitterTouchUp:" destination="LUZ-XP-XkG" eventType="touchUpInside" id="nIB-sE-RRc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQo-vm-UNk" customClass="RoundCornerButton" customModule="PokemonQuiz" customModuleProvider="target">
                                 <rect key="frame" x="50" y="170" width="44" height="44"/>
-                                <color key="backgroundColor" red="0.019607843140000001" green="0.62352941179999999" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="5Yg-Zg-5C9"/>
                                     <constraint firstAttribute="height" constant="44" id="Po8-It-Dni"/>
                                 </constraints>
-                                <state key="normal" image="share"/>
+                                <state key="normal" image="message"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="messageTouchUp:" destination="LUZ-XP-XkG" eventType="touchUpInside" id="Vhp-El-133"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fi-HD-erl" customClass="RoundCornerButton" customModule="PokemonQuiz" customModuleProvider="target">
                                 <rect key="frame" x="138" y="170" width="44" height="44"/>
@@ -529,6 +538,9 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="facebookTouchUp:" destination="LUZ-XP-XkG" eventType="touchUpInside" id="dEL-FC-8dp"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hight scores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tw-mH-dDS">
                                 <rect key="frame" x="71" y="260" width="178" height="21"/>
@@ -620,6 +632,9 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="rateTouchUp:" destination="LUZ-XP-XkG" eventType="touchUpInside" id="KT4-Hw-zZX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14993786810000001" green="0.53676956890000005" blue="0.90214306119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -664,10 +679,21 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="advanceScoreLabel" destination="csq-lp-qeX" id="8pX-b8-J3e"/>
+                        <outlet property="classicScoreLabel" destination="g0H-V5-Pgh" id="Ygn-2Y-cMf"/>
+                        <outlet property="descriptionLabel" destination="KBw-Sg-NeS" id="MMf-Tf-rh2"/>
+                        <outlet property="facebookButton" destination="0fi-HD-erl" id="d5Y-zE-ALZ"/>
+                        <outlet property="hardScoreLabel" destination="Nxp-a8-PPm" id="DHU-T1-NW8"/>
+                        <outlet property="messageButton" destination="LQo-vm-UNk" id="90l-KG-Kvg"/>
+                        <outlet property="numberLabel" destination="TQq-UH-NBV" id="eli-Du-NZQ"/>
+                        <outlet property="rateButton" destination="gGv-ph-yLv" id="sg5-vL-yFK"/>
+                        <outlet property="twitterButton" destination="KnX-vh-HgN" id="2Jh-bv-mbP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eh-r2-O7U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1633.125" y="-7.5"/>
+            <point key="canvasLocation" x="1554" y="34"/>
         </scene>
     </scenes>
     <resources>
@@ -677,9 +703,9 @@
         <image name="bulb" width="60" height="60"/>
         <image name="facebook" width="44" height="44"/>
         <image name="hard" width="60" height="60"/>
+        <image name="message" width="44" height="44"/>
         <image name="pokemon" width="356" height="388"/>
         <image name="pokgear" width="30" height="30"/>
-        <image name="share" width="44" height="44"/>
         <image name="shoping-cart" width="30" height="30"/>
         <image name="thumb-up" width="44" height="44"/>
         <image name="twitter" width="44" height="44"/>
