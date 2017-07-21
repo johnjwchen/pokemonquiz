@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Kingfisher
 
 enum QuizMode {
     case classic
@@ -72,6 +73,9 @@ class QuizViewController: PQViewController {
             backgroundImageView.image = ImageProcess.maskImage(image, color: color)
         }
         // pokemonImageView.image = ImageProcess.maskImage(pokemonImageView.image!, color: UIColor.darkGray)
+        let random = arc4random_uniform(722)
+        let url = Downloader.imageURL(ofPokemonId: random)
+        pokemonImageView.kf.setImage(with: url)
         if quizMode == .advance {
             countingView?.removeFromSuperview()
             countingView = nil

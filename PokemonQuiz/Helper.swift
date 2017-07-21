@@ -23,3 +23,9 @@ class ImageProcess {
         return result
     }
 }
+
+class Downloader {
+    class func imageURL(ofPokemonId pokemonid: UInt32) -> URL? {
+        return URL(string: String(format: "https://pokedex.me/new-pokemon/480/%03d.png", pokemonid))
+    }
+}

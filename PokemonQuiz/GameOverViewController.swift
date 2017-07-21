@@ -18,6 +18,7 @@ class GameOverViewController: PQViewController {
     var scoreDescription: String!
     var timer: Timer!
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var messageButton: RoundCornerButton!
@@ -53,6 +54,7 @@ class GameOverViewController: PQViewController {
         super.viewWillAppear(animated)
         
         if lastScore > 0 {
+            titleLabel.text = lastScore > 900 ? "Congrats" : "Game Over"
             timer = Timer.scheduledTimer(timeInterval: 1.0/Double(lastScore), target: self,   selector: (#selector(updateScore)), userInfo: nil, repeats: true)
         }
         else {

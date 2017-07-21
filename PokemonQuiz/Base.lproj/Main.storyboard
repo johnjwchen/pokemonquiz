@@ -715,6 +715,7 @@
                         <outlet property="messageButton" destination="LQo-vm-UNk" id="90l-KG-Kvg"/>
                         <outlet property="numberLabel" destination="TQq-UH-NBV" id="eli-Du-NZQ"/>
                         <outlet property="rateButton" destination="gGv-ph-yLv" id="sg5-vL-yFK"/>
+                        <outlet property="titleLabel" destination="7Pk-xM-MoF" id="aaM-Sk-aml"/>
                         <outlet property="twitterButton" destination="KnX-vh-HgN" id="2Jh-bv-mbP"/>
                         <outlet property="winQuizCoinLabel" destination="RQ8-da-veJ" id="kBL-AX-9Bh"/>
                     </connections>

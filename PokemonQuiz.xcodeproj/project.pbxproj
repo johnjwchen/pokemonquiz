@@ -27,6 +27,7 @@
 		4EDABE6C1F1D417D0061AC56 /* PQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6B1F1D417D0061AC56 /* PQViewController.swift */; };
 		4EDABE6E1F1D93C60061AC56 /* ModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6D1F1D93C60061AC56 /* ModeButton.swift */; };
 		4EDABE701F1D9ED30061AC56 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */; };
+		A632BF3B40012C72F5A1F8D4 /* Pods_PokemonQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700C60492099383B83987D63 /* Pods_PokemonQuiz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13B5749BDDC2C3260B7A45DC /* Pods-PokemonQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonQuiz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonQuiz/Pods-PokemonQuiz.debug.xcconfig"; sourceTree = "<group>"; };
 		4E5165401F1C24790095D36F /* PokemonQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E5165431F1C24790095D36F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E5165451F1C24790095D36F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,8 @@
 		4EDABE6B1F1D417D0061AC56 /* PQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PQViewController.swift; sourceTree = "<group>"; };
 		4EDABE6D1F1D93C60061AC56 /* ModeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeButton.swift; sourceTree = "<group>"; };
 		4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
+		700C60492099383B83987D63 /* Pods_PokemonQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE53EBE99E5C6D8F521ADFB9 /* Pods-PokemonQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonQuiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonQuiz/Pods-PokemonQuiz.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A632BF3B40012C72F5A1F8D4 /* Pods_PokemonQuiz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +112,8 @@
 				4E5165571F1C24790095D36F /* PokemonQuizTests */,
 				4E5165621F1C247A0095D36F /* PokemonQuizUITests */,
 				4E5165411F1C24790095D36F /* Products */,
+				7BC87179021CAE39C4FDFC36 /* Pods */,
+				6D5B1D95EA49AE909CBC5F21 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +171,23 @@
 			path = PokemonQuizUITests;
 			sourceTree = "<group>";
 		};
+		6D5B1D95EA49AE909CBC5F21 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				700C60492099383B83987D63 /* Pods_PokemonQuiz.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7BC87179021CAE39C4FDFC36 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				13B5749BDDC2C3260B7A45DC /* Pods-PokemonQuiz.debug.xcconfig */,
+				AE53EBE99E5C6D8F521ADFB9 /* Pods-PokemonQuiz.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -171,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E5165681F1C247A0095D36F /* Build configuration list for PBXNativeTarget "PokemonQuiz" */;
 			buildPhases = (
+				9A04FE77E18510C53DC7FB44 /* [CP] Check Pods Manifest.lock */,
 				4E51653C1F1C24790095D36F /* Sources */,
 				4E51653D1F1C24790095D36F /* Frameworks */,
 				4E51653E1F1C24790095D36F /* Resources */,
+				B13B877B6794744720E74A81 /* [CP] Embed Pods Frameworks */,
+				8A2ACD79C854EB6478573A12 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,6 +324,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8A2ACD79C854EB6478573A12 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PokemonQuiz/Pods-PokemonQuiz-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A04FE77E18510C53DC7FB44 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B13B877B6794744720E74A81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PokemonQuiz/Pods-PokemonQuiz-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4E51653C1F1C24790095D36F /* Sources */ = {
@@ -467,6 +542,7 @@
 		};
 		4E5165691F1C247A0095D36F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13B5749BDDC2C3260B7A45DC /* Pods-PokemonQuiz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 99V67VH5PP;
@@ -481,6 +557,7 @@
 		};
 		4E51656A1F1C247A0095D36F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE53EBE99E5C6D8F521ADFB9 /* Pods-PokemonQuiz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 99V67VH5PP;
