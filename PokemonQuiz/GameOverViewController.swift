@@ -39,6 +39,13 @@ class GameOverViewController: PQViewController {
         numberLabel.text = "0"
         descriptionLabel.text = scoreDescription
         winQuizCoinLabel.isHidden = true
+        if lastScore > 900 {
+            titleLabel.text = "Congrats"
+            rateButton.isHidden = false
+        }
+        else {
+            rateButton.isHidden = true
+        }
         
         // hide others
         for v in view.subviews {
@@ -54,7 +61,6 @@ class GameOverViewController: PQViewController {
         super.viewWillAppear(animated)
         
         if lastScore > 0 {
-            titleLabel.text = lastScore > 900 ? "Congrats" : "Game Over"
             timer = Timer.scheduledTimer(timeInterval: 1.0/Double(lastScore), target: self,   selector: (#selector(updateScore)), userInfo: nil, repeats: true)
         }
         else {
