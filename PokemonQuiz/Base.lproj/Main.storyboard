@@ -173,6 +173,9 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buyButtonTouchUpWithSender:" destination="EbT-0B-Cgw" eventType="touchUpInside" id="m4n-67-aHO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K84-Ze-8IY" customClass="ResponableButton" customModule="PokemonQuiz" customModuleProvider="target">
                                 <rect key="frame" x="16" y="138" width="288" height="46"/>
@@ -188,6 +191,9 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buyButtonTouchUpWithSender:" destination="EbT-0B-Cgw" eventType="touchUpInside" id="A6p-gY-ftJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoR-bH-szE" customClass="ResponableButton" customModule="PokemonQuiz" customModuleProvider="target">
                                 <rect key="frame" x="16" y="200" width="288" height="46"/>
@@ -198,12 +204,15 @@
                                     <constraint firstAttribute="height" constant="46" id="zjI-bY-7YJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <state key="normal" title="150 Quiz Coins / $1.99"/>
+                                <state key="normal" title="500 Quiz Coins / $4.99"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buyButtonTouchUpWithSender:" destination="EbT-0B-Cgw" eventType="touchUpInside" id="Va7-cf-uZx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTM-YT-Jn4" customClass="ResponableButton" customModule="PokemonQuiz" customModuleProvider="target">
                                 <rect key="frame" x="16" y="312" width="288" height="46"/>
@@ -220,13 +229,21 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buyButtonTouchUpWithSender:" destination="EbT-0B-Cgw" eventType="touchUpInside" id="gOz-Ei-PFF"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="aDF-5m-JOZ">
+                                <rect key="frame" x="150" y="230" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="K84-Ze-8IY" firstAttribute="top" secondItem="No0-a0-LLq" secondAttribute="bottom" constant="16" id="3lD-wG-278"/>
                             <constraint firstItem="hAy-C5-yAs" firstAttribute="top" secondItem="iR8-l4-uFl" secondAttribute="bottom" constant="3" id="Afu-jU-up3"/>
                             <constraint firstItem="hAy-C5-yAs" firstAttribute="leading" secondItem="TQv-t9-d76" secondAttribute="leadingMargin" constant="-8" id="B47-u8-3mY"/>
+                            <constraint firstItem="aDF-5m-JOZ" firstAttribute="centerX" secondItem="TQv-t9-d76" secondAttribute="centerX" id="DAC-0c-dT7"/>
+                            <constraint firstItem="aDF-5m-JOZ" firstAttribute="centerY" secondItem="TQv-t9-d76" secondAttribute="centerY" id="VkS-zr-2se"/>
                             <constraint firstItem="NTM-YT-Jn4" firstAttribute="top" secondItem="QoR-bH-szE" secondAttribute="bottom" constant="66" id="Z7Z-ap-tYx"/>
                             <constraint firstItem="8g7-fi-3Dd" firstAttribute="top" secondItem="iR8-l4-uFl" secondAttribute="bottom" constant="12" id="aeS-ie-3Qz"/>
                             <constraint firstItem="QoR-bH-szE" firstAttribute="centerX" secondItem="TQv-t9-d76" secondAttribute="centerX" id="de2-yz-k03"/>
@@ -242,7 +259,12 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="ativityIndicatorView" destination="aDF-5m-JOZ" id="ELU-xc-BTC"/>
                         <outlet property="backButton" destination="hAy-C5-yAs" id="swd-rW-FKQ"/>
+                        <outlet property="buy150CoinsButton" destination="K84-Ze-8IY" id="5Ua-ti-e72"/>
+                        <outlet property="buy500CoinsButton" destination="QoR-bH-szE" id="PxV-Wc-rGm"/>
+                        <outlet property="buy50CoinsButton" destination="No0-a0-LLq" id="1Wi-Ia-7iR"/>
+                        <outlet property="watchAdButton" destination="NTM-YT-Jn4" id="LV2-LE-obh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQ0-dV-s1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -561,7 +583,7 @@
                                     <action selector="facebookTouchUp:" destination="LUZ-XP-XkG" eventType="touchUpInside" id="dEL-FC-8dp"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hight scores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tw-mH-dDS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hight Scores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tw-mH-dDS">
                                 <rect key="frame" x="118" y="362.33333333333331" width="178" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="178" id="K0v-Gc-vts"/>

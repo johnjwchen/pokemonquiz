@@ -18,6 +18,7 @@ class ViewController: PQViewController {
 
     @IBOutlet weak var advanceModeButton: ModeButton!
     
+    
     var modeButtons: [ModeButton]!
     
     override func viewDidLoad() {

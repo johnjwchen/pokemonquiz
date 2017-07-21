@@ -27,6 +27,8 @@
 		4EDABE6C1F1D417D0061AC56 /* PQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6B1F1D417D0061AC56 /* PQViewController.swift */; };
 		4EDABE6E1F1D93C60061AC56 /* ModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6D1F1D93C60061AC56 /* ModeButton.swift */; };
 		4EDABE701F1D9ED30061AC56 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */; };
+		4EF40F7F1F21BBBB001EB775 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F7E1F21BBBB001EB775 /* GameKit.framework */; };
+		4EF40F811F21BBCC001EB775 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F801F21BBCC001EB775 /* StoreKit.framework */; };
 		A632BF3B40012C72F5A1F8D4 /* Pods_PokemonQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700C60492099383B83987D63 /* Pods_PokemonQuiz.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		4EDABE6B1F1D417D0061AC56 /* PQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PQViewController.swift; sourceTree = "<group>"; };
 		4EDABE6D1F1D93C60061AC56 /* ModeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeButton.swift; sourceTree = "<group>"; };
 		4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
+		4EF40F7E1F21BBBB001EB775 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		4EF40F801F21BBCC001EB775 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		700C60492099383B83987D63 /* Pods_PokemonQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE53EBE99E5C6D8F521ADFB9 /* Pods-PokemonQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonQuiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonQuiz/Pods-PokemonQuiz.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +88,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EF40F811F21BBCC001EB775 /* StoreKit.framework in Frameworks */,
 				A632BF3B40012C72F5A1F8D4 /* Pods_PokemonQuiz.framework in Frameworks */,
+				4EF40F7F1F21BBBB001EB775 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +180,8 @@
 		6D5B1D95EA49AE909CBC5F21 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4EF40F801F21BBCC001EB775 /* StoreKit.framework */,
+				4EF40F7E1F21BBBB001EB775 /* GameKit.framework */,
 				700C60492099383B83987D63 /* Pods_PokemonQuiz.framework */,
 			);
 			name = Frameworks;
@@ -261,6 +269,14 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 99V67VH5PP;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					4E5165531F1C24790095D36F = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -544,6 +560,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13B5749BDDC2C3260B7A45DC /* Pods-PokemonQuiz.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 99V67VH5PP;
 				INFOPLIST_FILE = PokemonQuiz/Info.plist;
@@ -559,6 +576,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AE53EBE99E5C6D8F521ADFB9 /* Pods-PokemonQuiz.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 99V67VH5PP;
 				INFOPLIST_FILE = PokemonQuiz/Info.plist;
