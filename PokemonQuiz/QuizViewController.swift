@@ -91,6 +91,8 @@ class QuizViewController: PQViewController {
         correctPlayer = loadPlayer(name: "correctSound")
         
         self.winPointsLabel.isHidden = true
+        
+        Chartboost.cacheInterstitial(CBLocationGameOver)
     }
     
     

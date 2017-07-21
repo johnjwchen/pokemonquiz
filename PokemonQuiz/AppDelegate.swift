@@ -12,10 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let chartboostAppId = "59725c27f6cd4506db8ffa78"
+    let chartboostAppSignature = "40995a846a268ebffc5863a7ebef775031d0aded"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        Chartboost.start(withAppId: chartboostAppId, appSignature: chartboostAppSignature, delegate: nil)
+
+        Chartboost.setAutoCacheAds(true)
+        
         application.isStatusBarHidden = true
         return true
     }

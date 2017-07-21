@@ -29,6 +29,10 @@
 		4EDABE701F1D9ED30061AC56 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */; };
 		4EF40F7F1F21BBBB001EB775 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F7E1F21BBBB001EB775 /* GameKit.framework */; };
 		4EF40F811F21BBCC001EB775 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F801F21BBCC001EB775 /* StoreKit.framework */; };
+		4EF40F831F228FCE001EB775 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F821F228FCE001EB775 /* Foundation.framework */; };
+		4EF40F851F228FD6001EB775 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F841F228FD6001EB775 /* CoreGraphics.framework */; };
+		4EF40F871F228FDE001EB775 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F861F228FDE001EB775 /* UIKit.framework */; };
+		4EF40F8A1F229108001EB775 /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F891F229108001EB775 /* Chartboost.framework */; };
 		A632BF3B40012C72F5A1F8D4 /* Pods_PokemonQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700C60492099383B83987D63 /* Pods_PokemonQuiz.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +83,11 @@
 		4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		4EF40F7E1F21BBBB001EB775 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		4EF40F801F21BBCC001EB775 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		4EF40F821F228FCE001EB775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4EF40F841F228FD6001EB775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4EF40F861F228FDE001EB775 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4EF40F891F229108001EB775 /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Chartboost.framework; sourceTree = "<group>"; };
+		4EF40F8B1F229305001EB775 /* PokemonQuiz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PokemonQuiz-Bridging-Header.h"; sourceTree = "<group>"; };
 		700C60492099383B83987D63 /* Pods_PokemonQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE53EBE99E5C6D8F521ADFB9 /* Pods-PokemonQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonQuiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonQuiz/Pods-PokemonQuiz.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +97,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EF40F8A1F229108001EB775 /* Chartboost.framework in Frameworks */,
+				4EF40F871F228FDE001EB775 /* UIKit.framework in Frameworks */,
+				4EF40F851F228FD6001EB775 /* CoreGraphics.framework in Frameworks */,
+				4EF40F831F228FCE001EB775 /* Foundation.framework in Frameworks */,
 				4EF40F811F21BBCC001EB775 /* StoreKit.framework in Frameworks */,
 				A632BF3B40012C72F5A1F8D4 /* Pods_PokemonQuiz.framework in Frameworks */,
 				4EF40F7F1F21BBBB001EB775 /* GameKit.framework in Frameworks */,
@@ -155,6 +168,7 @@
 				4E51654A1F1C24790095D36F /* Assets.xcassets */,
 				4E51654C1F1C24790095D36F /* LaunchScreen.storyboard */,
 				4E51654F1F1C24790095D36F /* Info.plist */,
+				4EF40F8B1F229305001EB775 /* PokemonQuiz-Bridging-Header.h */,
 			);
 			path = PokemonQuiz;
 			sourceTree = "<group>";
@@ -180,6 +194,10 @@
 		6D5B1D95EA49AE909CBC5F21 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4EF40F891F229108001EB775 /* Chartboost.framework */,
+				4EF40F861F228FDE001EB775 /* UIKit.framework */,
+				4EF40F841F228FD6001EB775 /* CoreGraphics.framework */,
+				4EF40F821F228FCE001EB775 /* Foundation.framework */,
 				4EF40F801F21BBCC001EB775 /* StoreKit.framework */,
 				4EF40F7E1F21BBBB001EB775 /* GameKit.framework */,
 				700C60492099383B83987D63 /* Pods_PokemonQuiz.framework */,
@@ -268,6 +286,7 @@
 					4E51653F1F1C24790095D36F = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 99V67VH5PP;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
@@ -562,12 +581,19 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 99V67VH5PP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PokemonQuiz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pokgear.PokemonQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PokemonQuiz/PokemonQuiz-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -578,12 +604,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 99V67VH5PP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PokemonQuiz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pokgear.PokemonQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PokemonQuiz/PokemonQuiz-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

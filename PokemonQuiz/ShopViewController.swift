@@ -10,7 +10,7 @@ import UIKit
 import StoreKit
 
 class ShopViewController: PQViewController {
-    static var productDictionary = [String: SKProduct]()
+    fileprivate var productDictionary = [String: SKProduct]()
     static let buy50CoinsProductId = "com.pokgear.pokemonquiz.50coins"
     static let buy150CoinsProductId = "com.pokgear.pokemonquiz.150coins"
     static let buy500CoinsProductId = "com.pokgear.pokemonquiz.500coins"
@@ -29,16 +29,12 @@ class ShopViewController: PQViewController {
         super.viewDidLoad()
         self.popoverPresentationController!.delegate = self
         
-        if ShopViewController.productDictionary.count == 0 {
-            requestAllProducts()
-            buyButtons = [buy50CoinsButton, buy150CoinsButton, buy500CoinsButton, watchAdButton]
-            for button in buyButtons {
-                button.isHidden = true
-            }
-        }
-        else {
-            ativityIndicatorView?.stopAnimating()
-            ativityIndicatorView?.removeFromSuperview()
+        Chartboost.cacheRewardedVideo(CBLocationIAPStore)
+        
+        requestAllProducts()
+        buyButtons = [buy50CoinsButton, buy150CoinsButton, buy500CoinsButton, watchAdButton]
+        for button in buyButtons {
+            button.isHidden = true
         }
     }
     
@@ -53,7 +49,7 @@ class ShopViewController: PQViewController {
             buyProduct(ofProductId: ShopViewController.buy500CoinsProductId)
         }
         else {
-            // todo show ad
+            Chartboost.showRewardedVideo(CBLocationIAPStore)
         }
     }
     
@@ -82,8 +78,8 @@ extension ShopViewController: SKProductsRequestDelegate {
     }
     
     public func buyProduct(ofProductId productId: String) {
-        if let product = ShopViewController.productDictionary[productId],
-           SKPaymentQueue.canMakePayments() {
+        print(productDictionary)
+        if let product = productDictionary[productId] {
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(payment)
         }
@@ -92,7 +88,7 @@ extension ShopViewController: SKProductsRequestDelegate {
     public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         let products = response.products
         for p in products {
-            ShopViewController.productDictionary[p.productIdentifier] = p
+            productDictionary[p.productIdentifier] = p
         }
         for button in buyButtons {
             button.isHidden = false
