@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hRw-oe-tTQ" customClass="ModeButton" customModule="PokemonQuiz" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRw-oe-tTQ" customClass="ModeButton" customModule="PokemonQuiz" customModuleProvider="target">
                                 <rect key="frame" x="63" y="478" width="288" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -38,7 +38,7 @@
                                     <action selector="modeButtonTouchUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RRf-ec-jbP"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gMR-qs-v2H" customClass="ModeButton" customModule="PokemonQuiz" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMR-qs-v2H" customClass="ModeButton" customModule="PokemonQuiz" customModuleProvider="target">
                                 <rect key="frame" x="63" y="368" width="288" height="80"/>
                                 <color key="backgroundColor" red="0.99897521730000005" green="0.1750747859" blue="0.50217622520000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -54,7 +54,7 @@
                                     <action selector="modeButtonTouchUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="prv-d4-evm"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uZI-PW-fwi" customClass="ModeButton" customModule="PokemonQuiz" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZI-PW-fwi" customClass="ModeButton" customModule="PokemonQuiz" customModuleProvider="target">
                                 <rect key="frame" x="63" y="258" width="288" height="80"/>
                                 <color key="backgroundColor" red="0.14901960784313725" green="0.53725490196078429" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -237,6 +237,15 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="aDF-5m-JOZ">
                                 <rect key="frame" x="150" y="230" width="20" height="20"/>
                             </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 300 Quiz Coins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9o-Bb-KgF">
+                                <rect key="frame" x="40" y="274.66666666666674" width="240" height="31.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Mxb-Yg-yKU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -245,9 +254,11 @@
                             <constraint firstItem="hAy-C5-yAs" firstAttribute="leading" secondItem="TQv-t9-d76" secondAttribute="leadingMargin" constant="-8" id="B47-u8-3mY"/>
                             <constraint firstItem="aDF-5m-JOZ" firstAttribute="centerX" secondItem="TQv-t9-d76" secondAttribute="centerX" id="DAC-0c-dT7"/>
                             <constraint firstItem="aDF-5m-JOZ" firstAttribute="centerY" secondItem="TQv-t9-d76" secondAttribute="centerY" id="VkS-zr-2se"/>
+                            <constraint firstItem="NTM-YT-Jn4" firstAttribute="top" secondItem="t9o-Bb-KgF" secondAttribute="bottom" constant="6" id="Wey-vZ-hV3"/>
                             <constraint firstItem="NTM-YT-Jn4" firstAttribute="top" secondItem="QoR-bH-szE" secondAttribute="bottom" constant="66" id="Z7Z-ap-tYx"/>
                             <constraint firstItem="8g7-fi-3Dd" firstAttribute="top" secondItem="iR8-l4-uFl" secondAttribute="bottom" constant="12" id="aeS-ie-3Qz"/>
                             <constraint firstItem="QoR-bH-szE" firstAttribute="centerX" secondItem="TQv-t9-d76" secondAttribute="centerX" id="de2-yz-k03"/>
+                            <constraint firstItem="t9o-Bb-KgF" firstAttribute="centerX" secondItem="TQv-t9-d76" secondAttribute="centerX" id="j2S-Th-JjO"/>
                             <constraint firstItem="8g7-fi-3Dd" firstAttribute="centerX" secondItem="TQv-t9-d76" secondAttribute="centerX" id="kCF-oY-Y4x"/>
                             <constraint firstItem="No0-a0-LLq" firstAttribute="top" secondItem="8g7-fi-3Dd" secondAttribute="bottom" constant="40" id="kT4-tt-7uf"/>
                             <constraint firstItem="No0-a0-LLq" firstAttribute="centerX" secondItem="TQv-t9-d76" secondAttribute="centerX" id="uy4-ej-BTD"/>
@@ -260,6 +271,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addCoinsLabel" destination="t9o-Bb-KgF" id="F7x-vf-5EZ"/>
                         <outlet property="ativityIndicatorView" destination="aDF-5m-JOZ" id="ELU-xc-BTC"/>
                         <outlet property="backButton" destination="hAy-C5-yAs" id="swd-rW-FKQ"/>
                         <outlet property="buy150CoinsButton" destination="K84-Ze-8IY" id="5Ua-ti-e72"/>
@@ -270,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQ0-dV-s1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840" y="-685"/>
+            <point key="canvasLocation" x="839.13043478260875" y="-685.59782608695662"/>
         </scene>
         <!--Quiz View Controller-->
         <scene sceneID="ibr-jI-Rz8">

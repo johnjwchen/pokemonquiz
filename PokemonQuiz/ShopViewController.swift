@@ -18,6 +18,9 @@ class ShopViewController: PQViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var ativityIndicatorView: UIActivityIndicatorView?
     
+    @IBOutlet weak var addCoinsLabel: UILabel!
+    fileprivate var coinsToAdd = 10
+    
     @IBOutlet weak var buy50CoinsButton: ResponableButton!
     @IBOutlet weak var buy150CoinsButton: ResponableButton!
     @IBOutlet weak var buy500CoinsButton: ResponableButton!
@@ -36,6 +39,34 @@ class ShopViewController: PQViewController {
         }
         
         Chartboost.setDelegate(self)
+    }
+    
+    fileprivate func animateAddCoins() {
+        if coinsToAdd > 0 {
+            addCoinsLabel.text = "+ \(coinsToAdd) Quiz Coins"
+            addCoinsLabel.isHidden = false
+            User.current.quizCoins += coinsToAdd
+            coinsToAdd = 0
+
+            self.addCoinsLabel.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+            UIView.animate(withDuration: 0.6,
+                animations: {[unowned self] in
+                self.addCoinsLabel.transform = CGAffineTransform.identity
+            },
+                completion: { _ in
+                    UIView.animate(withDuration: 0.6, delay: 1.2,
+                                   options:[.curveEaseIn],
+                                   animations: {[unowned self] in
+                                    self.addCoinsLabel.center.y -= 80
+                                    self.addCoinsLabel.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+                        }, completion: {[unowned self] _ in
+                            self.addCoinsLabel.isHidden = true
+                            self.addCoinsLabel.center.y += 80
+                            self.addCoinsLabel.transform = CGAffineTransform.identity
+                    })
+                    
+            })
+        }
     }
     
     @IBAction func buyButtonTouchUp(sender: AnyObject) {
@@ -90,9 +121,7 @@ extension ShopViewController: SKProductsRequestDelegate {
             productDictionary[p.productIdentifier] = p
         }
         for button in buyButtons {
-            //if button != watchAdButton || Chartboost.hasRewardedVideo(CBLocationIAPStore) {
-                button.isHidden = false
-            //}
+            button.isHidden = false
         }
         ativityIndicatorView?.stopAnimating()
         ativityIndicatorView?.removeFromSuperview()
@@ -113,7 +142,13 @@ extension ShopViewController: ChartboostDelegate {
     
     func didCompleteRewardedVideo(_ location: String!, withReward reward: Int32) {
         if location == CBLocationIAPStore {
-            // add store
+            coinsToAdd = Int(reward)
+        }
+    }
+    
+    func didDismissRewardedVideo(_ location: String!) {
+        if location == CBLocationIAPStore {
+            animateAddCoins()
         }
     }
 }
