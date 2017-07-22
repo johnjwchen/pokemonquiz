@@ -28,14 +28,14 @@ class ShopViewController: PQViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.popoverPresentationController!.delegate = self
-        
-        Chartboost.cacheRewardedVideo(CBLocationIAPStore)
-        
+
         requestAllProducts()
         buyButtons = [buy50CoinsButton, buy150CoinsButton, buy500CoinsButton, watchAdButton]
         for button in buyButtons {
             button.isHidden = true
         }
+        
+        Chartboost.setDelegate(self)
     }
     
     @IBAction func buyButtonTouchUp(sender: AnyObject) {
@@ -78,7 +78,6 @@ extension ShopViewController: SKProductsRequestDelegate {
     }
     
     public func buyProduct(ofProductId productId: String) {
-        print(productDictionary)
         if let product = productDictionary[productId] {
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(payment)
@@ -91,7 +90,9 @@ extension ShopViewController: SKProductsRequestDelegate {
             productDictionary[p.productIdentifier] = p
         }
         for button in buyButtons {
-            button.isHidden = false
+            //if button != watchAdButton || Chartboost.hasRewardedVideo(CBLocationIAPStore) {
+                button.isHidden = false
+            //}
         }
         ativityIndicatorView?.stopAnimating()
         ativityIndicatorView?.removeFromSuperview()
@@ -101,4 +102,18 @@ extension ShopViewController: SKProductsRequestDelegate {
         // do nothing
     }
 
+}
+
+extension ShopViewController: ChartboostDelegate {
+    func didCache(inPlay location: String!) {
+        if location == CBLocationIAPStore {
+            watchAdButton.isHighlighted = false
+        }
+    }
+    
+    func didCompleteRewardedVideo(_ location: String!, withReward reward: Int32) {
+        if location == CBLocationIAPStore {
+            // add store
+        }
+    }
 }

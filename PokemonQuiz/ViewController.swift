@@ -35,6 +35,8 @@ class ViewController: PQViewController {
         } catch let error as NSError {
             print("Failed to set the audio session category and mode: \(error.localizedDescription)")
         }
+        
+        Chartboost.cacheRewardedVideo(CBLocationIAPStore)
 
     }
     
