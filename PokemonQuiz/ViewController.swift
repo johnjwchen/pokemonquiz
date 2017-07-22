@@ -13,9 +13,8 @@ class ViewController: PQViewController {
     let pokgearIdentifier = "849383046"
     
     @IBOutlet weak var classicModeButton: ModeButton!
-    
     @IBOutlet weak var hardModeButton: ModeButton!
-
+    @IBOutlet weak var quizCoinsLabel: UILabel!
     @IBOutlet weak var advanceModeButton: ModeButton!
     
     
@@ -47,6 +46,10 @@ class ViewController: PQViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // load the quiz coins
+        quizCoinsLabel.text = String(format: "%d Quiz Coins", User.current.quizCoins)
+        
         let height = self.view.bounds.height
         for button in modeButtons {
             button.center.y += height

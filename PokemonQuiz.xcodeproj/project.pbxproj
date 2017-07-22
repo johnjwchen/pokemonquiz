@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E21DDC21F23117300DC6EB5 /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E21DDC11F23117300DC6EB5 /* KeychainSwift.swift */; };
 		4E5165441F1C24790095D36F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5165431F1C24790095D36F /* AppDelegate.swift */; };
 		4E5165461F1C24790095D36F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5165451F1C24790095D36F /* ViewController.swift */; };
 		4E5165491F1C24790095D36F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E5165471F1C24790095D36F /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		13B5749BDDC2C3260B7A45DC /* Pods-PokemonQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonQuiz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonQuiz/Pods-PokemonQuiz.debug.xcconfig"; sourceTree = "<group>"; };
+		4E21DDC11F23117300DC6EB5 /* KeychainSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
 		4E5165401F1C24790095D36F /* PokemonQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E5165431F1C24790095D36F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E5165451F1C24790095D36F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				4EDABE671F1D39580061AC56 /* CountingView.swift */,
 				4EDABE651F1D365C0061AC56 /* CountingView.xib */,
 				4E51654A1F1C24790095D36F /* Assets.xcassets */,
+				4E21DDC11F23117300DC6EB5 /* KeychainSwift.swift */,
 				4E51654C1F1C24790095D36F /* LaunchScreen.storyboard */,
 				4E51654F1F1C24790095D36F /* Info.plist */,
 				4EF40F8B1F229305001EB775 /* PokemonQuiz-Bridging-Header.h */,
@@ -424,6 +427,7 @@
 				4E9A33A31F1E962500B90F87 /* ShopViewController.swift in Sources */,
 				4EDABE701F1D9ED30061AC56 /* AnswerButton.swift in Sources */,
 				4E9AFAB71F21543100BA0A1D /* Helper.swift in Sources */,
+				4E21DDC21F23117300DC6EB5 /* KeychainSwift.swift in Sources */,
 				4E5165441F1C24790095D36F /* AppDelegate.swift in Sources */,
 				4EDABE681F1D39580061AC56 /* CountingView.swift in Sources */,
 			);

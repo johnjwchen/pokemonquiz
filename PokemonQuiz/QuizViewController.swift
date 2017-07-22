@@ -92,6 +92,7 @@ class QuizViewController: PQViewController {
         
         self.winPointsLabel.isHidden = true
         
+        Chartboost.setDelegate(self)
         Chartboost.cacheInterstitial(CBLocationGameOver)
     }
     
@@ -148,6 +149,18 @@ class QuizViewController: PQViewController {
     }
     
     private func gameOver() {
+        User.current.gameOverTimes += 1
+        print(User.current.gameOverTimes)
+        if User.current.gameOverTimes > Setting.main.gameOverAdFreeTimes &&
+            User.current.gameOverTimes % Setting.main.gameOverAdShowPeriod == 0 {
+            Chartboost.showInterstitial(CBLocationGameOver)
+        }
+        else {
+            presentGameOver(animated: true)
+        }
+    }
+    
+    fileprivate func presentGameOver(animated: Bool) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
         vc.screenShot = screenShot
         if let str = scoreLabel.text, let score = Int(str) {
@@ -157,9 +170,8 @@ class QuizViewController: PQViewController {
             vc.lastScore = 0
         }
         vc.quizMode = self.quizMode
-        
-        vc.showAd = true
-        present(vc, animated: false, completion: nil)
+        vc.showAd = false
+        present(vc, animated: animated, completion: nil)
     }
     
     
@@ -234,3 +246,12 @@ class QuizViewController: PQViewController {
         animateWinPoints()
     }
 }
+
+extension QuizViewController: ChartboostDelegate {
+    func didDismissInterstitial(_ location: String!) {
+        if location == CBLocationGameOver {
+            presentGameOver(animated: false)
+        }
+    }
+}
+
