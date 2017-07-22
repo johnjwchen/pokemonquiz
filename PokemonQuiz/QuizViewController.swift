@@ -131,6 +131,7 @@ class QuizViewController: PQViewController {
         playSound(correct: false)
         button.status = .wrong
         animateAnswer(button, completion: {[unowned self]_ in
+            self.countingView?.stopCounting()
             self.gameOver()
         })
         
@@ -142,7 +143,6 @@ class QuizViewController: PQViewController {
             screenShot = screenShotImage()
         }
         if sender.count == 0 {
-            // to do
             gameOver()
         }
     }
@@ -156,10 +156,12 @@ class QuizViewController: PQViewController {
         else {
             vc.lastScore = 0
         }
-        vc.scoreDescription = "Points"
-        vc.view.backgroundColor = quizMode.color()
-        self.present(vc, animated: true, completion: nil)
+        vc.quizMode = self.quizMode
+        
+        vc.showAd = true
+        present(vc, animated: false, completion: nil)
     }
+    
     
     func loadPlayer(name: String) -> AVAudioPlayer? {
         // Fetch the Sound data set.

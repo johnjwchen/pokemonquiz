@@ -15,8 +15,9 @@ class GameOverViewController: PQViewController {
     
     var screenShot: UIImage?
     var lastScore: Int!
-    var scoreDescription: String!
-    var timer: Timer!
+    var quizMode: QuizMode = .classic
+    private var timer: Timer!
+    var showAd: Bool!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
@@ -37,7 +38,7 @@ class GameOverViewController: PQViewController {
         super.viewDidLoad()
 
         numberLabel.text = "0"
-        descriptionLabel.text = scoreDescription
+        descriptionLabel.text = "Points"
         winQuizCoinLabel.isHidden = true
         if lastScore > 900 {
             titleLabel.text = "Congrats"
@@ -46,12 +47,18 @@ class GameOverViewController: PQViewController {
         else {
             rateButton.isHidden = true
         }
+        view.backgroundColor = quizMode.color()
         
-        // hide others
-        for v in view.subviews {
-            if v !== numberLabel && v !== descriptionLabel &&
-                v !== winQuizCoinLabel{
-                v.alpha = 0
+        if showAd {
+            Chartboost.showInterstitial(CBLocationGameOver)
+        }
+        else {
+            // hide others
+            for v in view.subviews {
+                if v !== numberLabel && v !== descriptionLabel &&
+                    v !== winQuizCoinLabel{
+                    v.alpha = 0
+                }
             }
         }
         
@@ -60,7 +67,7 @@ class GameOverViewController: PQViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if lastScore > 0 {
+        if !showAd && lastScore > 0 {
             timer = Timer.scheduledTimer(timeInterval: 1.0/Double(lastScore), target: self,   selector: (#selector(updateScore)), userInfo: nil, repeats: true)
         }
         else {

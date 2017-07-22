@@ -111,9 +111,14 @@ import UIKit
         circleLayer.add(animation, forKey: "animateCircle")
     }
     
+    public func stopCounting() {
+        timer?.invalidate()
+    }
+    
     public func resetCounting() {
         circleLayer.strokeEnd = 1.0
         circleLayer.setNeedsDisplay()
+        timer?.invalidate()
     }
     
     override init(frame: CGRect) {
