@@ -21,7 +21,7 @@ class ShopViewController: PQViewController {
     @IBOutlet weak var ativityIndicatorView: UIActivityIndicatorView?
     
     @IBOutlet weak var addCoinsLabel: UILabel!
-    fileprivate var coinsToAdd = 10
+    fileprivate var coinsToAdd = 0
     
     @IBOutlet weak var buy50CoinsButton: ResponableButton!
     @IBOutlet weak var buy150CoinsButton: ResponableButton!
