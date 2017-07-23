@@ -36,7 +36,21 @@ class ViewController: PQViewController {
         }
         
         Chartboost.cacheRewardedVideo(CBLocationIAPStore)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(addCoins(notification:)), name: TransationObserver.AddCoinsNotification, object: nil)
 
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func updateQuizCoinsLabel() {
+        quizCoinsLabel.text = String(format: "%d Quiz Coins", User.current.quizCoins)
+    }
+    
+    @objc func addCoins(notification: Notification) {
+        updateQuizCoinsLabel()
     }
     
     @IBAction func pokgearButtonClick(_ sender: Any) {
@@ -48,8 +62,8 @@ class ViewController: PQViewController {
         super.viewWillAppear(animated)
         
         // load the quiz coins
-        quizCoinsLabel.text = String(format: "%d Quiz Coins", User.current.quizCoins)
-        
+        updateQuizCoinsLabel()
+
         let height = self.view.bounds.height
         for button in modeButtons {
             button.center.y += height

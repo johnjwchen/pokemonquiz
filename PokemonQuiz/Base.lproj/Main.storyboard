@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -238,7 +238,7 @@
                                 <rect key="frame" x="150" y="230" width="20" height="20"/>
                             </activityIndicatorView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 300 Quiz Coins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9o-Bb-KgF">
-                                <rect key="frame" x="40" y="274.66666666666674" width="240" height="31.333333333333314"/>
+                                <rect key="frame" x="40" y="422.66666666666674" width="240" height="31.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Mxb-Yg-yKU"/>
                                 </constraints>
@@ -253,8 +253,8 @@
                             <constraint firstItem="hAy-C5-yAs" firstAttribute="top" secondItem="iR8-l4-uFl" secondAttribute="bottom" constant="3" id="Afu-jU-up3"/>
                             <constraint firstItem="hAy-C5-yAs" firstAttribute="leading" secondItem="TQv-t9-d76" secondAttribute="leadingMargin" constant="-8" id="B47-u8-3mY"/>
                             <constraint firstItem="aDF-5m-JOZ" firstAttribute="centerX" secondItem="TQv-t9-d76" secondAttribute="centerX" id="DAC-0c-dT7"/>
+                            <constraint firstItem="yDu-It-fJk" firstAttribute="top" secondItem="t9o-Bb-KgF" secondAttribute="bottom" constant="26" id="SCn-f7-6Nb"/>
                             <constraint firstItem="aDF-5m-JOZ" firstAttribute="centerY" secondItem="TQv-t9-d76" secondAttribute="centerY" id="VkS-zr-2se"/>
-                            <constraint firstItem="NTM-YT-Jn4" firstAttribute="top" secondItem="t9o-Bb-KgF" secondAttribute="bottom" constant="6" id="Wey-vZ-hV3"/>
                             <constraint firstItem="NTM-YT-Jn4" firstAttribute="top" secondItem="QoR-bH-szE" secondAttribute="bottom" constant="66" id="Z7Z-ap-tYx"/>
                             <constraint firstItem="8g7-fi-3Dd" firstAttribute="top" secondItem="iR8-l4-uFl" secondAttribute="bottom" constant="12" id="aeS-ie-3Qz"/>
                             <constraint firstItem="QoR-bH-szE" firstAttribute="centerX" secondItem="TQv-t9-d76" secondAttribute="centerX" id="de2-yz-k03"/>

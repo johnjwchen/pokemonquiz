@@ -15,7 +15,7 @@ class ShopViewController: PQViewController {
     fileprivate static let buy150CoinsProductId = "com.pokgear.pokemonquiz.150coins"
     fileprivate static let buy500CoinsProductId = "com.pokgear.pokemonquiz.500coins"
     
-    fileprivate static let coinsDictionary = [buy50CoinsProductId: 50, buy150CoinsProductId: 150, buy500CoinsProductId: 150]
+    fileprivate static let coinsDictionary = [buy50CoinsProductId: 50, buy150CoinsProductId: 150, buy500CoinsProductId: 500]
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var ativityIndicatorView: UIActivityIndicatorView?
@@ -41,17 +41,24 @@ class ShopViewController: PQViewController {
         }
         
         Chartboost.setDelegate(self)
+        NotificationCenter.default.addObserver(self, selector: #selector(addCoins(notification:)), name: TransationObserver.AddCoinsNotification, object: nil)
     }
     
     deinit {
         Chartboost.setDelegate(nil)
+        NotificationCenter.default.removeObserver(self)
     }
     
+    @objc private func addCoins(notification: Notification) {
+        let coins = notification.object as! Int
+        coinsToAdd = coins
+        animateAddCoins()
+    }
+
     fileprivate func animateAddCoins() {
         if coinsToAdd > 0 {
             addCoinsLabel.text = "+ \(coinsToAdd) Quiz Coins"
             addCoinsLabel.isHidden = false
-            User.current.quizCoins += coinsToAdd
             coinsToAdd = 0
 
             self.addCoinsLabel.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
@@ -140,17 +147,6 @@ extension ShopViewController: SKProductsRequestDelegate {
         ativityIndicatorView?.stopAnimating()
         ativityIndicatorView?.removeFromSuperview()
     }
-    
-    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        for transaction in transactions {
-            SKPaymentQueue.default().finishTransaction(transaction)
-            let productId = transaction.payment.productIdentifier
-            if let coins = ShopViewController.coinsDictionary[productId] {
-                coinsToAdd = coins
-                animateAddCoins()
-            }
-        }
-    }
 
 }
 
@@ -164,12 +160,48 @@ extension ShopViewController: ChartboostDelegate {
     func didCompleteRewardedVideo(_ location: String!, withReward reward: Int32) {
         if location == CBLocationIAPStore {
             coinsToAdd = Int(reward)
+            User.current.quizCoins += coinsToAdd
+            
         }
     }
     
     func didDismissRewardedVideo(_ location: String!) {
         if location == CBLocationIAPStore {
             animateAddCoins()
+        }
+    }
+}
+
+
+class TransationObserver: NSObject, SKPaymentTransactionObserver {
+    static let AddCoinsNotification = NSNotification.Name(rawValue: "AddCoinsNotification")
+    static let main = TransationObserver()
+    override private init(){
+        super.init()
+    }
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .purchased:
+                SKPaymentQueue.default().finishTransaction(transaction)
+            case .deferred: break
+                
+            case .purchasing: break
+                
+            case .failed: break
+                
+            case .restored: break
+            }
+        }
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+        let productId = transaction.payment.productIdentifier
+        if let coins = ShopViewController.coinsDictionary[productId] {
+            User.current.quizCoins += coins
+            NotificationCenter.default.post(name: TransationObserver.AddCoinsNotification, object: coins as NSNumber)
+        }
         }
     }
 }

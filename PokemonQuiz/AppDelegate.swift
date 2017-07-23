@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,10 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         Chartboost.start(withAppId: chartboostAppId, appSignature: chartboostAppSignature, delegate: nil)
-
         Chartboost.setAutoCacheAds(true)
         
         application.isStatusBarHidden = true
+        
+        SKPaymentQueue.default().add(TransationObserver.main)
         return true
     }
 
