@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0F0FE61F243BB4005E05D6 /* Pods_PokemonQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0F0FE51F243BB4005E05D6 /* Pods_PokemonQuiz.framework */; };
+		4E0F0FE81F243C6F005E05D6 /* PQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6B1F1D417D0061AC56 /* PQViewController.swift */; };
 		4E21DDC21F23117300DC6EB5 /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E21DDC11F23117300DC6EB5 /* KeychainSwift.swift */; };
 		4E5165441F1C24790095D36F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5165431F1C24790095D36F /* AppDelegate.swift */; };
 		4E5165461F1C24790095D36F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5165451F1C24790095D36F /* ViewController.swift */; };
@@ -16,6 +18,7 @@
 		4E5165591F1C24790095D36F /* PokemonQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5165581F1C24790095D36F /* PokemonQuizTests.swift */; };
 		4E5165641F1C247A0095D36F /* PokemonQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5165631F1C247A0095D36F /* PokemonQuizUITests.swift */; };
 		4E5165761F1C31780095D36F /* ModeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E5165751F1C31780095D36F /* ModeButton.xib */; };
+		4E7F64361F24523200A451E5 /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E7F64351F24523200A451E5 /* Chartboost.framework */; };
 		4E9A33A31F1E962500B90F87 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9A33A21F1E962500B90F87 /* ShopViewController.swift */; };
 		4E9A33A51F200CD300B90F87 /* RoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9A33A41F200CD300B90F87 /* RoundCornerButton.swift */; };
 		4E9A33A71F20183800B90F87 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9A33A61F20183800B90F87 /* GameOverViewController.swift */; };
@@ -25,7 +28,6 @@
 		4EDABE661F1D365C0061AC56 /* CountingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDABE651F1D365C0061AC56 /* CountingView.xib */; };
 		4EDABE681F1D39580061AC56 /* CountingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE671F1D39580061AC56 /* CountingView.swift */; };
 		4EDABE6A1F1D413C0061AC56 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE691F1D413C0061AC56 /* QuizViewController.swift */; };
-		4EDABE6C1F1D417D0061AC56 /* PQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6B1F1D417D0061AC56 /* PQViewController.swift */; };
 		4EDABE6E1F1D93C60061AC56 /* ModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6D1F1D93C60061AC56 /* ModeButton.swift */; };
 		4EDABE701F1D9ED30061AC56 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */; };
 		4EF40F7F1F21BBBB001EB775 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F7E1F21BBBB001EB775 /* GameKit.framework */; };
@@ -33,8 +35,6 @@
 		4EF40F831F228FCE001EB775 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F821F228FCE001EB775 /* Foundation.framework */; };
 		4EF40F851F228FD6001EB775 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F841F228FD6001EB775 /* CoreGraphics.framework */; };
 		4EF40F871F228FDE001EB775 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F861F228FDE001EB775 /* UIKit.framework */; };
-		4EF40F8A1F229108001EB775 /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F891F229108001EB775 /* Chartboost.framework */; };
-		A632BF3B40012C72F5A1F8D4 /* Pods_PokemonQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700C60492099383B83987D63 /* Pods_PokemonQuiz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		13B5749BDDC2C3260B7A45DC /* Pods-PokemonQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonQuiz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonQuiz/Pods-PokemonQuiz.debug.xcconfig"; sourceTree = "<group>"; };
+		4E0F0FE51F243BB4005E05D6 /* Pods_PokemonQuiz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_PokemonQuiz.framework; path = "../../../Library/Developer/Xcode/DerivedData/PokemonQuiz-egfyoiwbjkcunqaqgkqwmzlsgafw/Build/Products/Debug-iphonesimulator/Pods_PokemonQuiz.framework"; sourceTree = "<group>"; };
 		4E21DDC11F23117300DC6EB5 /* KeychainSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
 		4E5165401F1C24790095D36F /* PokemonQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E5165431F1C24790095D36F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +72,7 @@
 		4E5165631F1C247A0095D36F /* PokemonQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonQuizUITests.swift; sourceTree = "<group>"; };
 		4E5165651F1C247A0095D36F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E5165751F1C31780095D36F /* ModeButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModeButton.xib; sourceTree = "<group>"; };
+		4E7F64351F24523200A451E5 /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Chartboost.framework; sourceTree = "<group>"; };
 		4E9A33A21F1E962500B90F87 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		4E9A33A41F200CD300B90F87 /* RoundCornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCornerButton.swift; sourceTree = "<group>"; };
 		4E9A33A61F20183800B90F87 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
@@ -88,9 +90,7 @@
 		4EF40F821F228FCE001EB775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4EF40F841F228FD6001EB775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4EF40F861F228FDE001EB775 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		4EF40F891F229108001EB775 /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Chartboost.framework; sourceTree = "<group>"; };
 		4EF40F8B1F229305001EB775 /* PokemonQuiz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PokemonQuiz-Bridging-Header.h"; sourceTree = "<group>"; };
-		700C60492099383B83987D63 /* Pods_PokemonQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE53EBE99E5C6D8F521ADFB9 /* Pods-PokemonQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonQuiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonQuiz/Pods-PokemonQuiz.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,12 +99,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EF40F8A1F229108001EB775 /* Chartboost.framework in Frameworks */,
+				4E7F64361F24523200A451E5 /* Chartboost.framework in Frameworks */,
+				4E0F0FE61F243BB4005E05D6 /* Pods_PokemonQuiz.framework in Frameworks */,
 				4EF40F871F228FDE001EB775 /* UIKit.framework in Frameworks */,
 				4EF40F851F228FD6001EB775 /* CoreGraphics.framework in Frameworks */,
 				4EF40F831F228FCE001EB775 /* Foundation.framework in Frameworks */,
 				4EF40F811F21BBCC001EB775 /* StoreKit.framework in Frameworks */,
-				A632BF3B40012C72F5A1F8D4 /* Pods_PokemonQuiz.framework in Frameworks */,
 				4EF40F7F1F21BBBB001EB775 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,6 +171,7 @@
 				4E21DDC11F23117300DC6EB5 /* KeychainSwift.swift */,
 				4E51654C1F1C24790095D36F /* LaunchScreen.storyboard */,
 				4E51654F1F1C24790095D36F /* Info.plist */,
+				4E7F64351F24523200A451E5 /* Chartboost.framework */,
 				4EF40F8B1F229305001EB775 /* PokemonQuiz-Bridging-Header.h */,
 			);
 			path = PokemonQuiz;
@@ -197,13 +198,12 @@
 		6D5B1D95EA49AE909CBC5F21 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4EF40F891F229108001EB775 /* Chartboost.framework */,
+				4E0F0FE51F243BB4005E05D6 /* Pods_PokemonQuiz.framework */,
 				4EF40F861F228FDE001EB775 /* UIKit.framework */,
 				4EF40F841F228FD6001EB775 /* CoreGraphics.framework */,
 				4EF40F821F228FCE001EB775 /* Foundation.framework */,
 				4EF40F801F21BBCC001EB775 /* StoreKit.framework */,
 				4EF40F7E1F21BBBB001EB775 /* GameKit.framework */,
-				700C60492099383B83987D63 /* Pods_PokemonQuiz.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -416,12 +416,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E0F0FE81F243C6F005E05D6 /* PQViewController.swift in Sources */,
 				4E9A33A51F200CD300B90F87 /* RoundCornerButton.swift in Sources */,
 				4EDABE6E1F1D93C60061AC56 /* ModeButton.swift in Sources */,
 				4E5165461F1C24790095D36F /* ViewController.swift in Sources */,
 				4E9A33A91F20719600B90F87 /* VolumeButton.swift in Sources */,
 				4E9AFAB51F21408600BA0A1D /* ResponableButton.swift in Sources */,
-				4EDABE6C1F1D417D0061AC56 /* PQViewController.swift in Sources */,
 				4E9A33A71F20183800B90F87 /* GameOverViewController.swift in Sources */,
 				4EDABE6A1F1D413C0061AC56 /* QuizViewController.swift in Sources */,
 				4E9A33A31F1E962500B90F87 /* ShopViewController.swift in Sources */,
@@ -587,13 +587,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 99V67VH5PP;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/PokemonQuiz",
 				);
 				INFOPLIST_FILE = PokemonQuiz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Kingfisher\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pokgear.PokemonQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PokemonQuiz/PokemonQuiz-Bridging-Header.h";
@@ -610,13 +617,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 99V67VH5PP;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/PokemonQuiz",
 				);
 				INFOPLIST_FILE = PokemonQuiz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Kingfisher\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pokgear.PokemonQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PokemonQuiz/PokemonQuiz-Bridging-Header.h";

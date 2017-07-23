@@ -64,7 +64,9 @@ class QuizViewController: PQViewController {
     private var wrongPlayer: AVAudioPlayer?
     private var screenShot: UIImage?
     
-    
+    deinit {
+        Chartboost.setDelegate(nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

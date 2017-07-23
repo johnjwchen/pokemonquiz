@@ -38,29 +38,26 @@ extension PQViewController: SKStoreProductViewControllerDelegate {
             UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.openURL(url)
             }
-            
         }
     }
     
     func openProductViewController(of identifier: String) {
         let storeViewController = MyStoreProductViewController()
         storeViewController.delegate = self
-        
         let parameters = [ SKStoreProductParameterITunesItemIdentifier : identifier]
-        storeViewController.loadProduct(withParameters: parameters) { [weak self] (loaded, error) -> Void in
-            if loaded {
-                // Parent class of self is UIViewContorller
-                self?.present(storeViewController, animated: true, completion: nil)
-            }
-        }
+        storeViewController.loadProduct(withParameters: parameters, completionBlock: nil)
+        present(storeViewController, animated: true, completion: nil)
     }
+    
     func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
         viewController.dismiss(animated: true, completion: nil)
     }
 }
+
 
 class MyStoreProductViewController: SKStoreProductViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
 }
+

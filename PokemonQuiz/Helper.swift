@@ -32,12 +32,24 @@ class Downloader {
 
 class Setting {
     static let main = Setting()
+    private var dict = [String: Any]()
+    let gameOverAdShowPeriodKey = "gameOverAdShowPeriod"
+    let gameOverAdFreeTimesKey = "gameOverAdFreeTimes"
     private init() {
-        
+        if dict[gameOverAdShowPeriodKey] == nil {
+            dict[gameOverAdShowPeriodKey] = 5
+        }
+        if dict[gameOverAdFreeTimesKey] == nil {
+            dict[gameOverAdFreeTimesKey] = 15
+        }
     }
     
-    var gameOverAdShowPeriod = 5
-    var gameOverAdFreeTimes = 15
+    var gameOverAdShowPeriod: Int {
+        return dict[gameOverAdShowPeriodKey] as! Int
+    }
+    var gameOverAdFreeTimes: Int {
+        return dict[gameOverAdFreeTimesKey] as! Int
+    }
 }
 
 class User {
@@ -46,26 +58,29 @@ class User {
     private var quizCoinsValue: Int
     private var gameOverTimesValue: Int
     
-    private let GameOverTimesKey = "GameOverTimes"
-    private let QuizCoinsKey = "QuizCoins"
+    private static let GameOverTimesKey = "GameOverTimes"
+    private static let QuizCoinsKey = "QuizCoins"
+    
+    private static let uuidKey = "UUID"
+    let uuid: String
     
     
     var quizCoins: Int {
         get { return quizCoinsValue }
         set {
             quizCoinsValue = newValue
-            keychain.set(String(quizCoinsValue), forKey: QuizCoinsKey)
+            keychain.set(String(quizCoinsValue), forKey: User.QuizCoinsKey)
         }
     }
     var gameOverTimes: Int {
         get { return gameOverTimesValue }
         set {
             gameOverTimesValue = newValue
-            keychain.set(String(gameOverTimesValue), forKey: GameOverTimesKey)
+            keychain.set(String(gameOverTimesValue), forKey: User.GameOverTimesKey)
         }
     }
     private init() {
-        if let str = keychain.get(QuizCoinsKey),
+        if let str = keychain.get(User.QuizCoinsKey),
             let coins = Int(str) {
             quizCoinsValue = coins
         }
@@ -73,7 +88,7 @@ class User {
             quizCoinsValue = 0
         }
         
-        if let str = keychain.get(GameOverTimesKey),
+        if let str = keychain.get(User.GameOverTimesKey),
             let times = Int(str) {
             gameOverTimesValue = times
         }
@@ -81,6 +96,13 @@ class User {
             gameOverTimesValue = 0
         }
         
+        if let uid = keychain.get(User.uuidKey) {
+            uuid = uid
+        }
+        else {
+            uuid = UUID().uuidString
+            keychain.set(uuid, forKey: User.uuidKey)
+        }
     }
     
     func sync() {
