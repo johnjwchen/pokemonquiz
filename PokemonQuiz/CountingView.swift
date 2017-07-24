@@ -113,6 +113,8 @@ import UIKit
     
     public func stopCounting() {
         timer?.invalidate()
+        circleLayer.removeAllAnimations()
+        circleLayer.strokeEnd = CGFloat(count-1)/CGFloat(duration)
     }
     
     public func resetCounting() {

@@ -158,9 +158,11 @@ class QuizViewController: PQViewController {
     }
     
     @IBAction func answerButtonTouchUp(_ button: AnswerButton) {
+        countingView?.stopCounting()
         if button.pokemonId == quizArray[quizIndex].pokemon {
             // correct
             playSound(correct: true)
+            button.status = .correct
             if let str = scoreLabel.text, let score = Int(str) {
                 scoreLabel.text = String(score + 50)
             }
@@ -168,6 +170,7 @@ class QuizViewController: PQViewController {
                 scoreLabel.text = "50"
             }
             animateWinPoints() {
+                button.status = .not
                 self.nextQuiz()
             }
         }

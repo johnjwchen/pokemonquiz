@@ -299,7 +299,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="1" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="KcR-RG-RlX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="230.33333333333334"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokemon" translatesAutoresizingMaskIntoConstraints="NO" id="Fht-8t-84d">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fht-8t-84d">
                                 <rect key="frame" x="117" y="211.66666666666669" width="180" height="180.00000000000006"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="VfJ-mr-Ax6"/>
@@ -768,7 +768,6 @@
         <image name="facebook" width="44" height="44"/>
         <image name="hard" width="60" height="60"/>
         <image name="message" width="44" height="44"/>
-        <image name="pokemon" width="356" height="388"/>
         <image name="pokgear" width="30" height="30"/>
         <image name="shoping-cart" width="30" height="30"/>
         <image name="thumb-up" width="44" height="44"/>
