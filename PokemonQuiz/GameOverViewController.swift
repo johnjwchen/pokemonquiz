@@ -151,7 +151,6 @@ class GameOverViewController: PQViewController {
     
     @IBAction func backTouchUp(_ sender: Any) {
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func twitterTouchUp(_ sender: Any) {

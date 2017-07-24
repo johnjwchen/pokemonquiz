@@ -101,6 +101,12 @@ class QuizViewController: PQViewController {
         wrongAnswer = 0
         quizIndex = -1
         maxWrongAnswers = quizMode == .classic ? 3 : 1
+        
+        var pokemonIds = [Int]()
+        for quiz in quizArray {
+            pokemonIds.append(quiz.pokemon)
+        }
+        Downloader.cacheImages(ofPokemonIds: pokemonIds)
     }
     
     
