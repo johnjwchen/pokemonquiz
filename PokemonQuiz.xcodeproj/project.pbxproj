@@ -31,6 +31,7 @@
 		4EDABE6A1F1D413C0061AC56 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE691F1D413C0061AC56 /* QuizViewController.swift */; };
 		4EDABE6E1F1D93C60061AC56 /* ModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6D1F1D93C60061AC56 /* ModeButton.swift */; };
 		4EDABE701F1D9ED30061AC56 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */; };
+		4EE4DFD51F264FC200216F3A /* QuizGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4DFD41F264FC200216F3A /* QuizGame.swift */; };
 		4EF40F7F1F21BBBB001EB775 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F7E1F21BBBB001EB775 /* GameKit.framework */; };
 		4EF40F811F21BBCC001EB775 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F801F21BBCC001EB775 /* StoreKit.framework */; };
 		4EF40F831F228FCE001EB775 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F821F228FCE001EB775 /* Foundation.framework */; };
@@ -86,6 +87,7 @@
 		4EDABE6B1F1D417D0061AC56 /* PQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PQViewController.swift; sourceTree = "<group>"; };
 		4EDABE6D1F1D93C60061AC56 /* ModeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeButton.swift; sourceTree = "<group>"; };
 		4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
+		4EE4DFD41F264FC200216F3A /* QuizGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizGame.swift; sourceTree = "<group>"; };
 		4EF40F7E1F21BBBB001EB775 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		4EF40F801F21BBCC001EB775 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4EF40F821F228FCE001EB775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -161,6 +163,7 @@
 				4EDABE691F1D413C0061AC56 /* QuizViewController.swift */,
 				4E9AFAB61F21543100BA0A1D /* Helper.swift */,
 				4E9A33A21F1E962500B90F87 /* ShopViewController.swift */,
+				4EE4DFD41F264FC200216F3A /* QuizGame.swift */,
 				4E9A33A61F20183800B90F87 /* GameOverViewController.swift */,
 				4E5165751F1C31780095D36F /* ModeButton.xib */,
 				4EDABE6D1F1D93C60061AC56 /* ModeButton.swift */,
@@ -432,6 +435,7 @@
 				4EDABE701F1D9ED30061AC56 /* AnswerButton.swift in Sources */,
 				4E9AFAB71F21543100BA0A1D /* Helper.swift in Sources */,
 				4E21DDC21F23117300DC6EB5 /* KeychainSwift.swift in Sources */,
+				4EE4DFD51F264FC200216F3A /* QuizGame.swift in Sources */,
 				4E5165441F1C24790095D36F /* AppDelegate.swift in Sources */,
 				4EDABE681F1D39580061AC56 /* CountingView.swift in Sources */,
 			);

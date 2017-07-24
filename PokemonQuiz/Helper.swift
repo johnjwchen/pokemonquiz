@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import StoreKit
 import Alamofire
+import Kingfisher
 
 class ImageProcess {
     class func maskImage(_ image:UIImage, color:UIColor) -> UIImage {
@@ -27,8 +28,19 @@ class ImageProcess {
 }
 
 class Downloader {
-    class func imageURL(ofPokemonId pokemonid: UInt32) -> URL? {
-        return URL(string: String(format: "https://pokedex.me/new-pokemon/480/%03d.png", pokemonid))
+    class func loadImage(ofPokemonId pokemonid: Int, completionHandler:  ((UIImage?) -> Void)?) {
+        if let url = URL(string: String(format: "https://pokedex.me/new-pokemon/480/%03d.png", pokemonid)) {
+            KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil) {
+                (image, error, cacheType, url) in
+                completionHandler?(image)
+            }
+        }
+    }
+    
+    class func cacheImages(ofPokemonIds array: [Int]) {
+        for pid in array {
+            loadImage(ofPokemonId: pid, completionHandler: nil)
+        }
     }
 }
 

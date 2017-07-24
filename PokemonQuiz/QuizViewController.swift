@@ -8,13 +8,8 @@
 
 import UIKit
 import AVFoundation
-import Kingfisher
 
-enum QuizMode {
-    case classic
-    case hard
-    case advance
-    
+extension QuizMode {
     func color() -> UIColor {
         switch self {
         case .classic:
@@ -59,10 +54,17 @@ class QuizViewController: PQViewController {
     var anserButtons: [AnswerButton]!
     
     var quizMode: QuizMode = .classic
+    var quizArray: [Quiz]!
+    private var quizIndex = 0
+    
+    private var wrongAnswer = 0
+    private var maxWrongAnswers = 0
     
     private var correctPlayer: AVAudioPlayer?
     private var wrongPlayer: AVAudioPlayer?
     private var screenShot: UIImage?
+    
+    private var answerButtons: [AnswerButton]!
     
     deinit {
         Chartboost.setDelegate(nil)
@@ -74,9 +76,7 @@ class QuizViewController: PQViewController {
         if let image = UIImage(named: "background") {
             backgroundImageView.image = ImageProcess.maskImage(image, color: color)
         }
-       
-        let random = arc4random_uniform(722)
-        setPokemonImage(ofPokemonId: random)
+        anserButtons = [answer1Button, answer2Button, answer3Button, answer4Button]
         
         if quizMode == .advance {
             countingView?.removeFromSuperview()
@@ -84,6 +84,7 @@ class QuizViewController: PQViewController {
             hitDescriptionLabel.text = "Level"
             scoreDescriptionLabel.text = "Experience"
         }
+        pokemonImageView.image = nil
         
         countingView?.backgroundColor = color
         
@@ -96,20 +97,21 @@ class QuizViewController: PQViewController {
         
         Chartboost.setDelegate(self)
         Chartboost.cacheInterstitial(CBLocationGameOver)
+        
+        wrongAnswer = 0
+        quizIndex = -1
+        maxWrongAnswers = quizMode == .classic ? 3 : 1
     }
     
     
-    func setPokemonImage(ofPokemonId pokemonId: UInt32) {
-        if let url = Downloader.imageURL(ofPokemonId: pokemonId) {
-            KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil) {[unowned self]
-                (image, error, cacheType, url) in
-                if let image = image {
-                    if !Setting.main.useOriginPokemonImage {
-                        self.pokemonImageView.image = ImageProcess.maskImage(image, color: self.quizMode.color())
-                    }
-                    else {
-                        self.pokemonImageView.image = image
-                    }
+    func setPokemonImage(ofPokemonId pokemonId: Int) {
+        Downloader.loadImage(ofPokemonId: pokemonId) { image in
+            if let image = image {
+                if !Setting.main.useOriginPokemonImage {
+                    self.pokemonImageView.image = ImageProcess.maskImage(image, color: self.quizMode.color())
+                }
+                else {
+                    self.pokemonImageView.image = image
                 }
             }
         }  
@@ -118,7 +120,22 @@ class QuizViewController: PQViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        animatePokemonAndAnswers()
+        nextQuiz()
+    }
+    
+    private func nextQuiz() {
+        quizIndex += 1
+        if quizIndex >= quizArray.count {
+            gameOver()
+        }
+        else {
+            let quiz = quizArray[quizIndex]
+            setPokemonImage(ofPokemonId: quiz.pokemon)
+            for i in 0..<quiz.random.count {
+                anserButtons[i].pokemonId = quiz.random[i]
+            }
+            animatePokemonAndAnswers()
+        }
     }
     
     
@@ -141,19 +158,34 @@ class QuizViewController: PQViewController {
     }
     
     @IBAction func answerButtonTouchUp(_ button: AnswerButton) {
-        // correct
-//        button.status = .correct
-//        playSound(correct: true)
-//        animateWinPoints()
-        
-        // wrong
-        playSound(correct: false)
-        button.status = .wrong
-        animateAnswer(button, completion: {[unowned self]_ in
-            self.countingView?.stopCounting()
-            self.gameOver()
-        })
-        
+        if button.pokemonId == quizArray[quizIndex].pokemon {
+            // correct
+            playSound(correct: true)
+            if let str = scoreLabel.text, let score = Int(str) {
+                scoreLabel.text = String(score + 50)
+            }
+            else {
+                scoreLabel.text = "50"
+            }
+            animateWinPoints() {
+                self.nextQuiz()
+            }
+        }
+        else {
+            // wrong
+            wrongAnswer += 1
+            playSound(correct: false)
+            button.status = .wrong
+            animateAnswer(button, completion: {_ in
+                button.status = .not
+                if self.wrongAnswer >= self.maxWrongAnswers {
+                    self.gameOver()
+                }
+                else {
+                    self.nextQuiz()
+                }
+            })
+        }
     }
     
   
@@ -162,11 +194,14 @@ class QuizViewController: PQViewController {
             screenShot = screenShotImage()
         }
         if sender.count == 0 {
-            gameOver()
+            wrongAnswer += 1
+            nextQuiz()
         }
     }
     
     private func gameOver() {
+        self.countingView?.stopCounting()
+        
         User.current.gameOverTimes += 1
         print(User.current.gameOverTimes)
         if User.current.gameOverTimes > Setting.main.gameOverAdFreeTimes &&
@@ -194,7 +229,6 @@ class QuizViewController: PQViewController {
     
     
     func loadPlayer(name: String) -> AVAudioPlayer? {
-        // Fetch the Sound data set.
         if let asset = NSDataAsset(name: name){
             do {
                 let player = try AVAudioPlayer(data:asset.data, fileTypeHint:"mp3")
@@ -246,7 +280,7 @@ class QuizViewController: PQViewController {
             }, completion: nil)
     }
     
-    private func animateWinPoints() {
+    private func animateWinPoints(completionHandler: (() -> Void)?) {
         let duration = 0.66
         let y = self.winPointsLabel.center.y
         self.winPointsLabel.isHidden = false
@@ -257,11 +291,12 @@ class QuizViewController: PQViewController {
         }) {[unowned self] _ in
             self.winPointsLabel.isHidden = true
             self.winPointsLabel.center.y = y
+            completionHandler?()
         }
     }
     
     @IBAction func animate(_ sender: Any) {
-        animateWinPoints()
+        animateWinPoints(completionHandler: nil)
     }
 }
 

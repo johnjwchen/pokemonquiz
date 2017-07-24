@@ -38,11 +38,25 @@ class ViewController: PQViewController {
         Chartboost.cacheRewardedVideo(CBLocationIAPStore)
         
         NotificationCenter.default.addObserver(self, selector: #selector(addCoins(notification:)), name: TransationObserver.AddCoinsNotification, object: nil)
-
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    private var classicQuizArray: [Quiz]!
+    private var hardQuizArray: [Quiz]!
+    private var advanceQuizArray: [Quiz]!
+    
+    private func prepareQuiz() {
+        classicQuizArray = QuizGame.quizArray(forQuizMode: .classic)
+        hardQuizArray = QuizGame.quizArray(forQuizMode: .hard)
+        advanceQuizArray = QuizGame.quizArray(forQuizMode: .advance)
+        
+        // chache images
+        Downloader.cacheImages(ofPokemonIds: [classicQuizArray.first!.pokemon,
+                                              hardQuizArray.first!.pokemon,
+                                              advanceQuizArray.first!.pokemon])
     }
     
     private func updateQuizCoinsLabel() {
@@ -60,6 +74,9 @@ class ViewController: PQViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // prepare quiz
+        prepareQuiz()
         
         // load the quiz coins
         updateQuizCoinsLabel()
@@ -83,10 +100,13 @@ class ViewController: PQViewController {
         switch sender {
         case classicModeButton:
             vc.quizMode = .classic
+            vc.quizArray = classicQuizArray
         case hardModeButton:
             vc.quizMode = .hard
+            vc.quizArray = hardQuizArray
         default:
             vc.quizMode = .advance
+            vc.quizArray = advanceQuizArray
         }
         self.present(vc, animated: true, completion: nil)
     }

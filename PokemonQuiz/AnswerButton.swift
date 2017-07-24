@@ -20,14 +20,17 @@ enum AnswerButtonStatus {
     static let wrongColor = UIColor(red:1.00, green:0.04, blue:0.18, alpha:1.0)
     static let correctColor = UIColor(red:0.00, green:0.65, blue:0.33, alpha:1.0)
     
-    var _pokemonId: Int!
+    private var _pokemonId: Int!
     var pokemonId: Int? {
         get {
             return _pokemonId
         }
         set {
             _pokemonId = newValue
-            // todo: set the name 
+            if _pokemonId >= 0 && _pokemonId < QuizGame.pokemonNameArray.count {
+                let name = QuizGame.pokemonNameArray[_pokemonId]
+                setTitle(name, for: .normal)
+            }
         }
     }
     
