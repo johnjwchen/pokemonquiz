@@ -80,7 +80,12 @@ class Setting {
     private let gameOverAdShowPeriodKey = "gameOverAdShowPeriod"
     private let gameOverAdFreeTimesKey = "gameOverAdFreeTimes"
     private let useOriginPokemonImageKey = "useOriginPokemonImage"
+    private let rewardCoinsKey = "rewardCoins"
+    
     private init() {
+        setDefault()
+    }
+    private func setDefault() {
         if dict[gameOverAdShowPeriodKey] == nil {
             dict[gameOverAdShowPeriodKey] = 5
         }
@@ -90,6 +95,9 @@ class Setting {
         if dict[useOriginPokemonImageKey] == nil {
             dict[useOriginPokemonImageKey] = false
         }
+        if dict[rewardCoinsKey] == nil {
+            dict[rewardCoinsKey] = 5
+        }
     }
     
     func sync() {
@@ -97,6 +105,7 @@ class Setting {
             switch response.result {
             case .success(let json):
                 self?.dict = json as! [String : Any]
+                self?.setDefault()
             case .failure(let error):
                 debugPrint(error)
             }
@@ -111,6 +120,9 @@ class Setting {
     }
     var useOriginPokemonImage: Bool {
         return dict[useOriginPokemonImageKey] as! Bool
+    }
+    var rewardCoins: Int {
+        return dict[rewardCoinsKey] as! Int
     }
 }
 

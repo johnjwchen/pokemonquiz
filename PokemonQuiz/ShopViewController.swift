@@ -44,6 +44,8 @@ class ShopViewController: PQViewController {
         
         Chartboost.setDelegate(self)
         NotificationCenter.default.addObserver(self, selector: #selector(addCoins(notification:)), name: TransationObserver.AddCoinsNotification, object: nil)
+        
+        watchAdButton.setTitle("\(Setting.main.rewardCoins) free Quiz Coins by watching Ad", for: .normal)
     }
     
     deinit {
