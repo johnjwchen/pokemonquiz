@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import StoreKit
+import Alamofire
 
 class ImageProcess {
     class func maskImage(_ image:UIImage, color:UIColor) -> UIImage {
@@ -30,17 +32,74 @@ class Downloader {
     }
 }
 
+
+class APIClient {
+    static let main = APIClient()
+    let baseUrl = "https://pokemonquiz.pokgear.com/v1/"
+    private init() {
+        
+    }
+    
+    private let utilityQueue = DispatchQueue.global(qos: .utility)
+    
+    func verify(transaction: SKPaymentTransaction, completionHandler: @escaping (DataResponse<Any>) -> Void) {
+        guard let receiptURL = Bundle.main.appStoreReceiptURL,
+            let receipt = NSData(contentsOf: receiptURL),
+            let packageName = Bundle.main.bundleIdentifier,
+            let transactionId = transaction.transactionIdentifier else {
+                return
+        }
+        let productId = transaction.payment.productIdentifier
+        let params = [
+            "receipt": receipt.base64EncodedString(),
+            "productId": productId,
+            "packageName": packageName,
+            "transactionId": transactionId
+        ]
+        
+        Alamofire.request(baseUrl + "verifyIAP", method: .post, parameters: params, encoding: JSONEncoding.default).validate().responseJSON(queue: utilityQueue) { response in
+            DispatchQueue.main.async {
+                completionHandler(response)
+            }
+        }
+    }
+    
+    func getSetting(completionHandler: @escaping (DataResponse<Any>) -> Void) {
+        Alamofire.request(baseUrl + "setting").validate().responseJSON(queue: utilityQueue) { response in
+            DispatchQueue.main.async {
+                completionHandler(response)
+            }
+        }
+    }
+}
+
+
 class Setting {
     static let main = Setting()
     private var dict = [String: Any]()
-    let gameOverAdShowPeriodKey = "gameOverAdShowPeriod"
-    let gameOverAdFreeTimesKey = "gameOverAdFreeTimes"
+    private let gameOverAdShowPeriodKey = "gameOverAdShowPeriod"
+    private let gameOverAdFreeTimesKey = "gameOverAdFreeTimes"
+    private let useOriginPokemonImageKey = "useOriginPokemonImage"
     private init() {
         if dict[gameOverAdShowPeriodKey] == nil {
             dict[gameOverAdShowPeriodKey] = 5
         }
         if dict[gameOverAdFreeTimesKey] == nil {
             dict[gameOverAdFreeTimesKey] = 15
+        }
+        if dict[useOriginPokemonImageKey] == nil {
+            dict[useOriginPokemonImageKey] = false
+        }
+    }
+    
+    func sync() {
+        APIClient.main.getSetting() {[weak self] response in
+            switch response.result {
+            case .success(let json):
+                self?.dict = json as! [String : Any]
+            case .failure(let error):
+                debugPrint(error)
+            }
         }
     }
     
@@ -49,6 +108,9 @@ class Setting {
     }
     var gameOverAdFreeTimes: Int {
         return dict[gameOverAdFreeTimesKey] as! Int
+    }
+    var useOriginPokemonImage: Bool {
+        return dict[useOriginPokemonImageKey] as! Bool
     }
 }
 

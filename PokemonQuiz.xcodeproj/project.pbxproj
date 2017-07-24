@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2809098D967000619E33AEE8 /* Pods_PokemonQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED6220AABECE8A29B40C9D1 /* Pods_PokemonQuiz.framework */; };
 		4E0F0FE61F243BB4005E05D6 /* Pods_PokemonQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0F0FE51F243BB4005E05D6 /* Pods_PokemonQuiz.framework */; };
 		4E0F0FE81F243C6F005E05D6 /* PQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6B1F1D417D0061AC56 /* PQViewController.swift */; };
 		4E21DDC21F23117300DC6EB5 /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E21DDC11F23117300DC6EB5 /* KeychainSwift.swift */; };
@@ -91,6 +92,7 @@
 		4EF40F841F228FD6001EB775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4EF40F861F228FDE001EB775 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4EF40F8B1F229305001EB775 /* PokemonQuiz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PokemonQuiz-Bridging-Header.h"; sourceTree = "<group>"; };
+		5ED6220AABECE8A29B40C9D1 /* Pods_PokemonQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE53EBE99E5C6D8F521ADFB9 /* Pods-PokemonQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonQuiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonQuiz/Pods-PokemonQuiz.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 				4EF40F831F228FCE001EB775 /* Foundation.framework in Frameworks */,
 				4EF40F811F21BBCC001EB775 /* StoreKit.framework in Frameworks */,
 				4EF40F7F1F21BBBB001EB775 /* GameKit.framework in Frameworks */,
+				2809098D967000619E33AEE8 /* Pods_PokemonQuiz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +207,7 @@
 				4EF40F821F228FCE001EB775 /* Foundation.framework */,
 				4EF40F801F21BBCC001EB775 /* StoreKit.framework */,
 				4EF40F7E1F21BBBB001EB775 /* GameKit.framework */,
+				5ED6220AABECE8A29B40C9D1 /* Pods_PokemonQuiz.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

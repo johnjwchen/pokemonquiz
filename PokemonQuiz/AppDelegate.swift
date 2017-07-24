@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.isStatusBarHidden = true
         
         SKPaymentQueue.default().add(TransationObserver.main)
+        
+        Setting.main.sync()
+        
         return true
     }
 

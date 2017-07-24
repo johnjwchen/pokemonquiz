@@ -74,10 +74,10 @@ class QuizViewController: PQViewController {
         if let image = UIImage(named: "background") {
             backgroundImageView.image = ImageProcess.maskImage(image, color: color)
         }
-        // pokemonImageView.image = ImageProcess.maskImage(pokemonImageView.image!, color: UIColor.darkGray)
+       
         let random = arc4random_uniform(722)
-        let url = Downloader.imageURL(ofPokemonId: random)
-        pokemonImageView.kf.setImage(with: url)
+        setPokemonImage(ofPokemonId: random)
+        
         if quizMode == .advance {
             countingView?.removeFromSuperview()
             countingView = nil
@@ -98,6 +98,22 @@ class QuizViewController: PQViewController {
         Chartboost.cacheInterstitial(CBLocationGameOver)
     }
     
+    
+    func setPokemonImage(ofPokemonId pokemonId: UInt32) {
+        if let url = Downloader.imageURL(ofPokemonId: pokemonId) {
+            KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil) {[unowned self]
+                (image, error, cacheType, url) in
+                if let image = image {
+                    if !Setting.main.useOriginPokemonImage {
+                        self.pokemonImageView.image = ImageProcess.maskImage(image, color: self.quizMode.color())
+                    }
+                    else {
+                        self.pokemonImageView.image = image
+                    }
+                }
+            }
+        }  
+    }
     
     
     override func viewWillAppear(_ animated: Bool) {

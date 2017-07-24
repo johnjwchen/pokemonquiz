@@ -8,6 +8,8 @@
 
 import UIKit
 import StoreKit
+import Alamofire
+
 
 class ShopViewController: PQViewController {
     fileprivate var productDictionary = [String: SKProduct]()
@@ -195,13 +197,21 @@ class TransationObserver: NSObject, SKPaymentTransactionObserver {
         }
     }
     
+    
     func paymentQueue(_ queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
-        let productId = transaction.payment.productIdentifier
-        if let coins = ShopViewController.coinsDictionary[productId] {
-            User.current.quizCoins += coins
-            NotificationCenter.default.post(name: TransationObserver.AddCoinsNotification, object: coins as NSNumber)
-        }
+            let productId = transaction.payment.productIdentifier
+            APIClient.main.verify(transaction: transaction) { response in
+                switch response.result {
+                case .success(let json):
+                    if let coins = ShopViewController.coinsDictionary[productId] {
+                        User.current.quizCoins += coins
+                        NotificationCenter.default.post(name: TransationObserver.AddCoinsNotification, object: coins as NSNumber)
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
         }
     }
 }
