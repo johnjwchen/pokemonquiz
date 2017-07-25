@@ -59,7 +59,7 @@ class ViewController: PQViewController {
                                               advanceQuizArray.first!.pokemon])
     }
     
-    private func updateQuizCoinsLabel() {
+    fileprivate func updateQuizCoinsLabel() {
         quizCoinsLabel.text = String(format: "%d Quiz Coins", User.current.quizCoins)
     }
     
@@ -111,6 +111,7 @@ class ViewController: PQViewController {
                     self.performSegue(withIdentifier: "PopoverShopSegue", sender: self)
                 }))
                 alertVC.addAction(UIAlertAction(title: "\(Setting.main.rewardCoins) Quiz Coins by watching Ad", style: .default, handler: { (_) in
+                    Chartboost.setDelegate(self)
                     Chartboost.showRewardedVideo(CBLocationIAPStore)
                 }))
                 alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -119,10 +120,35 @@ class ViewController: PQViewController {
             }
             
             User.current.quizCoins -= 1
+            updateQuizCoinsLabel()
             vc.quizMode = .advance
             vc.quizArray = advanceQuizArray
         }
         present(vc, animated: true, completion: nil)
+    }
+}
+
+extension ViewController: ChartboostDelegate {
+    
+    func didCompleteRewardedVideo(_ location: String!, withReward reward: Int32) {
+        if location == CBLocationIAPStore {
+            User.current.quizCoins += Int(reward)
+        }
+    }
+    
+    func didDismissRewardedVideo(_ location: String!) {
+        if location == CBLocationIAPStore {
+            updateQuizCoinsLabel()
+            quizCoinsLabel.center.y -= 40
+            UIView.animate(withDuration: 0.92, delay: 0.0,
+                           usingSpringWithDamping: 0.1,
+                           initialSpringVelocity: 0.1,
+                           options: [],
+                           animations: {
+                            self.quizCoinsLabel.center.y += 40
+            }, completion: nil)
+            Chartboost.setDelegate(nil)
+        }
     }
 }
 

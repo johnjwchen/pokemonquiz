@@ -186,7 +186,7 @@
                   moduleName = "PokemonQuiz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jiaweichen/Documents/Pokgear%20work/PokemonQuiz/PokemonQuiz/ShopViewController.swift"
-                  timestampString = "522638708.463304"
+                  timestampString = "522639577.634049"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "52"
@@ -201,7 +201,7 @@
                   moduleName = "PokemonQuiz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jiaweichen/Documents/Pokgear%20work/PokemonQuiz/PokemonQuiz/ShopViewController.swift"
-                  timestampString = "522638708.466144"
+                  timestampString = "522639577.637564"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -246,7 +246,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PokemonQuiz/ViewController.swift"
