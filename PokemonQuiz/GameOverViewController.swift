@@ -141,6 +141,10 @@ class GameOverViewController: PQViewController {
                 let imageData = UIImagePNGRepresentation(screenShot){
                 messageVC.addAttachmentData(imageData, typeIdentifier: "public.data", filename: "image.png")
             }
+            if let appShortUrl = Setting.main.appShortUrl,
+                let url = URL(string: appShortUrl) {
+                messageVC.addAttachmentURL(url, withAlternateFilename: "Pokemon Quiz")
+            }
             self.present(messageVC, animated: true, completion: nil)
         }
         else {
@@ -158,6 +162,10 @@ class GameOverViewController: PQViewController {
             // add content
             if let screenShot = screenShot {
                 postVC.add(screenShot)
+            }
+            if let appShortUrl = Setting.main.appShortUrl,
+                let url = URL(string: appShortUrl) {
+                postVC.add(url)
             }
             self.present(postVC, animated: true, completion: nil)
             

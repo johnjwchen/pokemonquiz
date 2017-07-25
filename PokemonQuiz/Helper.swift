@@ -138,6 +138,14 @@ class Setting {
     var rewardCoins: Int {
         return dict[rewardCoinsKey] as! Int
     }
+    
+    var dictionary: [String : Any] {
+        return dict
+    }
+    
+    var appShortUrl: String? {
+        return dict["shortiOSUrl"] as? String
+    }
 }
 
 class User {
