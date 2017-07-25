@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PokemonQuiz/QuizViewController.swift"
-            timestampString = "522619395.37003"
+            timestampString = "522635055.31305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "206"
@@ -186,7 +186,7 @@
                   moduleName = "PokemonQuiz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jiaweichen/Documents/Pokgear%20work/PokemonQuiz/PokemonQuiz/ShopViewController.swift"
-                  timestampString = "522618693.601218"
+                  timestampString = "522635490.491164"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "52"
@@ -201,7 +201,7 @@
                   moduleName = "PokemonQuiz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jiaweichen/Documents/Pokgear%20work/PokemonQuiz/PokemonQuiz/ShopViewController.swift"
-                  timestampString = "522618693.604076"
+                  timestampString = "522635490.494016"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -336,6 +336,38 @@
             startingLineNumber = "35"
             endingLineNumber = "35"
             landmarkName = "loadImage(ofPokemonId:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokemonQuiz/QuizViewController.swift"
+            timestampString = "522635339.99746"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
+            landmarkName = "animateWinPoints(completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PokemonQuiz/QuizViewController.swift"
+            timestampString = "522635339.99746"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
+            landmarkName = "animateWinPoints(completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

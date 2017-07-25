@@ -205,7 +205,7 @@ class TransationObserver: NSObject, SKPaymentTransactionObserver {
             let productId = transaction.payment.productIdentifier
             APIClient.main.verify(transaction: transaction) { response in
                 switch response.result {
-                case .success(let json):
+                case .success( _):
                     if let coins = ShopViewController.coinsDictionary[productId] {
                         User.current.quizCoins += coins
                         NotificationCenter.default.post(name: TransationObserver.AddCoinsNotification, object: coins as NSNumber)

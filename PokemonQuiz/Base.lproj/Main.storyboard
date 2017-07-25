@@ -27,8 +27,7 @@
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="RrH-aI-4kl"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="biN-iG-FHa"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="mI4-lr-buO"/>
+                                    <constraint firstAttribute="width" constant="288" id="biN-iG-FHa"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="bulb"/>
@@ -42,9 +41,8 @@
                                 <rect key="frame" x="63" y="368" width="288" height="80"/>
                                 <color key="backgroundColor" red="0.99897521730000005" green="0.1750747859" blue="0.50217622520000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="1jd-kL-ats"/>
                                     <constraint firstAttribute="height" constant="80" id="8wv-NJ-mSv"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="CuY-2k-LIC"/>
+                                    <constraint firstAttribute="width" constant="288" id="CuY-2k-LIC"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="Hard"/>
@@ -59,8 +57,7 @@
                                 <color key="backgroundColor" red="0.14901960784313725" green="0.53725490196078429" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Sar-QU-c8G"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="scH-71-M9t"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="xj0-EH-W3C"/>
+                                    <constraint firstAttribute="width" constant="288" id="scH-71-M9t"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="basic"/>
@@ -443,8 +440,9 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+50 points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCy-X4-eQB">
-                                <rect key="frame" x="186" y="350" width="162" height="21.666666666666686"/>
+                                <rect key="frame" x="186" y="180" width="162" height="30"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="XAZ-EB-CNX"/>
                                     <constraint firstAttribute="width" constant="162" id="gMq-y9-YGZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
@@ -456,6 +454,7 @@
                         <constraints>
                             <constraint firstItem="cXD-UY-tSa" firstAttribute="centerX" secondItem="JCe-yi-yUP" secondAttribute="centerX" id="2UW-FQ-8CR"/>
                             <constraint firstItem="Fht-8t-84d" firstAttribute="centerY" secondItem="JCe-yi-yUP" secondAttribute="centerY" multiplier="0.82" id="31l-UU-HEg"/>
+                            <constraint firstItem="Fht-8t-84d" firstAttribute="top" secondItem="fCy-X4-eQB" secondAttribute="bottom" constant="2" id="5OT-s5-BMO"/>
                             <constraint firstItem="xOE-EE-RtY" firstAttribute="leading" secondItem="JCe-yi-yUP" secondAttribute="leadingMargin" id="6rB-pp-efM"/>
                             <constraint firstItem="xOE-EE-RtY" firstAttribute="trailing" secondItem="JCe-yi-yUP" secondAttribute="trailingMargin" id="82l-5d-4CR"/>
                             <constraint firstItem="cXD-UY-tSa" firstAttribute="top" secondItem="Fht-8t-84d" secondAttribute="bottom" priority="500" constant="8" id="8XV-1p-DHa"/>
@@ -469,7 +468,6 @@
                             <constraint firstItem="KcR-RG-RlX" firstAttribute="leading" secondItem="JCe-yi-yUP" secondAttribute="leading" id="mU4-XT-rY3"/>
                             <constraint firstItem="Fht-8t-84d" firstAttribute="centerX" secondItem="JCe-yi-yUP" secondAttribute="centerX" id="mbb-FP-xQ1"/>
                             <constraint firstAttribute="trailing" secondItem="KcR-RG-RlX" secondAttribute="trailing" id="nWN-WF-Kyk"/>
-                            <constraint firstItem="fCy-X4-eQB" firstAttribute="bottom" secondItem="Fht-8t-84d" secondAttribute="bottom" constant="-20" id="oyR-lv-A3U"/>
                             <constraint firstItem="2oa-sl-iZO" firstAttribute="top" relation="lessThanOrEqual" secondItem="cXD-UY-tSa" secondAttribute="bottom" constant="44" id="wZA-6l-4D4"/>
                         </constraints>
                     </view>

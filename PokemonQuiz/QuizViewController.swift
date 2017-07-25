@@ -93,7 +93,7 @@ class QuizViewController: PQViewController {
         wrongPlayer = loadPlayer(name: "wrongSound")
         correctPlayer = loadPlayer(name: "correctSound")
         
-        self.winPointsLabel.isHidden = true
+        winPointsLabel.isHidden = true
         
         Chartboost.setDelegate(self)
         Chartboost.cacheInterstitial(CBLocationGameOver)
@@ -290,23 +290,20 @@ class QuizViewController: PQViewController {
     }
     
     private func animateWinPoints(completionHandler: (() -> Void)?) {
-        let duration = 0.66
-        let y = self.winPointsLabel.center.y
-        self.winPointsLabel.isHidden = false
+        let duration = 0.86
+        let y = winPointsLabel.center.y
+        winPointsLabel.center.y += 2*pokemonImageView.frame.size.height/3
+        winPointsLabel.isHidden = false
         UIView.animate(withDuration: duration, delay: 0,
                        options: [.curveEaseOut],
-                       animations: { [unowned self] in
-            self.winPointsLabel.center.y -= 142
-        }) {[unowned self] _ in
-            self.winPointsLabel.isHidden = true
+                       animations: {
             self.winPointsLabel.center.y = y
+        }) { _ in
+            self.winPointsLabel.isHidden = true
             completionHandler?()
         }
     }
-    
-    @IBAction func animate(_ sender: Any) {
-        animateWinPoints(completionHandler: nil)
-    }
+
 }
 
 extension QuizViewController: ChartboostDelegate {
