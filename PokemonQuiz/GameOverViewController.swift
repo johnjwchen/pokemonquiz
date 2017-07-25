@@ -43,6 +43,9 @@ class GameOverViewController: PQViewController {
         if lastScore >= 600 {
             titleLabel.text = "Congrats"
             rateButton.isHidden = false
+            facebookButton.isHidden = true
+            twitterButton.isHidden = true
+            messageButton.isHidden = true
         }
         else {
             rateButton.isHidden = true
@@ -160,6 +163,7 @@ class GameOverViewController: PQViewController {
     
     @IBAction func backTouchUp(_ sender: Any) {
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func twitterTouchUp(_ sender: Any) {

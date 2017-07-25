@@ -25,6 +25,7 @@ class QuizGame {
     static let pokemonNameArray = QuizGame.loadJSON(name: "pokemonNameArray") as! [String]
     static let classicQuizCount = 12
     static let hardQuizCount = 10
+    static let advanceQuizCount = 20
     
     static func loadJSON(name: String) -> Any? {
         if let asset = NSDataAsset(name: name){
@@ -45,7 +46,9 @@ class QuizGame {
                 retArray.append(hardQuiz())
             }
         case .advance:
-            retArray.append(advanceQuiz())
+            for _ in 0..<advanceQuizCount {
+                retArray.append(advanceQuiz())
+            }
         }
         return retArray
     }
@@ -102,7 +105,7 @@ class QuizGame {
     
     static private let classicGens = [1,1,1,2,2,2,3,3,4,4,5,5,6,7]
     static private let hardGens = [1,1,2,2,3,3,4,4,5,6,7]
-    static private let advanceGens = [1,2,3,4,5,5,6,6,7,7]
+    static private let advanceGens = [1,2,3,4,5,5,6,6,6,7,7,7,7]
 
     static private func classicQuiz() -> Quiz {
         return randomQuiz(fromGens: classicGens)
