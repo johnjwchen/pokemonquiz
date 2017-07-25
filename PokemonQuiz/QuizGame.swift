@@ -23,9 +23,9 @@ struct Quiz {
 class QuizGame {
     private static let pokemonGroup = QuizGame.loadJSON(name: "pokemonGroup") as! [String : Any]
     static let pokemonNameArray = QuizGame.loadJSON(name: "pokemonNameArray") as! [String]
-    static let classicQuizCount = 12
-    static let hardQuizCount = 10
-    static let advanceQuizCount = 20
+    static let classicQuizCount = 24
+    static let hardQuizCount = 20
+    static let advanceQuizCount = 40
     
     static func loadJSON(name: String) -> Any? {
         if let asset = NSDataAsset(name: name){

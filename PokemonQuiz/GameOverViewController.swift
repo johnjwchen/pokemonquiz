@@ -69,6 +69,11 @@ class GameOverViewController: PQViewController {
             }
         }
         
+        // high socres
+        classicScoreLabel.text = String(User.current.classicScore)
+        hardScoreLabel.text = String(User.current.hardScore)
+        advanceScoreLabel.text = "level \(User.current.gameLevel)"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -77,7 +77,7 @@ class QuizViewController: PQViewController {
     
     private var answerButtons: [AnswerButton]!
    
-    private var sumExperience = 0
+    private var lastLevel = User.current.gameLevel
     
     deinit {
         Chartboost.setDelegate(nil)
@@ -118,6 +118,10 @@ class QuizViewController: PQViewController {
         quizIndex = -1
         maxWrongAnswers = quizMode == .classic ? 3 : 1
         
+        cacheQuizImages()
+    }
+    
+    private func cacheQuizImages() {
         var pokemonIds = [Int]()
         for quiz in quizArray {
             pokemonIds.append(quiz.pokemon)
@@ -148,16 +152,22 @@ class QuizViewController: PQViewController {
     private func nextQuiz() {
         quizIndex += 1
         if quizIndex >= quizArray.count {
-            gameOver()
-        }
-        else {
-            let quiz = quizArray[quizIndex]
-            setPokemonImage(ofPokemonId: quiz.pokemon)
-            for i in 0..<quiz.random.count {
-                anserButtons[i].pokemonId = quiz.random[i]
+            if quizMode != .advance {
+                gameOver()
+                return
             }
-            animatePokemonAndAnswers()
+            else {
+                quizIndex = 0
+                quizArray = QuizGame.quizArray(forQuizMode: .advance)
+            }
         }
+        
+        let quiz = quizArray[quizIndex]
+        setPokemonImage(ofPokemonId: quiz.pokemon)
+        for i in 0..<quiz.random.count {
+            anserButtons[i].pokemonId = quiz.random[i]
+        }
+        animatePokemonAndAnswers()
     }
     
     
@@ -192,16 +202,11 @@ class QuizViewController: PQViewController {
             else {
                 scoreLabel.text = String(toAdd)
             }
-            sumExperience += toAdd
             
             if let str = hitLabel.text, let hit = Int(str) {
                 if quizMode == .advance {
-                    let score = Int(scoreLabel.text!)!
-                    if score >= Setting.experiencePerLevel {
-                        User.current.gameLevel += 1
-                        hitLabel.text = String(User.current.gameLevel)
-                        scoreLabel.text = String(score - Setting.experiencePerLevel)
-                    }
+                    let level = lastLevel + Int(scoreLabel.text!)! / Setting.experiencePerLevel
+                    hitLabel.text = String(level)
                 }
                 else {
                     hitLabel.text = String(hit + 1)
@@ -243,11 +248,8 @@ class QuizViewController: PQViewController {
     private func gameOver() {
         self.countingView?.stopCounting()
         
-        if quizMode == .advance,
-            let str = scoreLabel.text,
-            let score = Int(str) {
-            User.current.lastExperience = score
-        }
+        updateUserStatics()
+        
         User.current.gameOverTimes += 1
         print(User.current.gameOverTimes)
         if User.current.gameOverTimes > Setting.main.gameOverAdFreeTimes &&
@@ -259,11 +261,31 @@ class QuizViewController: PQViewController {
         }
     }
     
+    private func updateUserStatics() {
+        if let str = scoreLabel.text,
+            let score = Int(str) {
+            switch quizMode {
+            case .advance:
+                let level = lastLevel + score / Setting.experiencePerLevel
+                User.current.gameLevel = level
+                User.current.lastExperience = score % Setting.experiencePerLevel
+            case .classic:
+                if score > User.current.classicScore {
+                    User.current.classicScore = score
+                }
+            case .hard:
+                if score > User.current.hardScore {
+                    User.current.hardScore = score
+                }
+            }
+        }
+    }
+    
     fileprivate func presentGameOver(animated: Bool) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
         vc.screenShot = screenShot
         if let str = scoreLabel.text, let score = Int(str) {
-            vc.lastScore = quizMode == .advance ? sumExperience : score
+            vc.lastScore = score
         }
         else {
             vc.lastScore = 0

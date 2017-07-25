@@ -594,7 +594,7 @@
                                     <action selector="facebookTouchUp:" destination="LUZ-XP-XkG" eventType="touchUpInside" id="dEL-FC-8dp"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hight Scores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tw-mH-dDS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Scores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tw-mH-dDS">
                                 <rect key="frame" x="118" y="362.33333333333331" width="178" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="178" id="K0v-Gc-vts"/>
