@@ -92,7 +92,7 @@ class GameOverViewController: PQViewController {
         if value == lastScore {
             timer.invalidate()
             animateOthers()
-            let cns = coins(fromScore: lastScore)
+            let cns = Setting.coins(fromScore: lastScore)
             if quizMode != .advance && cns > 0 {
                 winQuizCoin(cns)
                 User.current.quizCoins += cns
@@ -103,9 +103,6 @@ class GameOverViewController: PQViewController {
         }
     }
     
-    private func coins(fromScore scores: Int) -> Int {
-        return scores / 165
-    }
     
     private func animateOthers() {
         UIView.animate(withDuration: 0.8, animations:{[unowned self] in

@@ -88,6 +88,9 @@ class APIClient {
 
 class Setting {
     static let experiencePerLevel = 200
+    class func coins(fromScore scores: Int) -> Int {
+        return scores / 165
+    }
     
     static let main = Setting()
     private var dict = [String: Any]()

@@ -103,9 +103,9 @@ class QuizGame {
         return quiz(ofPid: pid)
     }
     
-    static private let classicGens = [1,1,1,2,2,2,3,3,4,4,5,5,6,7]
-    static private let hardGens = [1,1,2,2,3,3,4,4,5,6,7]
-    static private let advanceGens = [1,2,3,4,5,5,6,6,6,7,7,7,7]
+    static private let classicGens = [1,1,1,2,2,2,3,3,3,4,4,5,5,6,7]
+    static private let hardGens = [1,1,2,2,3,3,4,4,5,5,6,7]
+    static private let advanceGens = [1,2,3,4,4,5,5,5,6,6,6,7,7,7,7]
 
     static private func classicQuiz() -> Quiz {
         return randomQuiz(fromGens: classicGens)
