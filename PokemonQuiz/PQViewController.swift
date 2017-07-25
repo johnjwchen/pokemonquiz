@@ -20,8 +20,18 @@ extension PQViewController {
         let layer = UIApplication.shared.keyWindow!.layer
         let scale = UIScreen.main.scale
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
-        
         layer.render(in: UIGraphicsGetCurrentContext()!)
+        
+        let attributes :[String:AnyObject] = [
+            NSFontAttributeName : UIFont(name: "Helvetica", size: 22)!,
+            NSForegroundColorAttributeName : UIColor.white
+        ]
+        // Draw text with CGPoint and attributes
+        if let text = Setting.main.appName {
+            let attributedString = NSAttributedString(string: text as String, attributes: attributes)
+            
+            attributedString.draw(at: CGPoint(x: layer.frame.size.width/2 - attributedString.size().width/2, y: 10))
+        }
         let screenshot = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         

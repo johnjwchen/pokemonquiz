@@ -146,6 +146,10 @@ class Setting {
     var appShortUrl: String? {
         return dict["shortiOSUrl"] as? String
     }
+    
+    var appName: String? {
+        return dict["appName"] as? String
+    }
 }
 
 class User {
