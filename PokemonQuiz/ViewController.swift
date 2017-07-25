@@ -68,7 +68,7 @@ class ViewController: PQViewController {
     }
     
     @IBAction func pokgearButtonClick(_ sender: Any) {
-        self.openAppStore(for: pokgearIdentifier)
+        openAppStore(for: pokgearIdentifier)
     }
     
     
