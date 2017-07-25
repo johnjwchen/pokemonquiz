@@ -158,8 +158,8 @@ class User {
     private var quizCoinsValue: Int
     private var gameOverTimesValue: Int
     
-    private static let GameOverTimesKey = "GameOverTimes"
-    private static let QuizCoinsKey = "QuizCoins"
+    private let GameOverTimesKey = "GameOverTimes"
+    private let QuizCoinsKey = "QuizCoins"
     
     private static let uuidKey = "UUID"
     let uuid: String
@@ -169,14 +169,24 @@ class User {
         get { return quizCoinsValue }
         set {
             quizCoinsValue = newValue
-            keychain.set(String(quizCoinsValue), forKey: User.QuizCoinsKey)
+            keychain.set(String(quizCoinsValue), forKey: QuizCoinsKey)
         }
     }
     var gameOverTimes: Int {
         get { return gameOverTimesValue }
         set {
             gameOverTimesValue = newValue
-            keychain.set(String(gameOverTimesValue), forKey: User.GameOverTimesKey)
+            keychain.set(String(gameOverTimesValue), forKey: GameOverTimesKey)
+        }
+    }
+    
+    private var gameOverAdWaitingValue = false
+    private let gameOverAdWaitingKey = "gameOverAdWaiting"
+    var gameOverAdWaiting: Bool {
+        get { return gameOverAdWaitingValue }
+        set {
+            gameOverAdWaitingValue = newValue
+            keychain.set(newValue, forKey: gameOverAdWaitingKey)
         }
     }
     
@@ -226,7 +236,7 @@ class User {
     
     
     private init() {
-        if let str = keychain.get(User.QuizCoinsKey),
+        if let str = keychain.get(QuizCoinsKey),
             let coins = Int(str) {
             quizCoinsValue = coins
         }
@@ -234,7 +244,7 @@ class User {
             quizCoinsValue = 0
         }
         
-        if let str = keychain.get(User.GameOverTimesKey),
+        if let str = keychain.get(GameOverTimesKey),
             let times = Int(str) {
             gameOverTimesValue = times
         }
@@ -248,6 +258,14 @@ class User {
         else {
             uuid = UUID().uuidString
             keychain.set(uuid, forKey: User.uuidKey)
+        }
+        
+        if let waiting = keychain.getBool(gameOverAdWaitingKey) {
+            gameOverAdWaitingValue = waiting
+        }
+        else {
+            gameOverAdWaitingValue = false
+            keychain.set(gameOverAdWaitingValue, forKey: gameOverAdWaitingKey)
         }
     }
     

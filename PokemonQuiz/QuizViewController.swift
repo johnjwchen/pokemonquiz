@@ -62,8 +62,6 @@ class QuizViewController: PQViewController {
     @IBOutlet weak var hitDescriptionLabel: UILabel!
     @IBOutlet weak var scoreDescriptionLabel: UILabel!
     
-    var anserButtons: [AnswerButton]!
-    
     var quizMode: QuizMode = .classic
     var quizArray: [Quiz]!
     private var quizIndex = 0
@@ -79,6 +77,8 @@ class QuizViewController: PQViewController {
    
     private var lastLevel = User.current.gameLevel
     
+    private var anserEnable = false
+    
     deinit {
         Chartboost.setDelegate(nil)
     }
@@ -89,7 +89,6 @@ class QuizViewController: PQViewController {
         if let image = UIImage(named: "background") {
             backgroundImageView.image = ImageProcess.maskImage(image, color: color)
         }
-        anserButtons = [answer1Button, answer2Button, answer3Button, answer4Button]
         
         if quizMode == .advance {
             countingView?.removeFromSuperview()
@@ -100,10 +99,12 @@ class QuizViewController: PQViewController {
             scoreDescriptionLabel.text = "Experience"
         }
         pokemonImageView.image = nil
-        
         countingView?.backgroundColor = color
         
-        anserButtons = [answer1Button, answer2Button, answer3Button, answer4Button]
+        answerButtons = [answer1Button, answer2Button, answer3Button, answer4Button]
+        for button in answerButtons {
+            button.isExclusiveTouch = true
+        }
         
         wrongPlayer = loadPlayer(name: "wrongSound")
         correctPlayer = loadPlayer(name: "correctSound")
@@ -166,8 +167,9 @@ class QuizViewController: PQViewController {
         let quiz = quizArray[quizIndex]
         setPokemonImage(ofPokemonId: quiz.pokemon)
         for i in 0..<quiz.random.count {
-            anserButtons[i].pokemonId = quiz.random[i]
+            answerButtons[i].pokemonId = quiz.random[i]
         }
+        anserEnable = true
         animatePokemonAndAnswers()
     }
     
@@ -191,6 +193,11 @@ class QuizViewController: PQViewController {
     }
     
     @IBAction func answerButtonTouchUp(_ button: AnswerButton) {
+        if !anserEnable { return }
+        else {
+            anserEnable = false
+        }
+        
         countingView?.stopCounting()
         if button.pokemonId == quizArray[quizIndex].pokemon {
             // correct
@@ -253,9 +260,14 @@ class QuizViewController: PQViewController {
         
         User.current.gameOverTimes += 1
         print(User.current.gameOverTimes)
-        if User.current.gameOverTimes > Setting.main.gameOverAdFreeTimes &&
+        if User.current.gameOverAdWaiting == true || User.current.gameOverTimes > Setting.main.gameOverAdFreeTimes &&
             User.current.gameOverTimes % Setting.main.gameOverAdShowPeriod == 0 {
-            Chartboost.showInterstitial(CBLocationGameOver)
+            if Chartboost.hasInterstitial(CBLocationGameOver) {
+                Chartboost.showInterstitial(CBLocationGameOver)
+            }
+            else {
+                User.current.gameOverAdWaiting = true
+            }
         }
         else {
             presentGameOver(animated: true)
@@ -326,8 +338,8 @@ class QuizViewController: PQViewController {
     private func animatePokemonAndAnswers() {
         let duration = 0.5
         var delay = 0.0
-        for i in 0..<anserButtons.count {
-            let button = anserButtons[i]
+        for i in 0..<answerButtons.count {
+            let button = answerButtons[i]
             button.center.y += self.view.bounds.height/2
             delay += 0.1
             UIView.animate(withDuration: duration, delay: delay,
@@ -336,7 +348,7 @@ class QuizViewController: PQViewController {
                             button.center.y -= self.view.bounds.height/2
             },
                            completion: {[unowned self] finished in
-                            if i == self.anserButtons.count - 1 {
+                            if i == self.answerButtons.count - 1 {
                                 self.countingView?.startCounting()
                                 if self.screenShot == nil {
                                     self.screenShot = self.screenShotImage()

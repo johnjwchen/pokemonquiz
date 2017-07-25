@@ -110,10 +110,12 @@ class ViewController: PQViewController {
                 alertVC.addAction(UIAlertAction(title: "Buy Quiz Coins", style: .default, handler: { (_) in
                     self.performSegue(withIdentifier: "PopoverShopSegue", sender: self)
                 }))
-                alertVC.addAction(UIAlertAction(title: "\(Setting.main.rewardCoins) Quiz Coins by watching Ad", style: .default, handler: { (_) in
-                    Chartboost.setDelegate(self)
-                    Chartboost.showRewardedVideo(CBLocationIAPStore)
-                }))
+                if Chartboost.hasRewardedVideo(CBLocationIAPStore) {
+                    alertVC.addAction(UIAlertAction(title: "\(Setting.main.rewardCoins) Quiz Coins by watching Ad", style: .default, handler: { (_) in
+                        Chartboost.setDelegate(self)
+                        Chartboost.showRewardedVideo(CBLocationIAPStore)
+                    }))
+                }
                 alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                 present(alertVC, animated: true, completion: nil)
                 return

@@ -46,6 +46,7 @@ class ShopViewController: PQViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(addCoins(notification:)), name: TransationObserver.AddCoinsNotification, object: nil)
         
         watchAdButton.setTitle("\(Setting.main.rewardCoins) free Quiz Coins by watching Ad", for: .normal)
+        
     }
     
     deinit {
@@ -148,6 +149,8 @@ extension ShopViewController: SKProductsRequestDelegate {
         for button in buyButtons {
             button.isHidden = false
         }
+        
+        watchAdButton.isHidden = !Chartboost.hasRewardedVideo(CBLocationIAPStore)
         ativityIndicatorView?.stopAnimating()
         ativityIndicatorView?.removeFromSuperview()
     }
@@ -157,7 +160,7 @@ extension ShopViewController: SKProductsRequestDelegate {
 extension ShopViewController: ChartboostDelegate {
     func didCache(inPlay location: String!) {
         if location == CBLocationIAPStore {
-            watchAdButton.isHighlighted = false
+            watchAdButton.isHidden = false
         }
     }
     
