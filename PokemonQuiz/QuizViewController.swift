@@ -159,6 +159,7 @@ class QuizViewController: PQViewController {
             else {
                 quizIndex = 0
                 quizArray = QuizGame.quizArray(forQuizMode: .advance)
+                cacheQuizImages()
             }
         }
         

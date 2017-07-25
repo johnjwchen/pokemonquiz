@@ -80,7 +80,7 @@ class GameOverViewController: PQViewController {
         super.viewWillAppear(animated)
         
         if !showAd && lastScore > 0 {
-            timer = Timer.scheduledTimer(timeInterval: 1.0/Double(lastScore), target: self,   selector: (#selector(updateScore)), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 0.9/Double(lastScore), target: self,   selector: (#selector(updateScore)), userInfo: nil, repeats: true)
         }
         else {
             animateOthers()
