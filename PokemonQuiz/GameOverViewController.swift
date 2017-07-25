@@ -40,7 +40,7 @@ class GameOverViewController: PQViewController {
         numberLabel.text = "0"
         descriptionLabel.text = "Points"
         winQuizCoinLabel.isHidden = true
-        if lastScore > 900 {
+        if lastScore >= 600 {
             titleLabel.text = "Congrats"
             rateButton.isHidden = false
         }
@@ -48,6 +48,7 @@ class GameOverViewController: PQViewController {
             rateButton.isHidden = true
         }
         view.backgroundColor = quizMode.color()
+    
         
         if showAd {
             Chartboost.showInterstitial(CBLocationGameOver)
@@ -80,11 +81,19 @@ class GameOverViewController: PQViewController {
         if value == lastScore {
             timer.invalidate()
             animateOthers()
-            self.winQuizCoin(5)
+            let cns = coins(fromScore: lastScore)
+            if cns > 0 {
+                winQuizCoin(cns)
+                User.current.quizCoins += cns
+            }
         }
         else {
            numberLabel.text = String(value + 1)
         }
+    }
+    
+    private func coins(fromScore scores: Int) -> Int {
+        return scores / 165
     }
     
     private func animateOthers() {

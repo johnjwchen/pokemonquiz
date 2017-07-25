@@ -315,8 +315,8 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8d-WJ-fno">
-                                                <rect key="frame" x="53.333333333333329" y="53.333333333333329" width="18.666666666666671" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Streak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8d-WJ-fno">
+                                                <rect key="frame" x="42" y="53.333333333333329" width="41.666666666666671" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -440,7 +440,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+50 points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCy-X4-eQB">
-                                <rect key="frame" x="186" y="180" width="162" height="30"/>
+                                <rect key="frame" x="186" y="191.66666666666666" width="162" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="XAZ-EB-CNX"/>
                                     <constraint firstAttribute="width" constant="162" id="gMq-y9-YGZ"/>
@@ -454,7 +454,7 @@
                         <constraints>
                             <constraint firstItem="cXD-UY-tSa" firstAttribute="centerX" secondItem="JCe-yi-yUP" secondAttribute="centerX" id="2UW-FQ-8CR"/>
                             <constraint firstItem="Fht-8t-84d" firstAttribute="centerY" secondItem="JCe-yi-yUP" secondAttribute="centerY" multiplier="0.82" id="31l-UU-HEg"/>
-                            <constraint firstItem="Fht-8t-84d" firstAttribute="top" secondItem="fCy-X4-eQB" secondAttribute="bottom" constant="2" id="5OT-s5-BMO"/>
+                            <constraint firstItem="Fht-8t-84d" firstAttribute="top" secondItem="fCy-X4-eQB" secondAttribute="bottom" constant="-10" id="5OT-s5-BMO"/>
                             <constraint firstItem="xOE-EE-RtY" firstAttribute="leading" secondItem="JCe-yi-yUP" secondAttribute="leadingMargin" id="6rB-pp-efM"/>
                             <constraint firstItem="xOE-EE-RtY" firstAttribute="trailing" secondItem="JCe-yi-yUP" secondAttribute="trailingMargin" id="82l-5d-4CR"/>
                             <constraint firstItem="cXD-UY-tSa" firstAttribute="top" secondItem="Fht-8t-84d" secondAttribute="bottom" priority="500" constant="8" id="8XV-1p-DHa"/>

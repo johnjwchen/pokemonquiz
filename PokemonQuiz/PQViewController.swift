@@ -42,7 +42,7 @@ extension PQViewController: SKStoreProductViewControllerDelegate {
     }
     
     func openProductViewController(of identifier: String) {
-        let storeViewController = MyStoreProductViewController()
+        let storeViewController = SKStoreProductViewController()
         storeViewController.delegate = self
         let parameters = [ SKStoreProductParameterITunesItemIdentifier : identifier]
         storeViewController.loadProduct(withParameters: parameters, completionBlock: nil)
@@ -55,9 +55,5 @@ extension PQViewController: SKStoreProductViewControllerDelegate {
 }
 
 
-class MyStoreProductViewController: SKStoreProductViewController {
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-}
+
 

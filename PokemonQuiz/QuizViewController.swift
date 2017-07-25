@@ -20,6 +20,17 @@ extension QuizMode {
             return QuizModeColor.advance
         }
     }
+    
+    func score() -> Int {
+        switch self {
+        case .classic:
+            return 60
+        case .hard:
+            return 100
+        case .advance:
+            return 50
+        }
+    }
 }
 
 struct QuizModeColor {
@@ -94,6 +105,7 @@ class QuizViewController: PQViewController {
         correctPlayer = loadPlayer(name: "correctSound")
         
         winPointsLabel.isHidden = true
+        winPointsLabel.text = "+\(quizMode.score())"
         
         Chartboost.setDelegate(self)
         Chartboost.cacheInterstitial(CBLocationGameOver)
@@ -169,11 +181,18 @@ class QuizViewController: PQViewController {
             // correct
             playSound(correct: true)
             button.status = .correct
+            let toAdd = quizMode.score()
             if let str = scoreLabel.text, let score = Int(str) {
-                scoreLabel.text = String(score + 50)
+                scoreLabel.text = String(score + toAdd)
             }
             else {
-                scoreLabel.text = "50"
+                scoreLabel.text = String(toAdd)
+            }
+            if let str = hitLabel.text, let hit = Int(str) {
+                hitLabel.text = String(hit + 1)
+            }
+            else {
+                hitLabel.text = "1"
             }
             animateWinPoints() {
                 button.status = .not
@@ -290,7 +309,7 @@ class QuizViewController: PQViewController {
     }
     
     private func animateWinPoints(completionHandler: (() -> Void)?) {
-        let duration = 0.86
+        let duration = 0.66
         let y = winPointsLabel.center.y
         winPointsLabel.center.y += 2*pokemonImageView.frame.size.height/3
         winPointsLabel.isHidden = false

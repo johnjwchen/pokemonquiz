@@ -105,10 +105,24 @@ class ViewController: PQViewController {
             vc.quizMode = .hard
             vc.quizArray = hardQuizArray
         default:
+            if User.current.quizCoins < 1 {
+                let alertVC = UIAlertController(title: "Advice", message: "You need 1 Quiz Coin to play Advance. Please play other modes to earn Coins.", preferredStyle: .alert)
+                alertVC.addAction(UIAlertAction(title: "Buy Quiz Coins", style: .default, handler: { (_) in
+                    self.performSegue(withIdentifier: "PopoverShopSegue", sender: self)
+                }))
+                alertVC.addAction(UIAlertAction(title: "\(Setting.main.rewardCoins) Quiz Coins by watching Ad", style: .default, handler: { (_) in
+                    Chartboost.showRewardedVideo(CBLocationIAPStore)
+                }))
+                alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                present(alertVC, animated: true, completion: nil)
+                return
+            }
+            
+            User.current.quizCoins -= 1
             vc.quizMode = .advance
             vc.quizArray = advanceQuizArray
         }
-        self.present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
 }
 
