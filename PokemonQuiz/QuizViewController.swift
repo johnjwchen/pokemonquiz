@@ -76,6 +76,8 @@ class QuizViewController: PQViewController {
     private var screenShot: UIImage?
     
     private var answerButtons: [AnswerButton]!
+   
+    private var sumExperience = 0
     
     deinit {
         Chartboost.setDelegate(nil)
@@ -92,7 +94,9 @@ class QuizViewController: PQViewController {
         if quizMode == .advance {
             countingView?.removeFromSuperview()
             countingView = nil
+            hitLabel.text = String(User.current.gameLevel)
             hitDescriptionLabel.text = "Level"
+            scoreLabel.text = String(User.current.lastExperience)
             scoreDescriptionLabel.text = "Experience"
         }
         pokemonImageView.image = nil
@@ -188,8 +192,20 @@ class QuizViewController: PQViewController {
             else {
                 scoreLabel.text = String(toAdd)
             }
+            sumExperience += toAdd
+            
             if let str = hitLabel.text, let hit = Int(str) {
-                hitLabel.text = String(hit + 1)
+                if quizMode == .advance {
+                    let score = Int(scoreLabel.text!)!
+                    if score >= Setting.experiencePerLevel {
+                        User.current.gameLevel += 1
+                        hitLabel.text = String(User.current.gameLevel)
+                        scoreLabel.text = String(score - Setting.experiencePerLevel)
+                    }
+                }
+                else {
+                    hitLabel.text = String(hit + 1)
+                }
             }
             else {
                 hitLabel.text = "1"
@@ -218,9 +234,6 @@ class QuizViewController: PQViewController {
     
   
     @IBAction func countChange(_ sender: CountingView) {
-        if screenShot == nil {
-            screenShot = screenShotImage()
-        }
         if sender.count == 0 {
             wrongAnswer += 1
             nextQuiz()
@@ -230,6 +243,11 @@ class QuizViewController: PQViewController {
     private func gameOver() {
         self.countingView?.stopCounting()
         
+        if quizMode == .advance,
+            let str = scoreLabel.text,
+            let score = Int(str) {
+            User.current.lastExperience = score
+        }
         User.current.gameOverTimes += 1
         print(User.current.gameOverTimes)
         if User.current.gameOverTimes > Setting.main.gameOverAdFreeTimes &&
@@ -245,7 +263,7 @@ class QuizViewController: PQViewController {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
         vc.screenShot = screenShot
         if let str = scoreLabel.text, let score = Int(str) {
-            vc.lastScore = score
+            vc.lastScore = quizMode == .advance ? sumExperience : score
         }
         else {
             vc.lastScore = 0
@@ -297,6 +315,9 @@ class QuizViewController: PQViewController {
                            completion: {[unowned self] finished in
                             if i == self.anserButtons.count - 1 {
                                 self.countingView?.startCounting()
+                                if self.screenShot == nil {
+                                    self.screenShot = self.screenShotImage()
+                                }
                             }
             })
         }

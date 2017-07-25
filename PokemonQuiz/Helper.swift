@@ -87,6 +87,8 @@ class APIClient {
 
 
 class Setting {
+    static let experiencePerLevel = 200
+    
     static let main = Setting()
     private var dict = [String: Any]()
     private let gameOverAdShowPeriodKey = "gameOverAdShowPeriod"
@@ -165,6 +167,52 @@ class User {
             keychain.set(String(gameOverTimesValue), forKey: User.GameOverTimesKey)
         }
     }
+    
+    private let gameLevelKey = "gameLevel"
+    private let hardScoreKey = "hardScore"
+    private let classicScoreKey = "classicScore"
+    private let lastExperienceKey = "lastExperience"
+    
+    var gameLevel: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: gameLevelKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: gameLevelKey)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    var lastExperience: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: lastExperienceKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: lastExperienceKey)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    var hardScore: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: hardScoreKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: hardScoreKey)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    var classicScore: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: classicScoreKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: classicScoreKey)
+        }
+    }
+    
+    
     private init() {
         if let str = keychain.get(User.QuizCoinsKey),
             let coins = Int(str) {

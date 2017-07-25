@@ -39,6 +39,9 @@ class GameOverViewController: PQViewController {
 
         numberLabel.text = "0"
         descriptionLabel.text = "Points"
+        if quizMode == .advance {
+            descriptionLabel.text = "Experiences"
+        }
         winQuizCoinLabel.isHidden = true
         if lastScore >= 600 {
             titleLabel.text = "Congrats"
@@ -85,7 +88,7 @@ class GameOverViewController: PQViewController {
             timer.invalidate()
             animateOthers()
             let cns = coins(fromScore: lastScore)
-            if cns > 0 {
+            if quizMode != .advance && cns > 0 {
                 winQuizCoin(cns)
                 User.current.quizCoins += cns
             }
