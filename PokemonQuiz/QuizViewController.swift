@@ -153,15 +153,9 @@ class QuizViewController: PQViewController {
     private func nextQuiz() {
         quizIndex += 1
         if quizIndex >= quizArray.count {
-            if quizMode != .advance {
-                gameOver()
-                return
-            }
-            else {
-                quizIndex = 0
-                quizArray = QuizGame.quizArray(forQuizMode: .advance)
-                cacheQuizImages()
-            }
+            quizIndex = 0
+            quizArray = QuizGame.quizArray(forQuizMode: .advance)
+            cacheQuizImages()
         }
         
         let quiz = quizArray[quizIndex]
