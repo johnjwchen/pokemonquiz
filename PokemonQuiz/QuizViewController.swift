@@ -252,10 +252,12 @@ class QuizViewController: PQViewController {
         
         updateUserStatics()
         
-        User.current.gameOverTimes += 1
-        print(User.current.gameOverTimes)
-        if User.current.gameOverAdWaiting == true || User.current.gameOverTimes > Setting.main.gameOverAdFreeTimes &&
-            User.current.gameOverTimes % Setting.main.gameOverAdShowPeriod == 0 {
+        if quizMode != .advance {
+           User.current.gameOverTimes += 1
+        }
+        //print(User.current.gameOverTimes)
+        if quizMode != .advance && (User.current.gameOverAdWaiting == true || User.current.gameOverTimes > Setting.main.gameOverAdFreeTimes &&
+            User.current.gameOverTimes % Setting.main.gameOverAdShowPeriod == 0) {
             if Chartboost.hasInterstitial(CBLocationGameOver) {
                 Chartboost.showInterstitial(CBLocationGameOver)
             }
