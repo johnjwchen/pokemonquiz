@@ -24,7 +24,7 @@ extension QuizMode {
     func score() -> Int {
         switch self {
         case .classic:
-            return 60
+            return 50
         case .hard:
             return 100
         case .advance:
@@ -63,7 +63,11 @@ class QuizViewController: PQViewController {
     @IBOutlet weak var scoreDescriptionLabel: UILabel!
     
     var quizMode: QuizMode = .classic
-    var quizArray: [Quiz]!
+    var quizArray: [Quiz]! {
+        didSet {
+            cacheQuizImages()
+        }
+    }
     private var quizIndex = 0
     
     private var wrongAnswer = 0
@@ -78,6 +82,7 @@ class QuizViewController: PQViewController {
     private var lastLevel = User.current.gameLevel
     
     private var anserEnable = false
+    private var isGameOver = false
     
     deinit {
         Chartboost.setDelegate(nil)
@@ -118,8 +123,13 @@ class QuizViewController: PQViewController {
         wrongAnswer = 0
         quizIndex = -1
         maxWrongAnswers = quizMode == .classic ? 3 : 1
-        
-        cacheQuizImages()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !isGameOver {
+            nextQuiz()
+        }
     }
     
     private func cacheQuizImages() {
@@ -145,17 +155,11 @@ class QuizViewController: PQViewController {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        nextQuiz()
-    }
-    
     private func nextQuiz() {
         quizIndex += 1
-        if quizIndex >= quizArray.count {
+        if quizIndex >= 2*quizArray.count/3 {
+            quizArray = Array(quizArray[quizIndex..<quizArray.count]) + QuizGame.quizArray(forQuizMode: .advance)
             quizIndex = 0
-            quizArray = QuizGame.quizArray(forQuizMode: .advance)
-            cacheQuizImages()
         }
         
         let quiz = quizArray[quizIndex]
@@ -260,6 +264,7 @@ class QuizViewController: PQViewController {
             User.current.gameOverTimes % Setting.main.gameOverAdShowPeriod == 0) {
             if Chartboost.hasInterstitial(CBLocationGameOver) {
                 Chartboost.showInterstitial(CBLocationGameOver)
+                User.current.gameOverAdWaiting = false
             }
             else {
                 User.current.gameOverAdWaiting = true
