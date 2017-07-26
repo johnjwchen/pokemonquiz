@@ -307,7 +307,6 @@ class QuizViewController: PQViewController {
             vc.lastScore = 0
         }
         vc.quizMode = self.quizMode
-        vc.showAd = false
         present(vc, animated: animated, completion: nil)
     }
     

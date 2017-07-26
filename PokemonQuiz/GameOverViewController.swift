@@ -16,7 +16,6 @@ class GameOverViewController: PQViewController {
     var lastScore: Int!
     var quizMode: QuizMode = .classic
     private var timer: Timer?
-    var showAd: Bool!
     
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -55,28 +54,19 @@ class GameOverViewController: PQViewController {
         }
         view.backgroundColor = quizMode.color()
     
-        
-        if showAd {
-            Chartboost.showInterstitial(CBLocationGameOver)
-        }
-        else {
-            // hide others
-            for v in view.subviews {
-                if v !== numberLabel && v !== descriptionLabel &&
-                    v !== winQuizCoinLabel{
-                    v.alpha = 0
-                }
-            }
-        }
-        
-        
-        
         // high socres
         classicScoreLabel.text = String(User.current.classicScore)
         hardScoreLabel.text = String(User.current.hardScore)
         advanceScoreLabel.text = "level \(User.current.gameLevel)"
         
-        if !showAd && lastScore > 0 {
+        for v in view.subviews {
+            if v !== numberLabel && v !== descriptionLabel &&
+                v !== winQuizCoinLabel{
+                v.alpha = 0
+            }
+        }
+        
+        if lastScore > 0 {
             timer = Timer.scheduledTimer(timeInterval: 0.9/Double(lastScore), target: self,   selector: (#selector(updateScore)), userInfo: nil, repeats: true)
         }
         else {
@@ -127,7 +117,7 @@ class GameOverViewController: PQViewController {
     }
     
     
-    // MASK - social
+    // MARK - social
    
     @IBAction func messageTouchUp(_ sender: Any) {
         if MFMessageComposeViewController.canSendText() {
@@ -155,21 +145,14 @@ class GameOverViewController: PQViewController {
     }
     
     private func post(forServiceType serviceType: String) {
-        if SLComposeViewController.isAvailable(forServiceType: serviceType) {
-            let postVC:SLComposeViewController = SLComposeViewController(forServiceType: serviceType)
-            // add content
-            if let screenShot = screenShot {
-                postVC.add(screenShot)
-            }
-            
-            self.present(postVC, animated: true, completion: nil)
-            
-        } else {
-            let alert = UIAlertController(title: "Account", message: "Please login to your account.", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        let postVC:SLComposeViewController = SLComposeViewController(forServiceType: serviceType)
+        if let screenShot = screenShot {
+            postVC.add(screenShot)
         }
+        if let appShortUrl = Setting.main.appShortUrl, serviceType != SLServiceTypeFacebook {
+            postVC.setInitialText("Checkout this awesome Pokemon Quiz. \n \(appShortUrl)")
+        }
+        self.present(postVC, animated: true, completion: nil)
     }
     
     @IBAction func backTouchUp(_ sender: Any) {

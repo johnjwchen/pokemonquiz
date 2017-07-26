@@ -105,22 +105,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PokemonQuiz/GameOverViewController.swift"
-            timestampString = "522641477.959322"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "PokemonQuiz/QuizViewController.swift"
             timestampString = "522784729.940097"
             startingColumnNumber = "9223372036854775807"
@@ -128,22 +112,6 @@
             startingLineNumber = "248"
             endingLineNumber = "248"
             landmarkName = "countChange(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PokemonQuiz/GameOverViewController.swift"
-            timestampString = "522641477.959322"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -186,12 +154,12 @@
                   moduleName = "PokemonQuiz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jiaweichen/Documents/Pokgear%20work/PokemonQuiz/PokemonQuiz/ShopViewController.swift"
-                  timestampString = "522784730.10867"
+                  timestampString = "522785612.128994"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
                   endingLineNumber = "53"
-                  offsetFromSymbolStart = "15">
+                  offsetFromSymbolStart = "16">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -201,12 +169,12 @@
                   moduleName = "PokemonQuiz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jiaweichen/Documents/Pokgear%20work/PokemonQuiz/PokemonQuiz/ShopViewController.swift"
-                  timestampString = "522784730.110686"
+                  timestampString = "522785612.130584"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -314,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PokemonQuiz/QuizViewController.swift"
-            timestampString = "522784729.940097"
+            timestampString = "522785610.960932"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
             landmarkName = "animateWinPoints(completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -330,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PokemonQuiz/QuizViewController.swift"
-            timestampString = "522784729.940097"
+            timestampString = "522785610.960932"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
             landmarkName = "animateWinPoints(completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -346,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PokemonQuiz/GameOverViewController.swift"
-            timestampString = "522739746.190212"
+            timestampString = "522785610.960932"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "backTouchUp(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -486,15 +454,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PokemonQuiz/GameOverViewController.swift"
-            timestampString = "522739746.190212"
+            timestampString = "522785610.960932"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "updateScore()"
             landmarkType = "7">
          </BreakpointContent>
