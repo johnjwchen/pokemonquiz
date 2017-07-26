@@ -32,6 +32,7 @@
 		4EDABE6E1F1D93C60061AC56 /* ModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6D1F1D93C60061AC56 /* ModeButton.swift */; };
 		4EDABE701F1D9ED30061AC56 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */; };
 		4EE4DFD51F264FC200216F3A /* QuizGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4DFD41F264FC200216F3A /* QuizGame.swift */; };
+		4EE4DFD81F28304600216F3A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4DFD71F28304600216F3A /* User.swift */; };
 		4EF40F7F1F21BBBB001EB775 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F7E1F21BBBB001EB775 /* GameKit.framework */; };
 		4EF40F811F21BBCC001EB775 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F801F21BBCC001EB775 /* StoreKit.framework */; };
 		4EF40F831F228FCE001EB775 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF40F821F228FCE001EB775 /* Foundation.framework */; };
@@ -88,6 +89,7 @@
 		4EDABE6D1F1D93C60061AC56 /* ModeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeButton.swift; sourceTree = "<group>"; };
 		4EDABE6F1F1D9ED30061AC56 /* AnswerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		4EE4DFD41F264FC200216F3A /* QuizGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizGame.swift; sourceTree = "<group>"; };
+		4EE4DFD71F28304600216F3A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4EF40F7E1F21BBBB001EB775 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		4EF40F801F21BBCC001EB775 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4EF40F821F228FCE001EB775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -162,6 +164,7 @@
 				4E5165471F1C24790095D36F /* Main.storyboard */,
 				4EDABE691F1D413C0061AC56 /* QuizViewController.swift */,
 				4E9AFAB61F21543100BA0A1D /* Helper.swift */,
+				4EE4DFD71F28304600216F3A /* User.swift */,
 				4E9A33A21F1E962500B90F87 /* ShopViewController.swift */,
 				4EE4DFD41F264FC200216F3A /* QuizGame.swift */,
 				4E9A33A61F20183800B90F87 /* GameOverViewController.swift */,
@@ -427,6 +430,7 @@
 				4E9A33A51F200CD300B90F87 /* RoundCornerButton.swift in Sources */,
 				4EDABE6E1F1D93C60061AC56 /* ModeButton.swift in Sources */,
 				4E5165461F1C24790095D36F /* ViewController.swift in Sources */,
+				4EE4DFD81F28304600216F3A /* User.swift in Sources */,
 				4E9A33A91F20719600B90F87 /* VolumeButton.swift in Sources */,
 				4E9AFAB51F21408600BA0A1D /* ResponableButton.swift in Sources */,
 				4E9A33A71F20183800B90F87 /* GameOverViewController.swift in Sources */,

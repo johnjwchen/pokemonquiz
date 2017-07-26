@@ -670,6 +670,9 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="viewLeaderBoardTouchUp:" destination="LUZ-XP-XkG" eventType="touchUpInside" id="I39-KN-mds"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGv-ph-yLv" customClass="RoundCornerButton" customModule="PokemonQuiz" customModuleProvider="target">
                                 <rect key="frame" x="185" y="272.33333333333331" width="44" height="44"/>

@@ -36,7 +36,6 @@ enum AnswerButtonStatus {
     
     var status: AnswerButtonStatus {
         didSet {
-            print(status)
             switch status {
             case .not:
                 self.backgroundColor = AnswerButton.notColor

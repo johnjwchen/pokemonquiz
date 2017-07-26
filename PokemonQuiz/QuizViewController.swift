@@ -294,6 +294,8 @@ class QuizViewController: PQViewController {
         }
     }
     
+    
+    
     fileprivate func presentGameOver(animated: Bool) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
         vc.screenShot = screenShot

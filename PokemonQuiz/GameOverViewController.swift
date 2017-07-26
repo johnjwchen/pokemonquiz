@@ -9,15 +9,15 @@
 import UIKit
 import Social
 import MessageUI
+import GameKit
 
 class GameOverViewController: PQViewController {
-    let myAppId = "1233818739"
-    
     var screenShot: UIImage?
     var lastScore: Int!
     var quizMode: QuizMode = .classic
     private var timer: Timer!
     var showAd: Bool!
+    
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
@@ -68,6 +68,8 @@ class GameOverViewController: PQViewController {
                 }
             }
         }
+        
+        
         
         // high socres
         classicScoreLabel.text = String(User.current.classicScore)
@@ -186,6 +188,13 @@ class GameOverViewController: PQViewController {
         openAppStore(for: myAppId)
     }
     
+    @IBAction func viewLeaderBoardTouchUp(_ sender: Any) {
+        let gcVC = GKGameCenterViewController()
+        gcVC.gameCenterDelegate = self
+        gcVC.viewState = .leaderboards
+        gcVC.leaderboardIdentifier = quizMode.leaderBoardId()
+        present(gcVC, animated: true, completion: nil)
+    }
 }
 
 extension GameOverViewController: MFMessageComposeViewControllerDelegate {
@@ -193,4 +202,11 @@ extension GameOverViewController: MFMessageComposeViewControllerDelegate {
                                       didFinishWith result: MessageComposeResult) {
         controller.dismiss(animated: true, completion: nil)
     }
+}
+
+extension GameOverViewController: GKGameCenterControllerDelegate {
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
+    
 }

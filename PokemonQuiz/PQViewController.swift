@@ -10,6 +10,8 @@ import UIKit
 import StoreKit
 
 class PQViewController: UIViewController {
+    let myAppId = "1233818739"
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }

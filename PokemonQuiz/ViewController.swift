@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import GameKit
 
 class ViewController: PQViewController {
     let pokgearIdentifier = "849383046"
@@ -38,6 +39,29 @@ class ViewController: PQViewController {
         Chartboost.cacheRewardedVideo(CBLocationIAPStore)
         
         NotificationCenter.default.addObserver(self, selector: #selector(addCoins(notification:)), name: TransationObserver.AddCoinsNotification, object: nil)
+        
+        authenticateLocalPlayer()
+    }
+    
+    func authenticateLocalPlayer() {
+        let localPlayer: GKLocalPlayer = GKLocalPlayer.localPlayer()
+        
+        localPlayer.authenticateHandler = {(viewController, error) -> Void in
+            if let viewController = viewController {
+                // 1. Show login if player is not logged in
+                self.present(viewController, animated: true, completion: nil)
+            } else if (localPlayer.isAuthenticated) {
+                // 2. Player is already authenticated & logged in, load game center
+                User.current.gcEnabled = true
+                
+                // Get the default leaderboard ID
+//                localPlayer.loadDefaultLeaderboardIdentifier(completionHandler: { (leaderboardIdentifer, error) in
+//                    if error != nil { print(error)
+//                    } else { self.gcDefaultLeaderBoard = leaderboardIdentifer! }
+//                })
+                
+            }
+        }
     }
     
     deinit {
