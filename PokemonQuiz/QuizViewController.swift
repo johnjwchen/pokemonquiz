@@ -252,6 +252,7 @@ class QuizViewController: PQViewController {
     }
     
     private func gameOver() {
+        isGameOver = true
         self.countingView?.stopCounting()
         
         updateUserStatics()
