@@ -23,9 +23,7 @@ struct Quiz {
 class QuizGame {
     private static let pokemonGroup = QuizGame.loadJSON(name: "pokemonGroup") as! [String : Any]
     static let pokemonNameArray = QuizGame.loadJSON(name: "pokemonNameArray") as! [String]
-    static let classicQuizCount = 24
-    static let hardQuizCount = 20
-    static let advanceQuizCount = 40
+    static let onceQuizCount = 20
     
     static func loadJSON(name: String) -> Any? {
         if let asset = NSDataAsset(name: name){
@@ -36,20 +34,10 @@ class QuizGame {
     
     static func quizArray(forQuizMode quizMode: QuizMode) -> [Quiz] {
         var retArray = [Quiz]()
-        switch quizMode {
-        case .classic:
-            for _ in 0..<classicQuizCount {
-                retArray.append(classicQuiz())
-            }
-        case .hard:
-            for _ in 0..<hardQuizCount {
-                retArray.append(hardQuiz())
-            }
-        case .advance:
-            for _ in 0..<advanceQuizCount {
-                retArray.append(advanceQuiz())
-            }
+        for _ in 0..<onceQuizCount {
+            retArray.append(randomQuiz(forQuizMode: quizMode))
         }
+        
         return retArray
     }
     
@@ -96,7 +84,8 @@ class QuizGame {
         return Quiz(pokemon: pid, random: array)
         
     }
-    static private func randomQuiz(fromGens gens: [Int]) -> Quiz {
+    static private func randomQuiz(forQuizMode mode: QuizMode) -> Quiz {
+        let gens = mode == .classic ? classicGens : (mode == .hard ? hardGens : advanceGens)
         let index = arc4random_uniform(UInt32(gens.count))
         let gen = gens[Int(index)]
         let pid = randomPid(ofGen: gen)
@@ -107,15 +96,4 @@ class QuizGame {
     static private let hardGens = [1,1,2,2,3,3,4,4,5,5,6,7]
     static private let advanceGens = [1,2,3,4,4,5,5,5,6,6,6,7,7,7,7]
 
-    static private func classicQuiz() -> Quiz {
-        return randomQuiz(fromGens: classicGens)
-    }
-    
-    static private func hardQuiz() -> Quiz {
-        return randomQuiz(fromGens: hardGens)
-    }
-    
-    static private func advanceQuiz() -> Quiz {
-        return randomQuiz(fromGens: advanceGens)
-    }
 }

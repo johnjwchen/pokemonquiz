@@ -15,7 +15,7 @@ class GameOverViewController: PQViewController {
     var screenShot: UIImage?
     var lastScore: Int!
     var quizMode: QuizMode = .classic
-    private var timer: Timer!
+    private var timer: Timer?
     var showAd: Bool!
     
     
@@ -76,11 +76,6 @@ class GameOverViewController: PQViewController {
         hardScoreLabel.text = String(User.current.hardScore)
         advanceScoreLabel.text = "level \(User.current.gameLevel)"
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         if !showAd && lastScore > 0 {
             timer = Timer.scheduledTimer(timeInterval: 0.9/Double(lastScore), target: self,   selector: (#selector(updateScore)), userInfo: nil, repeats: true)
         }
@@ -89,10 +84,12 @@ class GameOverViewController: PQViewController {
         }
     }
     
+    
     @objc func updateScore() {
         let value = Int(numberLabel.text!)!
-        if value == lastScore {
-            timer.invalidate()
+        if timer != nil && value >= lastScore {
+            timer?.invalidate()
+            timer = nil
             animateOthers()
             let cns = Setting.coins(fromScore: lastScore)
             if quizMode != .advance && cns > 0 {
