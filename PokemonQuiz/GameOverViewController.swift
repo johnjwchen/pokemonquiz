@@ -44,6 +44,8 @@ class GameOverViewController: PQViewController {
         winQuizCoinLabel.isHidden = true
         if lastScore >= 600 {
             titleLabel.text = "Nice!"
+        }
+        if lastScore >= 600 && arc4random_uniform(3) == 0 {
             rateButton.isHidden = false
             facebookButton.isHidden = true
             twitterButton.isHidden = true
